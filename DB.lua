@@ -10,7 +10,7 @@ if not game:IsLoaded() then
 game.Loaded:Wait()
 end
 
-local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/STR/Exploits/refs/heads/main/ORION")))()
+local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Hydrazia/Exploits/refs/heads/main/ORION")))()
 
 OrionLib:MakeNotification({
 Name = "Dragon Blox",
