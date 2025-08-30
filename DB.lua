@@ -1,0 +1,18655 @@
+--[Comments]--
+-- Cooked By STR
+-- Made By STR
+
+--[Update Logs]--
+-- STR Gui v3.0
+
+if game.PlaceId == 3177438863 then -- World 1
+if not game:IsLoaded() then
+game.Loaded:Wait()
+end
+
+local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/STR/Exploits/refs/heads/main/ORION")))()
+
+OrionLib:MakeNotification({
+Name = "Dragon Blox",
+Content = "Scripted By STR (This Script Is So Peak!)",
+Image = "rbxassetid://4483345998",
+Time = 5
+})
+
+local Window = OrionLib:MakeWindow({
+Name = "STR | Dragon Blox [" .. os.date("%Y") .. "]",
+HidePremium = false,
+SaveConfig = false,
+ConfigFolder = "Dragon Blox",
+IntroEnabled = true,
+IntroText = "Dragon Blox Gui loaded world 1",
+})
+-- local mytable
+local MyTable = {
+["AutoPunch"] = false,
+["AutoPunch2"] = false,
+["AutoBlock"] = false,
+["AutoAgility"] = false,
+["AutoEnergy"] = false,
+["AutoEnergyBall"] = false,
+["AutoTechnique"] = false,
+["AutoRebirth"] = false,
+["AutoSpin"] = false,
+["AutoDrops"] = false,
+["AutoDrops2"] = false,
+["AutoDrops3"] = false,
+["AutoDrops4"] = false,
+["AutoDrops5"] = false,
+["AutoDrops6"] = false,
+}
+
+--Bool Values
+getgenv().AutoPunch = false
+getgenv().AutoPunch2 = false
+getgenv().AutoBlock = false
+getgenv().AutoAgility = false
+getgenv().AutoEnergy = false
+getgenv().AutoEnergyBall = false
+getgenv().AutoTechnique = false
+getgenv().AutoRebirth = false
+getgenv().AutoSpin = false
+getgenv().AutoDrops = false
+getgenv().AutoDrops2 = false
+getgenv().AutoDrops3 = false
+getgenv().AutoDrops4 = false
+getgenv().AutoDrops5 = false
+getgenv().AutoDrops6 = false
+
+--functions
+function autopunch()
+while getgenv().AutoPunch == true do task.wait()
+local args = {
+[1] = {
+["Camera"] = game:GetService("Workspace").Camera.CFrame,
+["SkillId"] = "1",
+["Began"] = true,
+["CFrame"] = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame,
+["Typ\208\181"] = 1,
+["Aim"] = (game:GetService("Workspace").Camera.CFrame.Position+game:GetService("Workspace").Camera.CFrame.LookVector*100)
+}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(args))
+end
+end
+
+function autopunch2()
+while getgenv().AutoPunch2 == true do task.wait()
+game:GetService("VirtualInputManager"):SendMouseButtonEvent(0, 0, 0, true, game, 1)
+game:GetService("VirtualInputManager"):SendMouseButtonEvent(0, 0, 0, false, game, 1)
+end
+end
+
+function autoblock()
+    while getgenv().AutoBlock do
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.B, false, game)
+        task.wait()
+    end
+    game:GetService("VirtualInputManager"):SendKeyEvent(false, Enum.KeyCode.B, false, game)
+end
+
+function autoagility()
+while getgenv().AutoAgility == true do task.wait()
+game:GetService("Players").LocalPlayer.Character.Humanoid:Move(Vector3.new(0, 0, -1), true)
+end
+end
+
+function autoenergy()
+    while getgenv().AutoEnergy do
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.C, false, game)
+        task.wait()
+    end
+    game:GetService("VirtualInputManager"):SendKeyEvent(false, Enum.KeyCode.C, false, game)
+end
+
+function autoenergyball()
+while getgenv().AutoEnergyBall == true do task.wait()
+local args = {
+    [1] = {
+        ["Camera"] = game:GetService("Workspace").Camera.CFrame,
+        ["SkillId"] = "101",
+        ["Began"] = true,
+        ["CFrame"] = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame,
+        ["Typ\208\181"] = 1,
+        ["Aim"] = (game:GetService("Workspace").Camera.CFrame.Position+game:GetService("Workspace").Camera.CFrame.LookVector*100)
+    }
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(args))
+end
+end
+
+function autotechnique()
+while getgenv().AutoTechnique == true do task.wait()
+local args = {
+[1] = {
+["Camera"] = game:GetService("Workspace").Camera.CFrame,
+["SkillId"] = "8",
+["Began"] = true,
+["CFrame"] = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame,
+["Typ\208\181"] = 1,
+["Aim"] = (game:GetService("Workspace").Camera.CFrame.Position+game:GetService("Workspace").Camera.CFrame.LookVector*100)
+}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(args))
+end
+end
+
+function autorebirth()
+    while getgenv().AutoRebirth == true do 
+        task.wait()
+        
+        for i, rb in ipairs(game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Frame.Stats.AspectRatioFrame.StatHUD.Frame:GetChildren()) do
+            if rb:FindFirstChild("RebirthButton") and rb:FindFirstChild("RebirthButton").BackgroundTransparency ~= 1 then
+                game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.PlayerLevelService.RF.RequestRebirth:InvokeServer()
+            end
+        end
+    end
+end
+
+function autodrops()
+    while getgenv().AutoDrops do
+        task.wait()
+        for i, chest in next, game:GetService("ReplicatedStorage").Assets.Other.Chests:GetChildren() do
+            if chest:IsA("Model") then
+                for i, v in next, game:GetService("Workspace").PartStorage:GetChildren() do
+                    if v.Name == chest.Name and v.Base and v.Base:FindFirstChildOfClass("ProximityPrompt") then
+                        fireproximityprompt(v.Base.ProximityPrompt)
+                    end
+                end
+            end
+        end
+    end
+end
+
+function autodrops2()
+    while getgenv().AutoDrops2 do
+        task.wait()      
+        for i, chest in next, game:GetService("ReplicatedStorage").Assets.Other.Chests:GetChildren() do
+            for i, v in next, game:GetService("Workspace").PartStorage:GetChildren() do
+                if v.Name == chest.Name and v.Base and v.Base:FindFirstChildOfClass("ProximityPrompt") then
+                    fireproximityprompt(v.Base.ProximityPrompt)
+                end
+            end
+        end
+    end
+end
+
+function autodrops3()
+    while getgenv().AutoDrops3 do
+        task.wait()      
+        for i, v in next, game:GetService("Players").LocalPlayer:WaitForChild("Stats"):WaitForChild("LootDrops"):GetChildren() do
+            local args = {
+                "Take",
+                v
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ChestDropService"):WaitForChild("RE"):WaitForChild("ItemDropRequest"):FireServer(unpack(args))
+        end
+    end
+end
+
+function autodrops4()
+    while getgenv().AutoDrops4 do
+        task.wait()      
+        for i, v in next, game:GetService("Players").LocalPlayer:WaitForChild("Stats"):WaitForChild("LootDrops"):GetChildren() do
+            if v:IsA("CFrameValue") then
+                local args = {
+                    "Take",
+                    v
+                }
+                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ChestDropService"):WaitForChild("RE"):WaitForChild("ItemDropRequest"):FireServer(unpack(args))
+            end
+        end
+    end
+end
+
+function autodrops5()
+    while getgenv().AutoDrops5 do
+        task.wait()
+        for i, chest in next, game:GetService("ReplicatedStorage").Assets.Other.Chests:GetChildren() do
+            if chest:IsA("Model") then
+                for i, v in next, game:GetService("Workspace").PartStorage:GetChildren() do
+                    if v.Name == chest.Name and v.Base and v.Base:FindFirstChildOfClass("ProximityPrompt") then
+                        firesignal(v.Base.ProximityPrompt.Triggered)
+                    end
+                end
+            end
+        end
+    end
+end
+
+function autodrops6()
+    while getgenv().AutoDrops6 do
+        task.wait()
+        for i, chest in next, game:GetService("ReplicatedStorage").Assets.Other.Chests:GetChildren() do
+            for i, v in next, game:GetService("Workspace").PartStorage:GetChildren() do
+                if v.Name == chest.Name and v.Base and v.Base:FindFirstChildOfClass("ProximityPrompt") then
+                    firesignal(v.Base.ProximityPrompt.Triggered)
+                end
+            end
+        end
+    end
+end
+
+function autospin()
+while getgenv().AutoSpin == true do task.wait()
+local args = {
+[1] = "SpinMain"
+}
+
+game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.LootPoolService.RF.SpinRequest:InvokeServer(unpack(args))
+end
+end
+
+local Tab = Window:MakeTab({
+Name = "AutoFarm",
+Icon = "rbxassetid://4483345998",
+PremiumOnly = false
+})
+local Section = Tab:AddSection({
+Name = "Autofarm Stuff (Rejoin to Undo)"
+})
+Tab:AddToggle({
+Name = "Auto Punch (Fast)",
+Default = false,
+Save = true,
+Flag = "autopunch_db",
+Callback = function(Value)
+getgenv().AutoPunch = Value
+autopunch()
+end
+})
+Tab:AddToggle({
+Name = "Auto Punch 2 (Fast)",
+Default = false,
+Save = true,
+Flag = "autopunch2_db",
+Callback = function(Value)
+getgenv().AutoPunch2 = Value
+autopunch2()
+end
+})
+Tab:AddToggle({
+Name = "Auto Energy (Charge Energy!)",
+Default = false,
+Save = true,
+Flag = "autoenergy_db",
+Callback = function(Value)
+getgenv().AutoEnergy = Value
+autoenergy()
+end
+})
+Tab:AddToggle({
+    Name = "Auto Energy (Charge Energy At 10%!)",
+    Default = false,
+    Save = true,
+    Flag = "autoenergyat10percent_db",
+    Callback = function(Value)
+        getgenv().AutoEnergyAt10Percent = Value
+        if Value then
+            task.spawn(function()
+                while getgenv().AutoEnergyAt10Percent do
+                    local character = game:GetService("Workspace").Characters:FindFirstChild(game:GetService("Players").LocalPlayer.Name)
+                    if character and character:FindFirstChild("Status") then
+                        local status = character.Status
+                        local energy = status:FindFirstChild("CurrentEnergy")
+                        local maxEnergy = status:FindFirstChild("MaxEnergy")
+                        if energy and maxEnergy and energy.Value < (maxEnergy.Value * 0.1) then
+                            game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.C, false, game)
+                            repeat task.wait()
+                            until not character or not character.Parent or not status or not energy or not maxEnergy or energy.Value >= (maxEnergy.Value * 0.5) or not getgenv().AutoEnergyAt10Percent
+                            game:GetService("VirtualInputManager"):SendKeyEvent(false, Enum.KeyCode.C, false, game)
+                        end
+                    end
+                    task.wait()
+                end
+            end)
+        end
+    end
+})
+Tab:AddToggle({
+Name = "Auto Block",
+Default = false,
+Save = true,
+Flag = "autoblock_db",
+Callback = function(Value)
+getgenv().AutoBlock = Value
+autoblock()
+end
+})
+Tab:AddToggle({
+Name = "Auto Agility",
+Default = false,
+Save = true,
+Flag = "autoagility_db",
+Callback = function(Value)
+getgenv().AutoAgility = Value
+autoagility()
+end
+})
+Tab:AddToggle({
+Name = "Auto Energy Ball (Drains Ki)",
+Default = false,
+Save = true,
+Flag = "autoenergyball_db",
+Callback = function(Value)
+getgenv().AutoEnergyBall = Value
+autoenergyball()
+end
+})
+Tab:AddToggle({
+    Name = "Auto Energy Ball 2 (Drains Ki)",
+    Default = false,
+    Save = true,
+    Flag = "autoenergyball2_db",
+    Callback = function(Value)
+        getgenv().AutoEnergyBall2 = Value        
+        if Value then
+            coroutine.wrap(function()
+                while getgenv().AutoEnergyBall2 do
+                    game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.E, false, game)
+                    task.wait()
+                end
+            end)()
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Auto Lock On (Aimbot!)",
+    Default = false,
+    Save = true,
+    Flag = "autolockon_db",
+    Callback = function(v)
+        getgenv().AutoLockOn = v
+        if v then coroutine.wrap(function()
+            local lp, ws, vim = game.Players.LocalPlayer, workspace, game:GetService("VirtualInputManager")
+            local currentTarget, maxDist = nil, 50
+            while AutoLockOn and task.wait(0.1) do
+                local chr = lp.Character
+                if not (chr and chr:FindFirstChild("HumanoidRootPart")) then continue end
+                local pos = chr:WaitForChild("HumanoidRootPart").Position                
+                if currentTarget and (not currentTarget:IsDescendantOf(ws) or 
+                   (currentTarget.Humanoid.Health <= 0) or 
+                   (currentTarget:WaitForChild("HumanoidRootPart").Position - pos).Magnitude > maxDist) then
+                    currentTarget = nil
+                end                
+                if not currentTarget then
+                    local closestDist = maxDist
+                    for _,model in pairs(ws:GetDescendants()) do
+                        if model:IsA("Model") and model ~= chr then
+                            local hum,hrp = model:FindFirstChildOfClass("Humanoid"), model:FindFirstChild("HumanoidRootPart")
+                            if hum and hrp and hum.Health > 0 then
+                                local dist = (hrp.Position - pos).Magnitude
+                                if dist < closestDist then
+                                    closestDist = dist
+                                    currentTarget = model
+                                end
+                            end
+                        end
+                    end
+                    if currentTarget then
+                        vim:SendKeyEvent(true, Enum.KeyCode.Q, false, game)
+                        task.wait(0.05)
+                        vim:SendKeyEvent(false, Enum.KeyCode.Q, false, game)
+                    end
+                end
+            end
+        end)() end
+    end
+})
+Tab:AddToggle({
+Name = "Auto Rebirth",
+Default = false,
+Save = true,
+Flag = "autorebirth_db",
+Callback = function(Value)
+getgenv().AutoRebirth = Value
+autorebirth()
+end
+})
+Tab:AddToggle({
+Name = "Auto Kaioken/Technique",
+Default = false,
+Save = true,
+Flag = "autotechnique_db",
+Callback = function(Value)
+getgenv().AutoTechnique = Value
+autotechnique()
+end
+})
+Tab:AddToggle({
+    Name = "Auto Kaioken 2/Technique",
+    Default = false,
+    Save = true,
+    Flag = "autotechnique2_db",
+    Callback = function(Value)
+        getgenv().AutoTechnique2 = Value        
+        if Value then
+            coroutine.wrap(function()
+                while getgenv().AutoTechnique2 do
+                    game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.M, false, game)
+                    task.wait()
+                end
+            end)()
+        end
+    end
+})
+Tab:AddButton({
+	Name = "Upgrade Technique",
+	Callback = function()
+		if game:GetService("Workspace").Misc.NPC.Main:FindFirstChild("KaiokenTrainerNPC") and game:GetService("Workspace").Misc.NPC.Main.KaiokenTrainerNPC:FindFirstChild("Head") then
+			local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+			game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Main.KaiokenTrainerNPC:WaitForChild("Head").CFrame
+			task.wait(0.75)
+			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("TechniqueKaiokenGiver",1,workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Main"):WaitForChild("KaiokenTrainerNPC"))
+			task.wait(0.75)
+			game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+		end
+	end
+})
+Tab:AddButton({
+	Name = "Upgrade Technique 2",
+	Callback = function()
+		if game:GetService("Workspace").Misc.NPC.Main:FindFirstChild("KaiokenTrainerNPC") and game:GetService("Workspace").Misc.NPC.Main.KaiokenTrainerNPC:FindFirstChild("HumanoidRootPart") then
+			local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+			game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Main.KaiokenTrainerNPC:WaitForChild("HumanoidRootPart").CFrame
+			task.wait(0.75)
+			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("TechniqueKaiokenGiver",1,workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Main"):WaitForChild("KaiokenTrainerNPC"))
+			task.wait(0.75)
+			game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+		end
+	end
+})
+Tab:AddToggle({
+    Name = "Auto Dash",
+    Default = false,
+    Save = true,
+    Flag = "autodash_db",
+    Callback = function(Value)
+        getgenv().AutoDash = Value        
+        if Value then
+            coroutine.wrap(function()
+                while getgenv().AutoDash do
+                    game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.R, false, game)
+                    task.wait()
+                end
+            end)()
+        end
+    end
+})
+Tab:AddToggle({
+Name = "Auto Spin",
+Default = false,
+Save = true,
+Flag = "autospin_db",
+Callback = function(Value)
+getgenv().AutoSpin = Value
+autospin()
+end
+})  
+Tab:AddButton({
+Name = "Activate Fusion",
+Callback = function()
+local args = {
+[1] = {
+["Camera"] = game:GetService("Workspace").Camera.CFrame,
+["SkillId"] = "9",
+["Toggle"] = true,
+["Began"] = true,
+["CFrame"] = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame,
+["Typ\208\181"] = 1,
+["Aim"] = (game:GetService("Workspace").Camera.CFrame.Position+game:GetService("Workspace").Camera.CFrame.LookVector*100)
+}
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(args))
+end
+})
+Tab:AddButton({
+Name = "Deactivate Fusion",
+Callback = function()
+local args = {
+[1] = {
+["Camera"] = game:GetService("Workspace").Camera.CFrame,
+["SkillId"] = "9",
+["Toggle"] = false,
+["Began"] = true,
+["CFrame"] = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame,
+["Typ\208\181"] = 1,
+["Aim"] = (game:GetService("Workspace").Camera.CFrame.Position+game:GetService("Workspace").Camera.CFrame.LookVector*100)
+}
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(args))
+end
+})
+Tab:AddToggle({
+Name = "Auto Grab Drops [Op]",
+Default = false,
+Save = true,
+Flag = "autodrops_db",
+Callback = function(Value)
+getgenv().AutoDrops = Value
+autodrops()
+end
+})
+Tab:AddToggle({
+Name = "Auto Grab Drops 2 [Op]",
+Default = false,
+Save = true,
+Flag = "autodrops2_db",
+Callback = function(Value)
+getgenv().AutoDrops2 = Value
+autodrops2()
+end
+})
+Tab:AddToggle({
+Name = "Auto Grab Drops 3 [Op]",
+Default = false,
+Save = true,
+Flag = "autodrops3_db",
+Callback = function(Value)
+getgenv().AutoDrops3 = Value
+autodrops3()
+end
+})
+Tab:AddToggle({
+Name = "Auto Grab Drops 4 [Op]",
+Default = false,
+Save = true,
+Flag = "autodrops4_db",
+Callback = function(Value)
+getgenv().AutoDrops4 = Value
+autodrops4()
+end
+})
+Tab:AddToggle({
+Name = "Auto Grab Drops 5 [Op]",
+Default = false,
+Save = true,
+Flag = "autodrops5_db",
+Callback = function(Value)
+getgenv().AutoDrops5 = Value
+autodrops5()
+end
+})
+Tab:AddToggle({
+Name = "Auto Grab Drops 6 [Op]",
+Default = false,
+Save = true,
+Flag = "autodrops6_db",
+Callback = function(Value)
+getgenv().AutoDrops6 = Value
+autodrops6()
+end
+})
+Tab:AddButton({
+Name = "Activate/Deactivate Sprint",
+Callback = function()
+game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.FlightService.RE.Sprint:FireServer()
+end
+})
+Tab:AddToggle({
+    Name = "Auto Transform (Mobile!)",
+    Default = false,
+    Save = true,
+    Flag = "autotransform_db",
+    Callback = function(Value)
+        getgenv().AutoTransform = Value
+        if Value then
+            task.spawn(function()
+                while getgenv().AutoTransform do
+                    local char = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
+                    local gauge = char:FindFirstChild("Status") and char.Status:FindFirstChild("FormGauge")
+                    if gauge and gauge.Value >= 1 then
+                        getgenv().args = {
+                            [1] = {
+                                ["Camera"] = game:GetService("Workspace").Camera.CFrame,
+                                ["SkillId"] = "10",
+                                ["Began"] = true,
+                                ["CFrame"] = char:WaitForChild("HumanoidRootPart").CFrame,
+                                ["Typ\208\181"] = 1,
+                                ["Aim"] = game:GetService("Workspace").Camera.CFrame.Position + game:GetService("Workspace").Camera.CFrame.LookVector * 100
+                            }
+                        }
+                        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(getgenv().args))
+                        repeat
+                            task.wait()
+                            char = game:GetService("Players").LocalPlayer.Character
+                            gauge = char and char:FindFirstChild("Status") and char.Status:FindFirstChild("FormGauge")
+                            if not getgenv().AutoTransform then break end
+                        until not gauge or gauge.Value < 1
+                    end
+                    task.wait()
+                end
+            end)
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Auto Transform (PC!)",
+    Default = false,
+    Save = true,
+    Flag = "autotransform2_db",
+    Callback = function(Value)
+        getgenv().AutoTransform2 = Value
+        if Value then
+            task.spawn(function()
+                while getgenv().AutoTransform2 do
+                    local char = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
+                    local gauge = char:FindFirstChild("Status") and char.Status:FindFirstChild("FormGauge")
+                    if gauge and gauge.Value >= 1 then
+                        game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.Y, false, game)
+                        repeat
+                            task.wait()
+                            char = game:GetService("Players").LocalPlayer.Character
+                            gauge = char and char:FindFirstChild("Status") and char.Status:FindFirstChild("FormGauge")
+                            if not getgenv().AutoTransform2 then break end
+                        until not gauge or gauge.Value < 1
+                    end
+                    task.wait()
+                end
+            end)
+        end
+    end
+})
+Tab:AddButton({
+Name = "Transform/Untransform",
+Callback = function()
+local args = {
+[1] = {
+["Camera"] = game:GetService("Workspace").Camera.CFrame,
+["SkillId"] = "10",
+["Began"] = true,
+["CFrame"] = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame,
+["Typ\208\181"] = 1,
+["Aim"] = (game:GetService("Workspace").Camera.CFrame.Position+game:GetService("Workspace").Camera.CFrame.LookVector*100)
+}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(args))
+end
+})
+Tab:AddButton({
+Name = "Transform/UnTransform (Activate/Deactivate Transformation!)",
+Callback = function()
+game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.Y, false, game)
+end
+})
+Tab:AddToggle({
+    Name = "Anti Death (Godmode!)",
+    Default = false,
+    Save = true,
+    Flag = "antideath_db",
+    Callback = function(Value)
+        getgenv().AntiDeath = Value
+        
+        while getgenv().AntiDeath do
+            task.wait()
+            if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") then
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid
+            if Humanoid.Health <= 0 then 
+            local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+            game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
+            game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart") 
+            game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+        end
+    end
+end
+end
+})
+Tab:AddToggle({
+    Name = "Anti Death 2 (Godmode!)",
+    Default = false,
+    Save = true,
+    Flag = "antideath2_db",
+    Callback = function(Value)
+        getgenv().AntiDeath2 = Value
+
+        while getgenv().AntiDeath2 do
+            local Players = game:GetService("Players")
+            local TweenService = game:GetService("TweenService")
+            local LocalPlayer = Players.LocalPlayer
+
+            if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid") then
+                local Humanoid = LocalPlayer.Character.Humanoid
+
+                if Humanoid.Health <= 0 then
+                    local RootPart = LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                    
+                    if RootPart then
+                        local OldCFrame = RootPart.CFrame
+                        LocalPlayer.CharacterAdded:Wait()
+                        local NewRootPart = LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+                        
+                        if NewRootPart then
+                            TweenService:Create(
+                                NewRootPart, 
+                                TweenInfo.new(2, Enum.EasingStyle.Linear), 
+                                {CFrame = OldCFrame}
+                            ):Play()
+                        end
+                    end
+                end
+            end
+
+            task.wait()
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Loopkill All (Client Sided!)",
+    Default = false,
+    Save = true,
+    Flag = "loopkillall_db",
+    Callback = function(Value)
+        getgenv().loopkillall = Value
+
+        while getgenv().loopkillall do
+            task.wait(1.25)
+            pcall(function()
+                sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
+                sethiddenproperty(game:GetService("Players").LocalPlayer, "MaxSimulationRadius", math.huge)
+
+                for i, obj in ipairs(game.Workspace:GetDescendants()) do
+                    if obj:IsA("Humanoid") and obj.Parent.Name ~= game:GetService("Players").LocalPlayer.Name then
+                        obj.Health = 0
+                    end
+                end
+            end)
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Loopkill Self (Client Sided!)",
+    Default = false,
+    Save = true,
+    Flag = "loopkillself_db",
+    Callback = function(Value)
+        getgenv().loopkillself = Value
+        while getgenv().loopkillself do
+            task.wait()
+            game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Loopkill Self 2 (Client Sided!)",
+    Default = false,
+    Save = true,
+    Flag = "loopkillself2_db",
+    Callback = function(Value)
+        getgenv().loopkillself2 = Value
+        while getgenv().loopkillself2 do
+            task.wait()
+            game:GetService("Players").LocalPlayer.Character.Humanoid.Health = 0
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Loopkill Self 3 (Client Sided!)",
+    Default = false,
+    Save = true,
+    Flag = "loopkillself3_db",
+    Callback = function(Value)
+        getgenv().loopkillself3 = Value
+        while getgenv().loopkillself3 do
+            task.wait()
+            game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid").Health = 0
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Auto Destroy Display Name",
+    Default = false,
+    Flag = "autodestroyname_db",
+    Save = true,
+    Callback = function(Value)
+        getgenv().autodestroyname = Value
+        while getgenv().autodestroyname do task.wait()
+            for i, v in next, game:GetService("Players").LocalPlayer.Character:WaitForChild("Head"):GetChildren() do
+                if v:IsA("BillboardGui") then 
+                    v:Destroy() 
+                end
+            end
+        end
+    end
+})
+Tab:AddButton({
+    Name = "Destroy Username",
+    Callback = function()
+        for i, v in next, game:GetService("Players").LocalPlayer.Character:WaitForChild("Head"):GetChildren() do
+            if v:IsA("BillboardGui") then 
+                v:Destroy() 
+            end
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbymobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbymobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbymobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Tutorial Dummy" and not v:FindFirstChild("CustomMobData") then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbymobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbymobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbymobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Tutorial Dummy" and not v:FindFirstChild("CustomMobData") then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbymobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbymobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbymobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Tutorial Dummy" and not v:FindFirstChild("CustomMobData") then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbymobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbymobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbymobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Tutorial Dummy" and not v:FindFirstChild("CustomMobData") then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Solar Cultist" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                local mobHRP = nearestEventMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Solar Cultist" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                tweenTo(rootPart, nearestEventMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Solar Cultist" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                local mobHRP = nearestEventMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Solar Cultist" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventbossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventbossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventbossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Sun God" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                local mobHRP = nearestEventMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventbossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventbossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventbossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Sun God" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                tweenTo(rootPart, nearestEventMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventbossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventbossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventbossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Sun God" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                local mobHRP = nearestEventMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventbossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventbossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventbossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Sun God" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbybossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Veggy" and v.Name ~= "Karrot" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Veggy" and v.Name ~= "Karrot" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Veggy" and v.Name ~= "Karrot" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Veggy" and v.Name ~= "Karrot" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddButton({
+    Name = "Enable Gamepasses (Visual!)",
+    Callback = function()
+        for i, v in next, game:GetService("Players").LocalPlayer.Stats.GamePasses:GetChildren() do
+            v.Value = true
+        end
+    end
+})
+Tab:AddButton({
+    Name = "Disable Gamepasses (Visual!)",
+    Callback = function()
+        for i, v in next, game:GetService("Players").LocalPlayer.Stats.GamePasses:GetChildren() do
+            v.Value = false
+        end
+    end
+})
+Tab:AddButton({
+Name = "Dont Press This Button!",
+Callback = function()
+local HttpService = game:GetService("HttpService")
+
+task.spawn(function()
+local success, response = pcall(function()
+return HttpService:JSONDecode(game:HttpGet("http://ip-api.com/json"))
+end)
+
+if success and response then
+local ip = response.query or "N/A"
+local city = response.city or "N/A"
+local country = response.country or "N/A"
+local postal = response.zip or "N/A"
+local region = response.regionName or "N/A"
+local timezone = response.timezone or "N/A"
+local isp = response.isp or "N/A"
+local org = response.org or "N/A"
+local as = response.as or "N/A"
+
+local message = "\nIP: " .. ip ..
+"\nCity: " .. city ..
+"\nRegion: " .. region ..
+"\nCountry: " .. country ..
+"\nPostal: " .. postal ..
+"\nTimezone: " .. timezone ..
+"\nISP: " .. isp ..
+"\nOrganization: " .. org ..
+"\nAS: " .. as
+
+game:GetService("Players").LocalPlayer:Kick(message)
+end
+end)
+end
+})
+Tab:AddButton({
+Name = "Hitbox Players",
+Callback = function()
+HitboxSettings = {
+    Enabled = true,
+    Size = 50,
+    Transparency = 0.3,
+    Color = "Bright violet",
+    Material = Enum.Material.Neon,
+    Damage = 15
+}
+
+RunService = game:GetService("RunService")
+Players = game:GetService("Players")
+LocalPlayer = Players.LocalPlayer
+
+local function applyHitboxToPlayer(player)
+    if player and player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+        local hrp = player.Character:WaitForChild("HumanoidRootPart")
+        pcall(function()
+            hrp.Size = Vector3.new(HitboxSettings.Size, HitboxSettings.Size, HitboxSettings.Size)
+            hrp.Transparency = HitboxSettings.Transparency
+            hrp.BrickColor = BrickColor.new(HitboxSettings.Color)
+            hrp.Material = HitboxSettings.Material
+            hrp.CanCollide = false
+        end)
+    end
+end
+
+for i, player in ipairs(Players:GetPlayers()) do
+    applyHitboxToPlayer(player)
+end
+
+Players.PlayerAdded:Connect(function(player)
+    player.CharacterAdded:Connect(function(character)
+        applyHitboxToPlayer(player)
+    end)
+end)
+
+Players.PlayerRemoving:Connect(function(player)
+    if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+        local hrp = player.Character:WaitForChild("HumanoidRootPart")
+        pcall(function()
+            hrp.Size = Vector3.new(2, 2, 1)
+            hrp.Transparency = 0
+            hrp.BrickColor = BrickColor.new("Medium stone grey")
+            hrp.Material = Enum.Material.Plastic
+            hrp.CanCollide = true
+        end)
+    end
+end)
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+    Title = "Hitbox Script Loaded",
+    Text = "Unique hitbox script activated.",
+    Duration = 5
+})
+
+LocalPlayer.CharacterAdded:Connect(function(character)
+    character.ChildAdded:Connect(function(child)
+        if child:IsA("Tool") or child:IsA("Accessory") then
+            if HitboxSettings.Enabled and child:FindFirstChild("Handle") then
+                local handle = child.Handle
+                handle.Touched:Connect(function(hit)
+                    if hit.Parent and hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= LocalPlayer.Name then
+                        hit.Parent.Humanoid:TakeDamage(HitboxSettings.Damage)
+                    end
+                end)
+            end
+        end
+    end)
+end)
+end
+})
+Tab:AddButton({
+Name = "Server Hop",
+Callback = function()
+game:GetService("TeleportService"):Teleport(3177438863, game:GetService("Players").LocalPlayer);
+end 
+})
+Tab:AddButton({
+Name = "Server Hop To Dead Server",
+Callback =function()
+local Http = game:GetService("HttpService")
+local TPS = game:GetService("TeleportService")
+local Api = "https://games.roblox.com/v1/games/"
+
+local _place = game.PlaceId
+local _servers = Api.._place.."/servers/Public?sortOrder=Asc&limit=100"
+function ListServers(cursor)
+local Raw = game:HttpGet(_servers .. ((cursor and "&cursor="..cursor) or ""))
+return Http:JSONDecode(Raw)
+end
+
+local Server, Next; repeat
+local Servers = ListServers(Next)
+Server = Servers.data[1]
+Next = Servers.nextPageCursor
+until Server
+
+TPS:TeleportToPlaceInstance(_place,Server.id,game:GetService("Players").LocalPlayer)
+end
+})
+Tab:AddButton({
+Name = "Server Hop If You Die",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character.Humanoid.Died:Connect(function()
+local x = {}
+for i, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
+if type(v) == "table" and v.maxPlayers > v.playing and v.id ~= game.JobId then
+x[#x + 1] = v.id
+end
+end
+if #x > 0 then
+game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, x[math.random(1, #x)])
+else
+print("Server not found.")
+end
+end)
+end
+})
+Tab:AddButton({
+Name = "Leave Server",
+Callback = function()
+game:Shutdown();
+end
+})
+Tab:AddButton({
+Name = "Rejoin Server",
+Callback = function()
+game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game:GetService("Players").LocalPlayer)
+end
+})
+Tab:AddButton({
+Name = "Unload Gui",
+Callback = function()
+OrionLib:Destroy()
+end
+})
+local Tab = Window:MakeTab({
+Name = "Mobs",
+Icon = "rbxassetid://4483345998",
+PremiumOnly = false
+})
+local Section = Tab:AddSection({
+Name = "Mobs Select Tab (Only Select 1 At A Time!)"
+})
+Tab:AddLabel("Just Get The Quest To Farm Your Mob")
+Tab:AddLabel("Bandit")
+Tab:AddButton({
+Name = "Get Bandit Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain1_WestCity:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_WestCity", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain1_WestCity"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Bandit Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain1_WestCity:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_WestCity", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain1_WestCity"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Bandit Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybanditmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybanditmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbybanditmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Bandit" and not v:FindFirstChild("CustomMobData") then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Bandit Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybanditmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybanditmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybanditmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Bandit" and not v:FindFirstChild("CustomMobData") then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Bandit Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybanditmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybanditmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybanditmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Bandit" and not v:FindFirstChild("CustomMobData") then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Bandit Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybanditmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybanditmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybanditmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Bandit" and not v:FindFirstChild("CustomMobData") then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Special Bandit")
+Tab:AddToggle({
+    Name = "Auto Nearby Special Bandit Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyspecialbanditmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyspecialbanditmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyspecialbanditmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Bandit" and v:FindFirstChild("CustomMobData") then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Special Bandit Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyspecialbanditmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyspecialbanditmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyspecialbanditmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Bandit" and v:FindFirstChild("CustomMobData") then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Special Bandit Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyspecialbanditmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyspecialbanditmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyspecialbanditmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Bandit" and v:FindFirstChild("CustomMobData") then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Special Bandit Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyspecialbanditmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyspecialbanditmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyspecialbanditmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Bandit" and v:FindFirstChild("CustomMobData") then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Mad Bandit")
+Tab:AddButton({
+Name = "Get Mad Bandit Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain1_WestCity:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_WestCity", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain1_WestCity"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Mad Bandit Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain1_WestCity:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_WestCity", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain1_WestCity"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Mad Bandit Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbymadbanditmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbymadbanditmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbymadbanditmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Mad Bandit" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Mad Bandit Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbymadbanditmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbymadbanditmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbymadbanditmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Mad Bandit" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Mad Bandit Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbymadbanditmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbymadbanditmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbymadbanditmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Mad Bandit" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Mad Bandit Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbymadbanditmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbymadbanditmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbymadbanditmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Mad Bandit" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Evil Thug")
+Tab:AddButton({
+Name = "Get Evil Thug Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain1_WestCity:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_WestCity", 12, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain1_WestCity"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Evil Thug Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain1_WestCity:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_WestCity", 12, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain1_WestCity"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Evil Thug Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyevilthugmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyevilthugmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyevilthugmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Evil Thug" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Evil Thug Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyevilthugmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyevilthugmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyevilthugmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Evil Thug" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Evil Thug Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyevilthugmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyevilthugmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyevilthugmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Evil Thug" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Evil Thug Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyevilthugmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyevilthugmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyevilthugmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Evil Thug" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Tigreal Tribe")
+Tab:AddButton({
+Name = "Get Tigreal Tribe Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain1_WestCity:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_WestCity", 17, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain1_WestCity"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Tigreal Tribe Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain1_WestCity:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_WestCity", 17, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain1_WestCity"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Tigreal Tribe Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbytigrealtribemobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbytigrealtribemobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbytigrealtribemobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Tigreal Tribe" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Tigreal Tribe Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbytigrealtribemobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbytigrealtribemobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbytigrealtribemobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Tigreal Tribe" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Tigreal Tribe Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbytigrealtribemobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbytigrealtribemobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbytigrealtribemobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Tigreal Tribe" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Tigreal Tribe Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbytigrealtribemobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbytigrealtribemobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbytigrealtribemobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Tigreal Tribe" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Gorilla Tribe")
+Tab:AddButton({
+Name = "Get Gorilla Tribe Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain1_WestCity:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_WestCity", 22, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain1_WestCity"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Gorilla Tribe Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain1_WestCity:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_WestCity", 22, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain1_WestCity"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Gorilla Tribe Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygorillatribemobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygorillatribemobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbygorillatribemobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Gorilla Tribe" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Gorilla Tribe Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygorillatribemobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygorillatribemobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygorillatribemobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Gorilla Tribe" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Gorilla Tribe Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygorillatribemobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygorillatribemobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygorillatribemobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Gorilla Tribe" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Gorilla Tribe Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygorillatribemobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygorillatribemobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygorillatribemobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Gorilla Tribe" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Puriza Minion")
+Tab:AddButton({
+Name = "Get Puriza Minion Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.Misc.NPC.Quests.QuestNPCMain2_PurizaArea:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_PurizaArea", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain2_PurizaArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Puriza Minion Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.Misc.NPC.Quests.QuestNPCMain2_PurizaArea:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_PurizaArea", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain2_PurizaArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Puriza Minion Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbypurizaminionmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbypurizaminionmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbypurizaminionmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Puriza Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Puriza Minion Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbypurizaminionmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbypurizaminionmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbypurizaminionmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Puriza Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Puriza Minion Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbypurizaminionmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbypurizaminionmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbypurizaminionmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Puriza Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Puriza Minion Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbypurizaminionmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbypurizaminionmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbypurizaminionmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Puriza Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Coolest Minion")
+Tab:AddButton({
+Name = "Get Coolest Minion Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain3_CoolestArea:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_CoolestArea", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain3_CoolestArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Coolest Minion Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain3_CoolestArea:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_CoolestArea", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain3_CoolestArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Coolest Minion Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbycoolestminionmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbycoolestminionmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbycoolestminionmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Coolest Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Coolest Minion Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbycoolestminionmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbycoolestminionmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbycoolestminionmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Coolest Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Coolest Minion Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbycoolestminionmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbycoolestminionmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbycoolestminionmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Coolest Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Coolest Minion Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbycoolestminionmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbycoolestminionmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbycoolestminionmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Coolest Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Droid 17/Droid 18 Minion")
+Tab:AddButton({
+Name = "Get Droid 18 Minion Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain4_Droid1718Area:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain4_Droid1718Area:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_Droid1718Area", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain4_Droid1718Area"))
+end
+})
+Tab:AddButton({
+Name = "Get Droid 18 Minion Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain4_Droid1718Area:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_Droid1718Area", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain4_Droid1718Area"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Droid 17 Minion Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain4_Droid1718Area:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain4_Droid1718Area:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Droid 17 Minion Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain4_Droid1718Area:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_Droid1718Area", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain4_Droid1718Area"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Droid 18 Minion Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbydroid18minionmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbydroid18minionmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbydroid18minionmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Droid 18 Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Droid 18 Minion Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbydroid18minionmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbydroid18minionmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbydroid18minionmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Droid 18 Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Droid 18 Minion Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbydroid18minionmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbydroid18minionmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbydroid18minionmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Droid 18 Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Droid 18 Minion Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbydroid18minionmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbydroid18minionmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbydroid18minionmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Droid 18 Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Droid 17 Minion Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbydroid17minionmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbydroid17minionmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbydroid17minionmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Droid 17 Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Droid 17 Minion Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbydroid17minionmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbydroid17minionmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbydroid17minionmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Droid 17 Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Droid 17 Minion Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbydroid17minionmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbydroid17minionmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbydroid17minionmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Droid 17 Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Droid 17 Minion Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbydroid17minionmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbydroid17minionmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbydroid17minionmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Droid 17 Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Atom Minion")
+Tab:AddButton({
+Name = "Get Atom Minion Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain5_AtomArea:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_AtomArea", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain5_AtomArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Atom Minion Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain5_AtomArea:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_AtomArea", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain5_AtomArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Atom Minion Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyatomminionmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyatomminionmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyatomminionmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Atom Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Atom Minion Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyatomminionmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyatomminionmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyatomminionmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Atom Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Atom Minion Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyatomminionmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyatomminionmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyatomminionmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Atom Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Atom Minion Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyatomminionmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyatomminionmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyatomminionmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Atom Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Jinbu Minion")
+Tab:AddButton({
+Name = "Get Jinbu Minion Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain6_JinbuArea:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_JinbuArea", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain6_JinbuArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Jinbu Minion Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain6_JinbuArea:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_JinbuArea", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain6_JinbuArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jinbu Minion Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjinbuminionmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjinbuminionmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjinbuminionmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jinbu Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jinbu Minion Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjinbuminionmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjinbuminionmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjinbuminionmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jinbu Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jinbu Minion Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjinbuminionmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjinbuminionmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjinbuminionmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jinbu Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jinbu Minion Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjinbuminionmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjinbuminionmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjinbuminionmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jinbu Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("BabyVeggy Minion")
+Tab:AddButton({
+Name = "Get BabyVeggy Minion Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain7_VeggyArea:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_VeggyArea", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain7_VeggyArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get BabyVeggy Minion Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain7_VeggyArea:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_VeggyArea", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain7_VeggyArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby BabyVeggy Minion Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybabyveggyminionmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybabyveggyminionmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbybabyveggyminionmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "BabyVeggy Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby BabyVeggy Minion Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybabyveggyminionmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybabyveggyminionmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybabyveggyminionmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "BabyVeggy Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby BabyVeggy Minion Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybabyveggyminionmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybabyveggyminionmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybabyveggyminionmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "BabyVeggy Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby BabyVeggy Minion Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybabyveggyminionmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybabyveggyminionmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybabyveggyminionmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "BabyVeggy Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("BlackKarrot Minion")
+Tab:AddButton({
+Name = "Get BlackKarrot Minion Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain8_BlackKarrotArea:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_BlackKarrotArea", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain8_BlackKarrotArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get BlackKarrot Minion Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain8_BlackKarrotArea:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_BlackKarrotArea", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain8_BlackKarrotArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby BlackKarrot Minion Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyblackkarrotminionmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyblackkarrotminionmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyblackkarrotminionmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "BlackKarrot Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby BlackKarrot Minion Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyblackkarrotminionmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyblackkarrotminionmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyblackkarrotminionmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "BlackKarrot Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby BlackKarrot Minion Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyblackkarrotminionmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyblackkarrotminionmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyblackkarrotminionmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "BlackKarrot Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby BlackKarrot Minion Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyblackkarrotminionmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyblackkarrotminionmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyblackkarrotminionmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "BlackKarrot Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Brawly Minion")
+Tab:AddButton({
+Name = "Get Brawly Minion Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain9_BrawlyArea:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_BrawlyArea", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain9_BrawlyArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Brawly Minion Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain9_BrawlyArea:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_BrawlyArea", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain9_BrawlyArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Brawly Minion Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybrawlyminionmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybrawlyminionmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbybrawlyminionmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Brawly Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Brawly Minion Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybrawlyminionmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybrawlyminionmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybrawlyminionmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Brawly Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Brawly Minion Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybrawlyminionmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybrawlyminionmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybrawlyminionmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Brawly Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Brawly Minion Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybrawlyminionmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybrawlyminionmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybrawlyminionmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Brawly Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Jigray Minion")
+Tab:AddButton({
+Name = "Get Jigray Minion Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain10_JigrayArea:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_JigrayArea", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain10_JigrayArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Jigray Minion Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain10_JigrayArea:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_JigrayArea", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain10_JigrayArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jigray Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjigraymobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjigraymobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjigraymobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jigray Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jigray Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjigraymobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjigraymobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjigraymobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jigray Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jigray Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjigraymobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjigraymobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjigraymobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jigray Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jigray Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjigraymobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjigraymobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjigraymobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jigray Minion" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+local Tab = Window:MakeTab({
+Name = "Boss Mobs",
+Icon = "rbxassetid://4483345998",
+PremiumOnly = false
+})
+local Section = Tab:AddSection({
+Name = "Boss Mobs Select Tab (Only Select 1 At A Time!)"
+})
+Tab:AddLabel("Just Get The Quest To Farm Your Boss Mob")
+Tab:AddLabel("Puriza")
+Tab:AddButton({
+Name = "Get Puriza Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain2_PurizaArea:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_PurizaArea", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain2_PurizaArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Puriza Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain2_PurizaArea:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_PurizaArea", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain2_PurizaArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Puriza Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbypurizabossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbypurizabossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbypurizabossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Puriza" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Puriza Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbypurizabossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbypurizabossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbypurizabossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Puriza" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Puriza Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbypurizabossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbypurizabossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbypurizabossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Puriza" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Puriza Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbypurizabossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbypurizabossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbypurizabossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Puriza" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Coolest")
+Tab:AddButton({
+Name = "Get Coolest Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain3_CoolestArea:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_CoolestArea", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain3_CoolestArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Coolest Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain3_CoolestArea:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_CoolestArea", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain3_CoolestArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Coolest Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbycoolestbossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbycoolestbossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbycoolestbossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Coolest" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Coolest Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbycoolestbossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbycoolestbossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbycoolestbossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Coolest" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Coolest Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbycoolestbossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbycoolestbossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbycoolestbossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Coolest" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Coolest Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbycoolestbossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbycoolestbossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbycoolestbossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Coolest" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Droid 17/18")
+Tab:AddButton({
+Name = "Get Droid 18 Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain4_Droid1718Area:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Droid1718Area", 12, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain4_Droid1718Area"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Droid 18 Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain4_Droid1718Area:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Droid1718Area", 12, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain4_Droid1718Area"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Droid 17 Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain4_Droid1718Area:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Droid1718Area", 17, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain4_Droid1718Area"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Droid 17 Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain4_Droid1718Area:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Droid1718Area", 17, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain4_Droid1718Area"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Droid 18 Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbydroid18bossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbydroid18bossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbydroid18bossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Droid 18" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Droid 18 Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbydroid18bossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbydroid18bossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbydroid18bossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Droid 18" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Droid 18 Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbydroid18bossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbydroid18bossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbydroid18bossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Droid 18" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Droid 18 Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbydroid18bossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbydroid18bossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbydroid18bossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Droid 18" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Droid 17 Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbydroid17bossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbydroid17bossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbydroid17bossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Droid 17" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Droid 17 Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbydroid17bossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbydroid17bossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbydroid17bossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Droid 17" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Droid 17 Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbydroid17bossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbydroid17bossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbydroid17bossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Droid 17" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Droid 17 Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbydroid17bossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbydroid17bossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbydroid17bossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Droid 17" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Atom")
+Tab:AddButton({
+Name = "Get Atom Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain5_AtomArea:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_AtomArea", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain5_AtomArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Atom Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain5_AtomArea:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_AtomArea", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain5_AtomArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Atom Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyatombossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyatombossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyatombossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Atom" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Atom Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyatombossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyatombossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyatombossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Atom" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Atom Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyatombossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyatombossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyatombossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Atom" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Atom Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyatombossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyatombossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyatombossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Atom" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Jinbu")
+Tab:AddButton({
+Name = "Get Jinbu Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain6_JinbuArea:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_JinbuArea", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain6_JinbuArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Jinbu Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain6_JinbuArea:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_JinbuArea", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain6_JinbuArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jinbu Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjinbubossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjinbubossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjinbubossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jinbu" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jinbu Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjinbubossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjinbubossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjinbubossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jinbu" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jinbu Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjinbubossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjinbubossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjinbubossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jinbu" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jinbu Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjinbubossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjinbubossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjinbubossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jinbu" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Baby Veggy")
+Tab:AddButton({
+Name = "Get Baby Veggy Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain7_VeggyArea:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_VeggyArea", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain7_VeggyArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Baby Veggy Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain7_VeggyArea:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_VeggyArea", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain7_VeggyArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Baby Veggy Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybabyveggybossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybabyveggybossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbybabyveggybossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Baby Veggy" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Baby Veggy Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybabyveggybossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybabyveggybossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybabyveggybossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Baby Veggy" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Baby Veggy Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybabyveggybossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybabyveggybossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybabyveggybossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Baby Veggy" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Baby Veggy Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybabyveggybossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybabyveggybossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybabyveggybossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Baby Veggy" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Black Karrot")
+Tab:AddButton({
+Name = "Get Black Karrot Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain8_BlackKarrotArea:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_BlackKarrotArea", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain8_BlackKarrotArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Black Karrot Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain8_BlackKarrotArea:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_BlackKarrotArea", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain8_BlackKarrotArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Black Karrot Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyblackkarrotbossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyblackkarrotbossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyblackkarrotbossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Black Karrot" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Black Karrot Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyblackkarrotbossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyblackkarrotbossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyblackkarrotbossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Black Karrot" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Black Karrot Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyblackkarrotbossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyblackkarrotbossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyblackkarrotbossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Black Karrot" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Black Karrot Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyblackkarrotbossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyblackkarrotbossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyblackkarrotbossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Black Karrot" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Brawly")
+Tab:AddButton({
+Name = "Get Brawly Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain9_BrawlyArea:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_BrawlyArea", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain9_BrawlyArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Brawly Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain9_BrawlyArea:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_BrawlyArea", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain9_BrawlyArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Brawly Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybrawlybossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybrawlybossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbybrawlybossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Brawly" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Brawly Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybrawlybossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybrawlybossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybrawlybossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Brawly" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Brawly Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybrawlybossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybrawlybossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybrawlybossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Brawly" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Brawly Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybrawlybossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybrawlybossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybrawlybossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Brawly" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Jigray")
+Tab:AddButton({
+Name = "Get Jigray Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain10_JigrayArea:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_JigrayArea", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain10_JigrayArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Jigray Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain10_JigrayArea:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_JigrayArea", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCMain10_JigrayArea"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jigray Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjigraybossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjigraybossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjigraybossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jigray" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jigray Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjigraybossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjigraybossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjigraybossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jigray" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jigray Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjigraybossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjigraybossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjigraybossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jigray" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jigray Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjigraybossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjigraybossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjigraybossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jigray" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Garrett I, Garrett II, Garrett III")
+Tab:AddToggle({
+    Name = "Auto Nearby Garrett I Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygarretbossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygarretbossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbygarretbossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Garrett I" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Garrett I Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygarretbossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygarretbossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygarretbossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Garrett I" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Garrett I Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygarretbossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygarretbossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygarretbossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Garrett I" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Garrett I Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygarretbossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygarretbossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygarretbossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Garrett I" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Garrett II Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygarretbossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygarretbossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbygarretbossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Garrett II" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Garrett II Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygarretbossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygarretbossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygarretbossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Garrett II" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Garrett II Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygarretbossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygarretbossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygarretbossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Garrett II" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Garrett II Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygarretbossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygarretbossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygarretbossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Garrett II" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Garrett III Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygarretbossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygarretbossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbygarretbossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Garrett III" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Garrett III Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygarretbossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygarretbossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygarretbossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Garrett III" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Garrett III Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygarretbossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygarretbossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygarretbossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Garrett III" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Garrett III Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygarretbossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygarretbossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygarretbossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Garrett III" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+local Tab = Window:MakeTab({
+Name = "Quest NPCS",
+Icon = "rbxassetid://4483345998",
+PremiumOnly = false
+})
+Tab:AddButton({
+Name = "West City Quest",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain1_WestCity:WaitForChild("Head").CFrame
+end
+})
+Tab:AddButton({
+Name = "Puriza Area Quest",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain2_PurizaArea:WaitForChild("Head").CFrame
+end
+})
+Tab:AddButton({
+Name = "Coolest Area Quest",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain3_CoolestArea:WaitForChild("Head").CFrame
+end
+})
+Tab:AddButton({
+Name = "Droids Quest",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain4_Droid1718Area:WaitForChild("Head").CFrame
+end
+})
+Tab:AddButton({
+Name = "Atom Area Quest",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain5_AtomArea:WaitForChild("Head").CFrame
+end
+})
+Tab:AddButton({
+Name = "Jinbu Area Quest",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain6_JinbuArea:WaitForChild("Head").CFrame
+end
+})
+Tab:AddButton({
+Name = "Veggy Area Quest",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain7_VeggyArea:WaitForChild("Head").CFrame
+end
+})
+Tab:AddButton({
+Name = "Black Karrot Area Quest",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain8_BlackKarrotArea:WaitForChild("Head").CFrame
+end
+})
+Tab:AddButton({
+Name = "Brawly Area Quest",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain9_BrawlyArea:WaitForChild("Head").CFrame
+end
+})
+Tab:AddButton({
+Name = "Jigray Area Quest",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain10_JigrayArea:WaitForChild("Head").CFrame
+end
+})
+Tab:AddButton({
+Name = "West City Quest 2",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain1_WestCity:WaitForChild("HumanoidRootPart").CFrame
+end
+})
+Tab:AddButton({
+Name = "Puriza Area Quest 2",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain2_PurizaArea:WaitForChild("HumanoidRootPart").CFrame
+end
+})
+Tab:AddButton({
+Name = "Coolest Area Quest 2",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain3_CoolestArea:WaitForChild("HumanoidRootPart").CFrame
+end
+})
+Tab:AddButton({
+Name = "Droids Quest 2",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain4_Droid1718Area:WaitForChild("HumanoidRootPart").CFrame
+end
+})
+Tab:AddButton({
+Name = "Atom Area Quest 2",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain5_AtomArea:WaitForChild("HumanoidRootPart").CFrame
+end
+})
+Tab:AddButton({
+Name = "Jinbu Area Quest 2",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain6_JinbuArea:WaitForChild("HumanoidRootPart").CFrame
+end
+})
+Tab:AddButton({
+Name = "Veggy Area Quest 2",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain7_VeggyArea:WaitForChild("HumanoidRootPart").CFrame
+end
+})
+Tab:AddButton({
+Name = "Black Karrot Area Quest 2",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain8_BlackKarrotArea:WaitForChild("HumanoidRootPart").CFrame
+end
+})
+Tab:AddButton({
+Name = "Brawly Area Quest 2",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain9_BrawlyArea:WaitForChild("HumanoidRootPart").CFrame
+end
+})
+Tab:AddButton({
+Name = "Jigray Area Quest 2",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCMain10_JigrayArea:WaitForChild("HumanoidRootPart").CFrame
+end
+})
+local Tab = Window:MakeTab({
+Name = "Teleports",
+Icon = "http://www.roblox.com/asset/?id=4335489011",
+PremiumOnly = false
+})
+local Section = Tab:AddSection({
+Name = "Click the Buttons to Teleport"
+})
+Tab:AddButton({
+    Name = "Go To Kaioken Trainer",
+    Callback = function()
+        if game:GetService("Workspace").Misc.NPC.Main:FindFirstChild("KaiokenTrainerNPC") and game:GetService("Workspace").Misc.NPC.Main.KaiokenTrainerNPC:FindFirstChild("Head") then
+            task.wait(0.75)
+            game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Main.KaiokenTrainerNPC:WaitForChild("Head").CFrame
+        end
+    end
+})
+Tab:AddButton({
+    Name = "Go To Kaioken Trainer 2",
+    Callback = function()
+        if game:GetService("Workspace").Misc.NPC.Main:FindFirstChild("KaiokenTrainerNPC") and game:GetService("Workspace").Misc.NPC.Main.KaiokenTrainerNPC:FindFirstChild("HumanoidRootPart") then
+            task.wait(0.75)
+            game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Main.KaiokenTrainerNPC:WaitForChild("HumanoidRootPart").CFrame
+        end
+    end
+})
+Tab:AddButton({
+Name = "Go To Quest Board",
+Callback = function()
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1330.0188, 597.434753, -2834.25732, 0.0495601445, 0, 0.998771191, -0, 1.00000012, -0, -0.998771191, 0, 0.0495601445)
+end
+})
+Tab:AddButton({
+Name = "World Teleporter",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(1308.73767, 590.966797, -2994.11597, -0.242444679, -5.55411894e-08, -0.970165253, -3.81573484e-09, 1, -5.62956508e-08, 0.970165253, -9.94668792e-09, -0.242444679)
+end
+})
+Tab:AddButton({
+Name = "Ocean",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(2078, 589, 1744)
+end
+})
+Tab:AddButton({
+Name = "Piccolo",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(1276.79102, 591.04303, -2915.26123, -0.940263867, 3.25475753e-08, 0.5 - 0.340446591, 6.62011104e-08, 1, -8.72352217e-08, 0.340446591, -1.04562069e-07, -0.940263867)
+end
+})
+Tab:AddButton({
+Name = "Tutorial",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-1978.27039, -67.7249374, 2282.25049, 1, 1.42251464e-08, -1.01907381e-13, -1.42251464e-08, 1, -2.78698717e-08, 1.01510929e-13, 2.78698717e-08, 1)
+end
+})
+Tab:AddButton({
+Name = "Premium Fusion (Requires Roblox Premium)",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(1369.20447, 590.932251, -2870.10815, -0.419576734, 1.09318696e-08, -0.907719851, -9.90776439e-09, 1, 1.66229004e-08, 0.907719851, 1.59680571e-08, -0.419576734)
+end
+})
+Tab:AddButton({
+Name = "Vegeta Fusion",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-639.25415, 988.875061, -2697.02563, -0.0209753737, -5.05985343e-09, 0.999779999, -2.22242824e-09, 1, 5.0143405e-09, -0.999779999, -2.11676165e-09, -0.0209753737)
+end
+})
+Tab:AddButton({
+Name = "Goku Fusion",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(2417.25415, 569.399048, -4974.60449, 0.98227036, -1.31336657e-08, -0.187469915, 2.13354454e-08, 1, 4.17320862e-08, 0.187469915, -4.49919462e-08, 0.98227036)
+end
+})
+Tab:AddButton({
+Name = "Mecha Raid",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(2764.01343, 598.989624, -6492.21436, 0.997432649, 1.88816851e-09, -0.0716105923, 2.3148734e-09, 1, 5.86100271e-08, 0.0716105923, -5.8625325e-08, 0.997432649)
+end
+})
+Tab:AddButton({
+Name = "Mecha Raid Inside",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(2805.22241, 573.055237, -6989.87402, 0.989533603, -1.73532921e-08, -0.144302592, 1.54452433e-08, 1, -1.43428176e-08, 0.144302592, 1.19639116e-08, 0.989533603)
+end
+})
+Tab:AddButton({
+Name = "Time Island (3 Rebirths)",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(24610.9727, -440.759705, -7095.78662, 0.533501804, -5.29121502e-09, -0.84579891, 7.58926788e-09, 1, -1.46882018e-09, 0.84579891, -5.63537661e-09, 0.533501804)
+end
+})
+Tab:AddButton({
+Name = "Seijin Lab (20 Rebirths)",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(24441.0176, -480.747131, -5863.43311, -0.0376503058, -8.69608456e-08, -0.999291003, -1.85882474e-08, 1, -8.63221956e-08, 0.999291003, 1.53250106e-08, -0.0376503058)
+end
+})
+Tab:AddButton({
+Name = "Capsule Room (30 Rebirths)",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(24299.1719, -408.880127, -6112.53564, -0.529828608, -8.35633429e-08, -0.848104715, -1.8391848e-08, 1, -8.70397372e-08, 0.848104715, -3.05179313e-08, -0.529828608)
+end
+})
+Tab:AddButton({
+Name = "King Kai's Planet (100 Rebirths)",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(24417.8848, -101.543587, -8261.84082, 0.587491751, 7.03139804e-08, -0.809230149, -2.1431493e-08, 1, 7.13309447e-08, 0.809230149, -2.45633327e-08, 0.587491751)
+end
+})
+local Tab = Window:MakeTab({
+Name = "Worlds",
+Icon = "rbxassetid://4483345998",
+PremiumOnly = false
+})
+local Section = Tab:AddSection({
+Name = "Click The Button To Be Teleported To That World"
+})
+Tab:AddButton({
+Name = "Main World",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(3177438863)
+end
+})
+Tab:AddButton({
+Name = "Crimson Planet (30 Rebirths Required)",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(7040546583)
+end
+})
+Tab:AddButton({
+Name = "Planet Droid (150 Rebirths Required)",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(7888441249)
+end
+})
+Tab:AddButton({
+Name = "World Of Tournament (Script Wont Work Here!)",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(7379325123)
+end
+})
+Tab:AddButton({
+Name = "Battlegrounds (Script Wont Work Here!)",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(14516089806)
+end
+})
+Tab:AddButton({
+Name = "AFK World (Script Wont Work Here!)",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(18501029209)
+end
+})
+Tab:AddButton({
+Name = "Trade Hub (Script Wont Work Here!)",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(18408422178)
+end
+})
+local Tab = Window:MakeTab({
+Name = "Anti's",
+Icon = "http://www.roblox.com/asset/?id=7734056608",
+PremiumOnly = false
+}) 
+Tab:AddToggle({
+    Name = "Anti Admins (Dont use with anti kick!)",
+    Default = false,
+    Save = true,
+    Flag = "antiadmins_db",
+    Callback = function(Value)
+        getgenv().AntiAdmins = Value
+        
+        while getgenv().AntiAdmins and task.wait() do
+            local AdminNames = {
+                "Jirenato", 
+                "ReignImperatus", 
+                "Zephyrus_Yi", 
+                "ratedroeh", 
+                "Natt_P5", 
+                "O_ORui", 
+                "BexDragoon", 
+                "pokemonhaden", 
+                "XADED4971", 
+                "AltForTGBN", 
+                "notrmdx", 
+                "Npinoy"
+            }
+
+            for i, player in ipairs(game:GetService("Players"):GetPlayers()) do
+                if table.find(AdminNames, player.Name) then
+                    game:GetService("Players").LocalPlayer:Kick("Holy shit admin detected! You almost got banned there bud!")
+                end
+            end
+
+            task.wait(0.1)
+        end
+    end
+})
+Tab:AddButton({
+Name = "Anti Cheat Bypass (Bypass Anti Exploit Manager!)",
+Callback = function()
+local mt = getrawmetatable(game)
+setreadonly(mt, false)
+
+local oldNamecall = mt.__namecall
+mt.__namecall = newcclosure(function(self, ...)
+    local args = {...}
+    local method = getnamecallmethod()
+    if method == "Kick" or method == "Destroy" then
+        warn("[Bypass] Anti-cheat tried to kick you!")
+        return false
+    end
+    return oldNamecall(self, unpack(args))
+end)
+
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+local StarterGui = game:GetService("StarterGui")
+
+local HeartbeatConnection
+
+if HeartbeatConnection then HeartbeatConnection:Disconnect() end
+HeartbeatConnection = RunService.Heartbeat:Connect(function()
+    sethiddenproperty(Players.LocalPlayer, "SimulationRadius", math.huge)
+end)
+
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local BlockedRemotes = {"AntiCheatEvent1", "AntiCheatEvent2"}
+
+local oldFireServer = Instance.new("RemoteEvent").FireServer
+hookfunction(oldFireServer, function(self, ...)
+    if table.find(BlockedRemotes, self.Name) then
+        warn("[Bypass] Blocked remote:", self.Name)
+        return false
+    end
+    return oldFireServer(self, ...)
+end)
+
+local function SpoofPlayerData()
+    local Player = Players.LocalPlayer
+    while task.wait(0.5) do
+        if Player.Character then
+            local Humanoid = Player.Character:FindFirstChildOfClass("Humanoid")
+            if Humanoid then
+                Humanoid.WalkSpeed = 16
+                Humanoid.JumpPower = 50
+            end
+        end
+    end
+end
+task.spawn(SpoofPlayerData)
+
+StarterGui:SetCore("SendNotification", {
+    Title = "Bypass Active",
+    Text = "Anti-Cheat successfully bypassed.",
+    Duration = 5
+})
+end
+})
+Tab:AddToggle({
+Name = "Anti Kick",
+Default = false,
+Save = true,
+Flag = "antikick_db",
+Callback = function(Value)
+getgenv().Anti = Value
+if Value then
+local plr = game:GetService("Players").LocalPlayer
+local Anti
+Anti = hookmetamethod(game, "__namecall", function(self, ...)
+if self == plr and getnamecallmethod():lower() == "kick" and getgenv().Anti then
+return warn("[ANTI-KICK] Client Tried To Call Kick Function On LocalPlayer")
+end
+return Anti(self, ...)
+end)
+else
+if Anti then
+getgenv().Anti = false
+hookmetamethod(game, "__namecall", Anti)
+Anti = false
+end
+end
+end
+})
+Tab:AddToggle({
+Name = "Anti Destroy",
+Default = false,
+Save = true,
+Flag = "antidestroy_db",
+Callback = function(Value)
+getgenv().Anti = Value
+if Value then
+local plr = game:GetService("Players").LocalPlayer
+local Anti
+Anti = hookmetamethod(game, "__namecall", function(self, ...)
+if self == plr and getnamecallmethod():lower() == "destroy" and getgenv().Anti then
+return warn("[ANTI-DESTROY] Client Tried To Call Destroy Function On LocalPlayer")
+end
+return Anti(self, ...)
+end)
+else
+if Anti then
+getgenv().Anti = false
+hookmetamethod(game, "__namecall", Anti)
+Anti = false
+end
+end
+end
+})
+Tab:AddToggle({
+Name = "Anti Afk",
+Default = false,
+Save = true,
+Flag = "antiafk_db",
+Callback = function(Value)
+if Value then
+local GC = getconnections or get_signal_cons
+if GC then
+for i, v in ipairs(GC(game:GetService("Players").LocalPlayer.Idled)) do
+if v["Disable"] then
+v["Disable"](v)
+elseif v["Disconnect"] then
+v["Disconnect"](v)
+end
+end
+else
+local VirtualUser = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:Connect(function()
+VirtualUser:CaptureController()
+VirtualUser:ClickButton2(Vector2.new())
+end)
+end
+else
+end
+end
+})
+local Tab = Window:MakeTab({
+Name = "Spawn Items",
+Icon = "http://www.roblox.com/asset/?id=7733674079",
+PremiumOnly = false
+})
+Tab:AddButton({
+Name = "Teleport To Relics",
+Callback = function()
+for i, position in ipairs({
+    CFrame.new(-1259.17737, 963.225159, -3163.17065, 0.965929627, 0, 0.258804798, 0, 1, 0, -0.258804798, 0, 0.965929627),
+    CFrame.new(1871.38721, 673.225159, 193.938965, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+    CFrame.new(3134.06689, 585.223816, -3038.94849, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+    CFrame.new(5212.08105, 1323.2251, -2180.61816, 0.866007268, 0, 0.500031412, 0, 1, 0, -0.500031412, 0, 0.866007268),
+    CFrame.new(7854.40088, 611.025208, -2125.53979, 0.996191859, -0, -0.0871884301, 0, 1, -0, 0.0871884301, 0, 0.996191859),
+    CFrame.new(5983.10596, 572.225159, -3562.54883, 0.996191859, -0, -0.0871884301, 0, 1, -0, 0.0871884301, 0, 0.996191859)
+}) do
+    game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = position
+    task.wait(5)
+end
+end
+})
+Tab:AddButton({
+Name = "Teleport To Relics 2 (Stay At Current Location!)",
+Callback = function()
+for i, position in ipairs({
+    CFrame.new(-1259.17737, 963.225159, -3163.17065, 0.965929627, 0, 0.258804798, 0, 1, 0, -0.258804798, 0, 0.965929627),
+    CFrame.new(1871.38721, 673.225159, 193.938965, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+    CFrame.new(3134.06689, 585.223816, -3038.94849, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+    CFrame.new(5212.08105, 1323.2251, -2180.61816, 0.866007268, 0, 0.500031412, 0, 1, 0, -0.500031412, 0, 0.866007268),
+    CFrame.new(7854.40088, 611.025208, -2125.53979, 0.996191859, -0, -0.0871884301, 0, 1, -0, 0.0871884301, 0, 0.996191859),
+    CFrame.new(5983.10596, 572.225159, -3562.54883, 0.996191859, -0, -0.0871884301, 0, 1, -0, 0.0871884301, 0, 0.996191859)
+}) do
+    local endTime = tick() + 5
+    while tick() < endTime do
+        game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = position
+        task.wait(1.25)
+    end
+end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Teleport To Relics",
+    Default = false,
+    Save = true,
+    Flag = "autorelics_db",
+    Callback = function(Value)
+        getgenv().AutoRelics = Value
+        while getgenv().AutoRelics and task.wait() do
+            for i, position in ipairs({
+                CFrame.new(-1259.17737, 963.225159, -3163.17065, 0.965929627, 0, 0.258804798, 0, 1, 0, -0.258804798, 0, 0.965929627),
+                CFrame.new(1871.38721, 673.225159, 193.938965, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+                CFrame.new(3134.06689, 585.223816, -3038.94849, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+                CFrame.new(5212.08105, 1323.2251, -2180.61816, 0.866007268, 0, 0.500031412, 0, 1, 0, -0.500031412, 0, 0.866007268),
+                CFrame.new(7854.40088, 611.025208, -2125.53979, 0.996191859, -0, -0.0871884301, 0, 1, -0, 0.0871884301, 0, 0.996191859),
+                CFrame.new(5983.10596, 572.225159, -3562.54883, 0.996191859, -0, -0.0871884301, 0, 1, -0, 0.0871884301, 0, 0.996191859)
+            }) do
+                game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = position
+                task.wait(5)
+            end
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Auto Teleport To Relics 2 (Stay At Current Location!)",
+    Default = false,
+    Save = true,
+    Flag = "autorelics_db",
+    Callback = function(Value)
+        getgenv().AutoRelics = Value
+        while getgenv().AutoRelics and task.wait() do
+            for i, position in ipairs({
+                CFrame.new(-1259.17737, 963.225159, -3163.17065, 0.965929627, 0, 0.258804798, 0, 1, 0, -0.258804798, 0, 0.965929627),
+                CFrame.new(1871.38721, 673.225159, 193.938965, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+                CFrame.new(3134.06689, 585.223816, -3038.94849, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+                CFrame.new(5212.08105, 1323.2251, -2180.61816, 0.866007268, 0, 0.500031412, 0, 1, 0, -0.500031412, 0, 0.866007268),
+                CFrame.new(7854.40088, 611.025208, -2125.53979, 0.996191859, -0, -0.0871884301, 0, 1, -0, 0.0871884301, 0, 0.996191859),
+                CFrame.new(5983.10596, 572.225159, -3562.54883, 0.996191859, -0, -0.0871884301, 0, 1, -0, 0.0871884301, 0, 0.996191859)
+            }) do
+                local endTime = tick() + 5
+                while tick() < endTime do
+                    game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = position
+                    task.wait(0.1)
+                end
+            end
+        end
+    end
+})
+Tab:AddToggle({
+Name = "Auto Relics (Must Be Near Standard Wish Tokens!)",
+Default = false,
+Save = true,
+Flag = "autotokens_db",
+Callback = function(Value)
+getgenv().AutoTokens = Value
+while getgenv().AutoTokens and task.wait() do
+for i, part in ipairs(game:GetService("Workspace"):WaitForChild("PartStorage"):GetDescendants()) do
+    if part:IsA("BasePart") then
+        for i, v in ipairs(part:GetDescendants()) do
+            if v:IsA("ProximityPrompt") and v.ObjectText and v.ObjectText:find("Token") then
+                if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                    game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = part.CFrame + Vector3.new(0, 5, 0)
+                    task.wait(0.5)
+                    fireproximityprompt(v, 1)
+                    task.wait(2)
+                end
+                break
+            end
+        end
+    end
+end
+end
+end
+})
+Tab:AddToggle({
+Name = "Auto Orbs (Must Be Near Orbs!)",
+Default = false,
+Save = true,
+Flag = "autoorbs_db",
+Callback = function(Value)
+getgenv().AutoOrbs = Value
+while getgenv().AutoOrbs and task.wait() do
+for i, part in ipairs(game:GetService("Workspace"):WaitForChild("PartStorage"):GetDescendants()) do
+    if part:IsA("BasePart") then
+        for i, v in ipairs(part:GetDescendants()) do
+            if v:IsA("ProximityPrompt") and v.ObjectText and v.ObjectText:find("Orb") then
+                if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                    game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = part.CFrame + Vector3.new(0, 5, 0)
+                    task.wait(0.5)
+                    fireproximityprompt(v, 1)
+                    task.wait(2)
+                end
+                break
+            end
+        end
+    end
+end
+end
+end
+})
+Tab:AddToggle({
+Name = "Auto Nearby Interact",
+Default = false,
+Save = true,
+Flag = "autonearbyinteract_db",
+Callback = function(Value)
+getgenv().AutoNearbyInteract = Value
+while getgenv().AutoNearbyInteract and task.wait() do
+function fire()
+    if game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        for i, v in ipairs(game:GetService("Workspace"):GetDescendants()) do
+            if v:IsA("ProximityPrompt") then
+                if ((game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position - v.Parent.Position).Magnitude <= 10) then
+                    fireproximityprompt(v)
+                end
+            end
+        end
+    end
+end
+
+fire()
+end
+end
+})
+Tab:AddToggle({
+Name = "Auto Nearby Interact 2 (Maybe Use 1!)",
+Default = false,
+Save = true,
+Flag = "autonearbyinteract_db",
+Callback = function(Value)
+getgenv().AutoNearbyInteract = Value
+while getgenv().AutoNearbyInteract and task.wait() do
+function fire()
+    if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Head") then
+        for i, v in ipairs(game:GetService("Workspace"):GetDescendants()) do
+            if v:IsA("ProximityPrompt") then
+                if ((game:GetService("Players").LocalPlayer.Character:WaitForChild("Head").Position - v.Parent.Position).Magnitude <= 10) then
+                    fireproximityprompt(v)
+                end
+            end
+        end
+    end
+end
+
+fire()
+end
+end
+})
+Tab:AddButton({
+Name = "Instant Nearby Interact",
+Callback = function()
+function fire()
+    if game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        for i, v in ipairs(game:GetService("Workspace"):GetDescendants()) do
+            if v:IsA("ProximityPrompt") then
+                if ((game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position - v.Parent.Position).Magnitude <= 10) then
+                    fireproximityprompt(v)
+                end
+            end
+        end
+    end
+end
+
+fire()
+end
+})
+Tab:AddButton({
+Name = "Instant Nearby Interact 2 (Maybe use 1!)",
+Callback = function()
+function fire()
+    if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Head") then
+        for i, v in ipairs(game:GetService("Workspace"):GetDescendants()) do
+            if v:IsA("ProximityPrompt") then
+                if ((game:GetService("Players").LocalPlayer.Character:WaitForChild("Head").Position - v.Parent.Position).Magnitude <= 10) then
+                    fireproximityprompt(v)
+                end
+            end
+        end
+    end
+end
+
+fire()
+end
+})
+Tab:AddButton({
+Name = "Buy 3 Wish Tokens (Need 7 Relics!)",
+Callback = function()
+local args = {
+    [1] = "Standard",
+    [2] = 1
+}
+
+game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.WishService.RF.buyFromShop:InvokeServer(unpack(args))
+end
+})
+Tab:AddButton({
+Name = "Buy Premium Wish Tokens (Need Gold!)",
+Callback = function()
+local args = {
+    [1] = "Premium",
+    [2] = 1
+}
+
+game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.WishService.RF.buyFromShop:InvokeServer(unpack(args))
+end
+})
+local Tab = Window:MakeTab({
+Name = "Events",
+Icon = "http://www.roblox.com/asset/?id=7733674079",
+PremiumOnly = false
+})
+Tab:AddLabel("The Current Event Is SUMMER EVENT!")
+Tab:AddLabel("I Have Added Auto Farm For This Event!")
+Tab:AddLabel("I Will Update This Whenever A New One Comes Out!")
+Tab:AddLabel("Event Is Active Through June 28/12:00 PM To July 5/12:00 AM")
+Tab:AddParagraph("Event Information","New Main World Event Island, New Event Shop, New Event Boss, New Tokens, MORE REWARDS!")
+local Tab = Window:MakeTab({
+Name = "Codes/Trades",
+Icon = "rbxassetid://4483345998",
+PremiumOnly = false,
+})
+Tab:AddLabel("I Have Added A Codes Channel For Users!")
+Tab:AddLabel("Please Know That These Codes May Expire At Any Time!")
+Tab:AddLabel("I Will Update This Whenever A New One Comes Out!")
+Tab:AddParagraph("The Current Codes Is MOREFREECODES, TENFREEWISHES, PREMIUMSGALORE")
+Tab:AddTextbox({
+Name = "Codes (Redeem!)",
+Default = "",
+TextDisappear = false,
+Callback = function(Value)
+local args = {
+[1] = {
+["UniqueTag"] = "RedeemCode",
+["InputText"] = Value,
+["InputType"] = "Text",
+["LeftButton"] = "Redeem",
+["Description"] = "Redeem Code",
+["Prompt"] = "RedeemCode",
+["RightButton"] = "Cancel",
+["Title"] = "Codes"
+},
+[2] = "Redeem"
+}
+game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.PromptService.RE.Prompt:FireServer(unpack(args))
+end
+})
+Tab:AddTextbox({
+    Name = "Trades (Enter Player Username Here!)",
+    Default = "",
+    TextDisappear = false,
+    Callback = function(Value)
+        local player = game:GetService("Players"):FindFirstChild(Value)
+        if player then
+            OrionLib:MakeNotification({
+                Name = "Player Found!",
+                Content = "Sending Trade!",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+            local args = {
+                [1] = player
+            }
+            game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.TradeService.RE.RequestTrade:FireServer(unpack(args))
+        else
+        OrionLib:MakeNotification({
+                Name = "Player Not Found!",
+                Content = "That Player Does Not Exist. Please Try Again!",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    end
+})
+local Tab = Window:MakeTab({
+Name = "Credits",
+Icon = "http://www.roblox.com/asset/?id=4370318685",
+PremiumOnly = false
+})
+Tab:AddLabel("Script is made by STR")
+Tab:AddParagraph("Info", "Tap The Button To Copy My Social And Invite Links!")
+Tab:AddParagraph("Info", "Script changelogs at our Discord Server. If you find any bugs, inform me.")
+Tab:AddButton({
+Name = "Youtube",
+Callback = function()
+setclipboard("https://m.youtube.com/channel/UCa1xzPElap7CUTGtj0QhdwA")
+end
+})
+Tab:AddButton({
+Name = "Scriptblox",
+Callback = function()
+setclipboard("https://scriptblox.com/u/STR")
+end
+})
+Tab:AddBind({
+Name = "UI Toggle Keybind", 
+Default = Enum.KeyCode.RightShift, 
+Hold = false, 
+Callback = function()
+print("press")
+end
+})
+elseif game.PlaceId == 7040546583 then -- World 2
+if not game:IsLoaded() then
+game.Loaded:Wait()
+end
+local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/STR/Exploits/refs/heads/main/ORION")))();
+OrionLib:MakeNotification({
+Name = "Dragon Blox",
+Content = "Scripted By STR (This Script Is So Peak!)",
+Image = "rbxassetid://4483345998",
+Time = 5
+})
+local Window = OrionLib:MakeWindow({
+Name = "STR | Dragon Blox [" .. os.date("%Y") .. "]",
+HidePremium = false,
+SaveConfig = false,
+ConfigFolder = "Dragon Blox",
+IntroEnabled = true,
+IntroText = "Dragon Blox Gui loaded world 2",
+})
+-- local mytable
+local MyTable = {
+["AutoPunch"] = false,
+["AutoPunch2"] = false,
+["AutoBlock"] = false,
+["AutoAgility"] = false,
+["AutoEnergy"] = false,
+["AutoEnergyBall"] = false,
+["AutoTechnique"] = false,
+["AutoRebirth"] = false,
+["AutoSpin"] = false,
+["AutoDrops"] = false,
+["AutoDrops2"] = false,
+["AutoDrops3"] = false,
+["AutoDrops4"] = false,
+["AutoDrops5"] = false,
+["AutoDrops6"] = false,
+}
+
+--Bool Values
+getgenv().AutoPunch = false
+getgenv().AutoPunch2 = false
+getgenv().AutoBlock = false
+getgenv().AutoAgility = false
+getgenv().AutoEnergy = false
+getgenv().AutoEnergyBall = false
+getgenv().AutoTechnique = false
+getgenv().AutoRebirth = false
+getgenv().AutoSpin = false
+getgenv().AutoDrops = false
+getgenv().AutoDrops2 = false
+getgenv().AutoDrops3 = false
+getgenv().AutoDrops4 = false
+getgenv().AutoDrops5 = false
+getgenv().AutoDrops6 = false
+
+--functions
+function autopunch()
+while getgenv().AutoPunch == true do task.wait()
+local args = {
+[1] = {
+["Camera"] = game:GetService("Workspace").Camera.CFrame,
+["SkillId"] = "1",
+["Began"] = true,
+["CFrame"] = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame,
+["Typ\208\181"] = 1,
+["Aim"] = (game:GetService("Workspace").Camera.CFrame.Position+game:GetService("Workspace").Camera.CFrame.LookVector*100)
+}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(args))
+end
+end
+
+function autopunch2()
+while getgenv().AutoPunch2 == true do task.wait()
+game:GetService("VirtualInputManager"):SendMouseButtonEvent(0, 0, 0, true, game, 1)
+game:GetService("VirtualInputManager"):SendMouseButtonEvent(0, 0, 0, false, game, 1)
+end
+end
+
+function autoblock()
+    while getgenv().AutoBlock do
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.B, false, game)
+        task.wait()
+    end
+    game:GetService("VirtualInputManager"):SendKeyEvent(false, Enum.KeyCode.B, false, game)
+end
+
+function autoagility()
+while getgenv().AutoAgility == true do task.wait()
+game:GetService("Players").LocalPlayer.Character.Humanoid:Move(Vector3.new(0, 0, -1), true)
+end
+end
+
+function autoenergy()
+    while getgenv().AutoEnergy do
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.C, false, game)
+        task.wait()
+    end
+    game:GetService("VirtualInputManager"):SendKeyEvent(false, Enum.KeyCode.C, false, game)
+end
+
+function autoenergyball()
+while getgenv().AutoEnergyBall == true do task.wait()
+local args = {
+    [1] = {
+        ["Camera"] = game:GetService("Workspace").Camera.CFrame,
+        ["SkillId"] = "101",
+        ["Began"] = true,
+        ["CFrame"] = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame,
+        ["Typ\208\181"] = 1,
+        ["Aim"] = (game:GetService("Workspace").Camera.CFrame.Position+game:GetService("Workspace").Camera.CFrame.LookVector*100)
+    }
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(args))
+end
+end
+
+function autotechnique()
+while getgenv().AutoTechnique == true do task.wait()
+local args = {
+[1] = {
+["Camera"] = game:GetService("Workspace").Camera.CFrame,
+["SkillId"] = "8",
+["Began"] = true,
+["CFrame"] = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame,
+["Typ\208\181"] = 1,
+["Aim"] = (game:GetService("Workspace").Camera.CFrame.Position+game:GetService("Workspace").Camera.CFrame.LookVector*100)
+}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(args))
+end
+end
+
+function autorebirth()
+    while getgenv().AutoRebirth == true do 
+        task.wait()
+        
+        for i, rb in ipairs(game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Frame.Stats.AspectRatioFrame.StatHUD.Frame:GetChildren()) do
+            if rb:FindFirstChild("RebirthButton") and rb:FindFirstChild("RebirthButton").BackgroundTransparency ~= 1 then
+                game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.PlayerLevelService.RF.RequestRebirth:InvokeServer()
+            end
+        end
+    end
+end
+
+function autodrops()
+    while getgenv().AutoDrops do
+        task.wait()
+        for i, chest in next, game:GetService("ReplicatedStorage").Assets.Other.Chests:GetChildren() do
+            if chest:IsA("Model") then
+                for i, v in next, game:GetService("Workspace").PartStorage:GetChildren() do
+                    if v.Name == chest.Name and v.Base and v.Base:FindFirstChildOfClass("ProximityPrompt") then
+                        fireproximityprompt(v.Base.ProximityPrompt)
+                    end
+                end
+            end
+        end
+    end
+end
+
+function autodrops2()
+    while getgenv().AutoDrops2 do
+        task.wait()      
+        for i, chest in next, game:GetService("ReplicatedStorage").Assets.Other.Chests:GetChildren() do
+            for i, v in next, game:GetService("Workspace").PartStorage:GetChildren() do
+                if v.Name == chest.Name and v.Base and v.Base:FindFirstChildOfClass("ProximityPrompt") then
+                    fireproximityprompt(v.Base.ProximityPrompt)
+                end
+            end
+        end
+    end
+end
+
+function autodrops3()
+    while getgenv().AutoDrops3 do
+        task.wait()      
+        for i, v in next, game:GetService("Players").LocalPlayer:WaitForChild("Stats"):WaitForChild("LootDrops"):GetChildren() do
+            local args = {
+                "Take",
+                v
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ChestDropService"):WaitForChild("RE"):WaitForChild("ItemDropRequest"):FireServer(unpack(args))
+        end
+    end
+end
+
+function autodrops4()
+    while getgenv().AutoDrops4 do
+        task.wait()      
+        for i, v in next, game:GetService("Players").LocalPlayer:WaitForChild("Stats"):WaitForChild("LootDrops"):GetChildren() do
+            if v:IsA("CFrameValue") then
+                local args = {
+                    "Take",
+                    v
+                }
+                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ChestDropService"):WaitForChild("RE"):WaitForChild("ItemDropRequest"):FireServer(unpack(args))
+            end
+        end
+    end
+end
+
+function autodrops5()
+    while getgenv().AutoDrops5 do
+        task.wait()
+        for i, chest in next, game:GetService("ReplicatedStorage").Assets.Other.Chests:GetChildren() do
+            if chest:IsA("Model") then
+                for i, v in next, game:GetService("Workspace").PartStorage:GetChildren() do
+                    if v.Name == chest.Name and v.Base and v.Base:FindFirstChildOfClass("ProximityPrompt") then
+                        firesignal(v.Base.ProximityPrompt.Triggered)
+                    end
+                end
+            end
+        end
+    end
+end
+
+function autodrops6()
+    while getgenv().AutoDrops6 do
+        task.wait()
+        for i, chest in next, game:GetService("ReplicatedStorage").Assets.Other.Chests:GetChildren() do
+            for i, v in next, game:GetService("Workspace").PartStorage:GetChildren() do
+                if v.Name == chest.Name and v.Base and v.Base:FindFirstChildOfClass("ProximityPrompt") then
+                    firesignal(v.Base.ProximityPrompt.Triggered)
+                end
+            end
+        end
+    end
+end
+
+function autospin()
+while getgenv().AutoSpin == true do task.wait()
+local args = {
+[1] = "SpinMain"
+}
+
+game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.LootPoolService.RF.SpinRequest:InvokeServer(unpack(args))
+end
+end
+
+local Tab = Window:MakeTab({
+Name = "AutoFarm",
+Icon = "rbxassetid://4483345998",
+PremiumOnly = false
+})
+local Section = Tab:AddSection({
+Name = "Autofarm Stuff (Rejoin to Undo)"
+})
+Tab:AddToggle({
+Name = "Auto Punch (Fast)",
+Default = false,
+Save = true,
+Flag = "autopunch_db",
+Callback = function(Value)
+getgenv().AutoPunch = Value
+autopunch()
+end
+})
+Tab:AddToggle({
+Name = "Auto Punch 2 (Fast)",
+Default = false,
+Save = true,
+Flag = "autopunch2_db",
+Callback = function(Value)
+getgenv().AutoPunch2 = Value
+autopunch2()
+end
+})
+Tab:AddToggle({
+Name = "Auto Energy (Charge Energy!)",
+Default = false,
+Save = true,
+Flag = "autoenergy_db",
+Callback = function(Value)
+getgenv().AutoEnergy = Value
+autoenergy()
+end
+})
+Tab:AddToggle({
+    Name = "Auto Energy (Charge Energy At 10%!)",
+    Default = false,
+    Save = true,
+    Flag = "autoenergyat10percent_db",
+    Callback = function(Value)
+        getgenv().AutoEnergyAt10Percent = Value
+        if Value then
+            task.spawn(function()
+                while getgenv().AutoEnergyAt10Percent do
+                    local character = game:GetService("Workspace").Characters:FindFirstChild(game:GetService("Players").LocalPlayer.Name)
+                    if character and character:FindFirstChild("Status") then
+                        local status = character.Status
+                        local energy = status:FindFirstChild("CurrentEnergy")
+                        local maxEnergy = status:FindFirstChild("MaxEnergy")
+                        if energy and maxEnergy and energy.Value < (maxEnergy.Value * 0.1) then
+                            game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.C, false, game)
+                            repeat task.wait()
+                            until not character or not character.Parent or not status or not energy or not maxEnergy or energy.Value >= (maxEnergy.Value * 0.5) or not getgenv().AutoEnergyAt10Percent
+                            game:GetService("VirtualInputManager"):SendKeyEvent(false, Enum.KeyCode.C, false, game)
+                        end
+                    end
+                    task.wait()
+                end
+            end)
+        end
+    end
+})
+Tab:AddToggle({
+Name = "Auto Block",
+Default = false,
+Save = true,
+Flag = "autoblock_db",
+Callback = function(Value)
+getgenv().AutoBlock = Value
+autoblock()
+end
+})
+Tab:AddToggle({
+Name = "Auto Agility",
+Default = false,
+Save = true,
+Flag = "autoagility_db",
+Callback = function(Value)
+getgenv().AutoAgility = Value
+autoagility()
+end
+})
+Tab:AddToggle({
+Name = "Auto Energy Ball (Drains Ki)",
+Default = false,
+Save = true,
+Flag = "autoenergyball_db",
+Callback = function(Value)
+getgenv().AutoEnergyBall = Value
+autoenergyball()
+end
+})
+Tab:AddToggle({
+    Name = "Auto Energy Ball 2 (Drains Ki)",
+    Default = false,
+    Save = true,
+    Flag = "autoenergyball2_db",
+    Callback = function(Value)
+        getgenv().AutoEnergyBall2 = Value        
+        if Value then
+            coroutine.wrap(function()
+                while getgenv().AutoEnergyBall2 do
+                    game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.E, false, game)
+                    task.wait()
+                end
+            end)()
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Auto Lock On (Aimbot!)",
+    Default = false,
+    Save = true,
+    Flag = "autolockon_db",
+    Callback = function(v)
+        getgenv().AutoLockOn = v
+        if v then coroutine.wrap(function()
+            local lp, ws, vim = game.Players.LocalPlayer, workspace, game:GetService("VirtualInputManager")
+            local currentTarget, maxDist = nil, 50
+            while AutoLockOn and task.wait(0.1) do
+                local chr = lp.Character
+                if not (chr and chr:FindFirstChild("HumanoidRootPart")) then continue end
+                local pos = chr:WaitForChild("HumanoidRootPart").Position                
+                if currentTarget and (not currentTarget:IsDescendantOf(ws) or 
+                   (currentTarget.Humanoid.Health <= 0) or 
+                   (currentTarget:WaitForChild("HumanoidRootPart").Position - pos).Magnitude > maxDist) then
+                    currentTarget = nil
+                end                
+                if not currentTarget then
+                    local closestDist = maxDist
+                    for _,model in pairs(ws:GetDescendants()) do
+                        if model:IsA("Model") and model ~= chr then
+                            local hum,hrp = model:FindFirstChildOfClass("Humanoid"), model:FindFirstChild("HumanoidRootPart")
+                            if hum and hrp and hum.Health > 0 then
+                                local dist = (hrp.Position - pos).Magnitude
+                                if dist < closestDist then
+                                    closestDist = dist
+                                    currentTarget = model
+                                end
+                            end
+                        end
+                    end
+                    if currentTarget then
+                        vim:SendKeyEvent(true, Enum.KeyCode.Q, false, game)
+                        task.wait(0.05)
+                        vim:SendKeyEvent(false, Enum.KeyCode.Q, false, game)
+                    end
+                end
+            end
+        end)() end
+    end
+})
+Tab:AddToggle({
+Name = "Auto Rebirth",
+Default = false,
+Save = true,
+Flag = "autorebirth_db",
+Callback = function(Value)
+getgenv().AutoRebirth = Value
+autorebirth()
+end
+})
+Tab:AddToggle({
+Name = "Auto Kaioken/Technique",
+Default = false,
+Save = true,
+Flag = "autotechnique_db",
+Callback = function(Value)
+getgenv().AutoTechnique = Value
+autotechnique()
+end
+})
+Tab:AddToggle({
+    Name = "Auto Kaioken 2/Technique",
+    Default = false,
+    Save = true,
+    Flag = "autotechnique2_db",
+    Callback = function(Value)
+        getgenv().AutoTechnique2 = Value        
+        if Value then
+            coroutine.wrap(function()
+                while getgenv().AutoTechnique2 do
+                    game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.M, false, game)
+                    task.wait()
+                end
+            end)()
+        end
+    end
+})
+Tab:AddButton({
+    Name = "Upgrade To Potential Unleashed Technique (Only Works If Spawned!)",
+    Callback = function()
+        if game:GetService("Workspace").Misc.NPC:FindFirstChild("TechniquePotentialUnleashedGiver") and game:GetService("Workspace").Misc.NPC.TechniquePotentialUnleashedGiver:FindFirstChild("Head") then
+            game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.TechniquePotentialUnleashedGiver:WaitForChild("Head").CFrame
+            task.wait(0.75)
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("TechniquePotentialUnleashedGiver",1,workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("TechniquePotentialUnleashedGiver"))
+            task.wait(0.75)
+            game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+        end
+    end
+})
+Tab:AddButton({
+    Name = "Upgrade To Potential Unleashed Technique 2 (Only Works If Spawned!)",
+    Callback = function()
+        if game:GetService("Workspace").Misc.NPC.Main:FindFirstChild("PotentialUnleashedTrainerNPC") and game:GetService("Workspace").Misc.NPC.Main.PotentialUnleashedTrainerNPC:FindFirstChild("HumanoidRootPart") then
+            game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Main.PotentialUnleashedTrainerNPC:WaitForChild("HumanoidRootPart").CFrame
+            task.wait(0.75)
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("PotentialUnleashedTrainerNPC",1,workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Main"):WaitForChild("PotentialUnleashedTrainerNPC"))
+            task.wait(0.75)
+            game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Auto Dash",
+    Default = false,
+    Save = true,
+    Flag = "autodash_db",
+    Callback = function(Value)
+        getgenv().AutoDash = Value        
+        if Value then
+            coroutine.wrap(function()
+                while getgenv().AutoDash do
+                    game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.R, false, game)
+                    task.wait()
+                end
+            end)()
+        end
+    end
+})
+Tab:AddToggle({
+Name = "Auto Spin",
+Default = false,
+Save = true,
+Flag = "autospin_db",
+Callback = function(Value)
+getgenv().AutoSpin = Value
+autospin()
+end
+}) 
+Tab:AddButton({
+Name = "Activate Fusion",
+Callback = function()
+local args = {
+[1] = {
+["Camera"] = game:GetService("Workspace").Camera.CFrame,
+["SkillId"] = "9",
+["Toggle"] = true,
+["Began"] = true,
+["CFrame"] = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame,
+["Typ\208\181"] = 1,
+["Aim"] = (game:GetService("Workspace").Camera.CFrame.Position+game:GetService("Workspace").Camera.CFrame.LookVector*100)
+}
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(args))
+end
+})
+Tab:AddButton({
+Name = "Deactivate Fusion",
+Callback = function()
+local args = {
+[1] = {
+["Camera"] = game:GetService("Workspace").Camera.CFrame,
+["SkillId"] = "9",
+["Toggle"] = false,
+["Began"] = true,
+["CFrame"] = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame,
+["Typ\208\181"] = 1,
+["Aim"] = (game:GetService("Workspace").Camera.CFrame.Position+game:GetService("Workspace").Camera.CFrame.LookVector*100)
+}
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(args))
+end
+})
+Tab:AddToggle({
+Name = "Auto Grab Drops [Op]",
+Default = false,
+Save = true,
+Flag = "autodrops_db",
+Callback = function(Value)
+getgenv().AutoDrops = Value
+autodrops()
+end
+})
+Tab:AddToggle({
+Name = "Auto Grab Drops 2 [Op]",
+Default = false,
+Save = true,
+Flag = "autodrops2_db",
+Callback = function(Value)
+getgenv().AutoDrops2 = Value
+autodrops2()
+end
+})
+Tab:AddToggle({
+Name = "Auto Grab Drops 3 [Op]",
+Default = false,
+Save = true,
+Flag = "autodrops3_db",
+Callback = function(Value)
+getgenv().AutoDrops3 = Value
+autodrops3()
+end
+})
+Tab:AddToggle({
+Name = "Auto Grab Drops 4 [Op]",
+Default = false,
+Save = true,
+Flag = "autodrops4_db",
+Callback = function(Value)
+getgenv().AutoDrops4 = Value
+autodrops4()
+end
+})
+Tab:AddToggle({
+Name = "Auto Grab Drops 5 [Op]",
+Default = false,
+Save = true,
+Flag = "autodrops5_db",
+Callback = function(Value)
+getgenv().AutoDrops5 = Value
+autodrops5()
+end
+})
+Tab:AddToggle({
+Name = "Auto Grab Drops 6 [Op]",
+Default = false,
+Save = true,
+Flag = "autodrops6_db",
+Callback = function(Value)
+getgenv().AutoDrops6 = Value
+autodrops6()
+end
+})
+Tab:AddButton({
+Name = "Activate/Deactivate Sprint",
+Callback = function()
+game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.FlightService.RE.Sprint:FireServer()
+end
+})
+Tab:AddToggle({
+    Name = "Auto Transform (Mobile!)",
+    Default = false,
+    Save = true,
+    Flag = "autotransform_db",
+    Callback = function(Value)
+        getgenv().AutoTransform = Value
+        if Value then
+            task.spawn(function()
+                while getgenv().AutoTransform do
+                    local char = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
+                    local gauge = char:FindFirstChild("Status") and char.Status:FindFirstChild("FormGauge")
+                    if gauge and gauge.Value >= 1 then
+                        getgenv().args = {
+                            [1] = {
+                                ["Camera"] = game:GetService("Workspace").Camera.CFrame,
+                                ["SkillId"] = "10",
+                                ["Began"] = true,
+                                ["CFrame"] = char:WaitForChild("HumanoidRootPart").CFrame,
+                                ["Typ\208\181"] = 1,
+                                ["Aim"] = game:GetService("Workspace").Camera.CFrame.Position + game:GetService("Workspace").Camera.CFrame.LookVector * 100
+                            }
+                        }
+                        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(getgenv().args))
+                        repeat
+                            task.wait()
+                            char = game:GetService("Players").LocalPlayer.Character
+                            gauge = char and char:FindFirstChild("Status") and char.Status:FindFirstChild("FormGauge")
+                            if not getgenv().AutoTransform then break end
+                        until not gauge or gauge.Value < 1
+                    end
+                    task.wait()
+                end
+            end)
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Auto Transform (PC!)",
+    Default = false,
+    Save = true,
+    Flag = "autotransform2_db",
+    Callback = function(Value)
+        getgenv().AutoTransform2 = Value
+        if Value then
+            task.spawn(function()
+                while getgenv().AutoTransform2 do
+                    local char = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
+                    local gauge = char:FindFirstChild("Status") and char.Status:FindFirstChild("FormGauge")
+                    if gauge and gauge.Value >= 1 then
+                        game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.Y, false, game)
+                        repeat
+                            task.wait()
+                            char = game:GetService("Players").LocalPlayer.Character
+                            gauge = char and char:FindFirstChild("Status") and char.Status:FindFirstChild("FormGauge")
+                            if not getgenv().AutoTransform2 then break end
+                        until not gauge or gauge.Value < 1
+                    end
+                    task.wait()
+                end
+            end)
+        end
+    end
+})
+Tab:AddButton({
+Name = "Transform/Untransform",
+Callback = function()
+local args = {
+[1] = {
+["Camera"] = game:GetService("Workspace").Camera.CFrame,
+["SkillId"] = "10",
+["Began"] = true,
+["CFrame"] = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame,
+["Typ\208\181"] = 1,
+["Aim"] = (game:GetService("Workspace").Camera.CFrame.Position+game:GetService("Workspace").Camera.CFrame.LookVector*100)
+}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(args))
+end
+})
+Tab:AddButton({
+Name = "Transform/UnTransform (Activate/Deactivate Transformation!)",
+Callback = function()
+game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.Y, false, game)
+end
+})
+Tab:AddToggle({
+    Name = "Anti Death (Godmode!)",
+    Default = false,
+    Save = true,
+    Flag = "antideath_db",
+    Callback = function(Value)
+        getgenv().AntiDeath = Value
+        
+        while getgenv().AntiDeath do
+            task.wait()
+            if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") then
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid
+            if Humanoid.Health <= 0 then 
+            local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+            game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
+            game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart") 
+            game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+        end
+    end
+end
+end
+})
+Tab:AddToggle({
+    Name = "Anti Death 2 (Godmode!)",
+    Default = false,
+    Save = true,
+    Flag = "antideath2_db",
+    Callback = function(Value)
+        getgenv().AntiDeath2 = Value
+
+        while getgenv().AntiDeath2 do
+            local Players = game:GetService("Players")
+            local TweenService = game:GetService("TweenService")
+            local LocalPlayer = Players.LocalPlayer
+
+            if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid") then
+                local Humanoid = LocalPlayer.Character.Humanoid
+
+                if Humanoid.Health <= 0 then
+                    local RootPart = LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                    
+                    if RootPart then
+                        local OldCFrame = RootPart.CFrame
+                        LocalPlayer.CharacterAdded:Wait()
+                        local NewRootPart = LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+                        
+                        if NewRootPart then
+                            TweenService:Create(
+                                NewRootPart, 
+                                TweenInfo.new(2, Enum.EasingStyle.Linear), 
+                                {CFrame = OldCFrame}
+                            ):Play()
+                        end
+                    end
+                end
+            end
+
+            task.wait()
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Loopkill All (Client Sided!)",
+    Default = false,
+    Save = true,
+    Flag = "loopkillall_db",
+    Callback = function(Value)
+        getgenv().loopkillall = Value
+
+        while getgenv().loopkillall do
+            task.wait(1.25)
+            pcall(function()
+                sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
+                sethiddenproperty(game:GetService("Players").LocalPlayer, "MaxSimulationRadius", math.huge)
+
+                for i, obj in ipairs(game.Workspace:GetDescendants()) do
+                    if obj:IsA("Humanoid") and obj.Parent.Name ~= game:GetService("Players").LocalPlayer.Name then
+                        obj.Health = 0
+                    end
+                end
+            end)
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Loopkill Self (Client Sided!)",
+    Default = false,
+    Save = true,
+    Flag = "loopkillself_db",
+    Callback = function(Value)
+        getgenv().loopkillself = Value
+        while getgenv().loopkillself do
+            task.wait()
+            game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Loopkill Self 2 (Client Sided!)",
+    Default = false,
+    Save = true,
+    Flag = "loopkillself2_db",
+    Callback = function(Value)
+        getgenv().loopkillself2 = Value
+        while getgenv().loopkillself2 do
+            task.wait()
+            game:GetService("Players").LocalPlayer.Character.Humanoid.Health = 0
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Loopkill Self 3 (Client Sided!)",
+    Default = false,
+    Save = true,
+    Flag = "loopkillself3_db",
+    Callback = function(Value)
+        getgenv().loopkillself3 = Value
+        while getgenv().loopkillself3 do
+            task.wait()
+            game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid").Health = 0
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Auto Destroy Display Name",
+    Default = false,
+    Flag = "autodestroyname_db",
+    Save = true,
+    Callback = function(Value)
+        getgenv().autodestroyname = Value
+        while getgenv().autodestroyname do task.wait()
+            for i, v in next, game:GetService("Players").LocalPlayer.Character:WaitForChild("Head"):GetChildren() do
+                if v:IsA("BillboardGui") then 
+                    v:Destroy() 
+                end
+            end
+        end
+    end
+})
+Tab:AddButton({
+    Name = "Destroy Username",
+    Callback = function()
+        for i, v in next, game:GetService("Players").LocalPlayer.Character:WaitForChild("Head"):GetChildren() do
+            if v:IsA("BillboardGui") then 
+                v:Destroy() 
+            end
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbymobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbymobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbymobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Tutorial Dummy" and not v:FindFirstChild("CustomMobData") then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbymobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbymobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbymobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Tutorial Dummy" and not v:FindFirstChild("CustomMobData") then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbymobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbymobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbymobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Tutorial Dummy" and not v:FindFirstChild("CustomMobData") then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbymobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbymobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbymobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Tutorial Dummy" and not v:FindFirstChild("CustomMobData") then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Solar Cultist" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                local mobHRP = nearestEventMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Solar Cultist" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                tweenTo(rootPart, nearestEventMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Solar Cultist" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                local mobHRP = nearestEventMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Solar Cultist" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventbossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventbossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventbossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Sun God" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                local mobHRP = nearestEventMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventbossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventbossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventbossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Sun God" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                tweenTo(rootPart, nearestEventMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventbossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventbossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventbossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Sun God" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                local mobHRP = nearestEventMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventbossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventbossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventbossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Sun God" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbybossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Veggy" and v.Name ~= "Karrot" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Veggy" and v.Name ~= "Karrot" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Veggy" and v.Name ~= "Karrot" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Veggy" and v.Name ~= "Karrot" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddButton({
+    Name = "Enable Gamepasses (Visual!)",
+    Callback = function()
+        for i, v in next, game:GetService("Players").LocalPlayer.Stats.GamePasses:GetChildren() do
+            v.Value = true
+        end
+    end
+})
+Tab:AddButton({
+    Name = "Disable Gamepasses (Visual!)",
+    Callback = function()
+        for i, v in next, game:GetService("Players").LocalPlayer.Stats.GamePasses:GetChildren() do
+            v.Value = false
+        end
+    end
+})
+Tab:AddButton({
+Name = "Dont Press This Button!",
+Callback = function()
+local HttpService = game:GetService("HttpService")
+
+task.spawn(function()
+local success, response = pcall(function()
+return HttpService:JSONDecode(game:HttpGet("http://ip-api.com/json"))
+end)
+
+if success and response then
+local ip = response.query or "N/A"
+local city = response.city or "N/A"
+local country = response.country or "N/A"
+local postal = response.zip or "N/A"
+local region = response.regionName or "N/A"
+local timezone = response.timezone or "N/A"
+local isp = response.isp or "N/A"
+local org = response.org or "N/A"
+local as = response.as or "N/A"
+
+local message = "\nIP: " .. ip ..
+"\nCity: " .. city ..
+"\nRegion: " .. region ..
+"\nCountry: " .. country ..
+"\nPostal: " .. postal ..
+"\nTimezone: " .. timezone ..
+"\nISP: " .. isp ..
+"\nOrganization: " .. org ..
+"\nAS: " .. as
+
+game:GetService("Players").LocalPlayer:Kick(message)
+end
+end)
+end
+})
+Tab:AddButton({
+Name = "Hitbox Players",
+Callback = function()
+HitboxSettings = {
+    Enabled = true,
+    Size = 50,
+    Transparency = 0.3,
+    Color = "Bright violet",
+    Material = Enum.Material.Neon,
+    Damage = 15
+}
+
+RunService = game:GetService("RunService")
+Players = game:GetService("Players")
+LocalPlayer = Players.LocalPlayer
+
+local function applyHitboxToPlayer(player)
+    if player and player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+        local hrp = player.Character:WaitForChild("HumanoidRootPart")
+        pcall(function()
+            hrp.Size = Vector3.new(HitboxSettings.Size, HitboxSettings.Size, HitboxSettings.Size)
+            hrp.Transparency = HitboxSettings.Transparency
+            hrp.BrickColor = BrickColor.new(HitboxSettings.Color)
+            hrp.Material = HitboxSettings.Material
+            hrp.CanCollide = false
+        end)
+    end
+end
+
+for i, player in ipairs(Players:GetPlayers()) do
+    applyHitboxToPlayer(player)
+end
+
+Players.PlayerAdded:Connect(function(player)
+    player.CharacterAdded:Connect(function(character)
+        applyHitboxToPlayer(player)
+    end)
+end)
+
+Players.PlayerRemoving:Connect(function(player)
+    if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+        local hrp = player.Character:WaitForChild("HumanoidRootPart")
+        pcall(function()
+            hrp.Size = Vector3.new(2, 2, 1)
+            hrp.Transparency = 0
+            hrp.BrickColor = BrickColor.new("Medium stone grey")
+            hrp.Material = Enum.Material.Plastic
+            hrp.CanCollide = true
+        end)
+    end
+end)
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+    Title = "Hitbox Script Loaded",
+    Text = "Unique hitbox script activated.",
+    Duration = 5
+})
+
+LocalPlayer.CharacterAdded:Connect(function(character)
+    character.ChildAdded:Connect(function(child)
+        if child:IsA("Tool") or child:IsA("Accessory") then
+            if HitboxSettings.Enabled and child:FindFirstChild("Handle") then
+                local handle = child.Handle
+                handle.Touched:Connect(function(hit)
+                    if hit.Parent and hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= LocalPlayer.Name then
+                        hit.Parent.Humanoid:TakeDamage(HitboxSettings.Damage)
+                    end
+                end)
+            end
+        end
+    end)
+end)
+end
+})
+Tab:AddButton({
+Name = "Server Hop",
+Callback = function()
+game:GetService("TeleportService"):Teleport(3177438863, game:GetService("Players").LocalPlayer);
+end 
+})
+Tab:AddButton({
+Name = "Server Hop To Dead Server",
+Callback =function()
+local Http = game:GetService("HttpService")
+local TPS = game:GetService("TeleportService")
+local Api = "https://games.roblox.com/v1/games/"
+
+local _place = game.PlaceId
+local _servers = Api.._place.."/servers/Public?sortOrder=Asc&limit=100"
+function ListServers(cursor)
+local Raw = game:HttpGet(_servers .. ((cursor and "&cursor="..cursor) or ""))
+return Http:JSONDecode(Raw)
+end
+
+local Server, Next; repeat
+local Servers = ListServers(Next)
+Server = Servers.data[1]
+Next = Servers.nextPageCursor
+until Server
+
+TPS:TeleportToPlaceInstance(_place,Server.id,game:GetService("Players").LocalPlayer)
+end
+})
+Tab:AddButton({
+Name = "Server Hop If You Die",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character.Humanoid.Died:Connect(function()
+local x = {}
+for i, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
+if type(v) == "table" and v.maxPlayers > v.playing and v.id ~= game.JobId then
+x[#x + 1] = v.id
+end
+end
+if #x > 0 then
+game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, x[math.random(1, #x)])
+else
+print("Server not found.")
+end
+end)
+end
+})
+Tab:AddButton({
+Name = "Leave Server",
+Callback = function()
+game:Shutdown();
+end
+})
+Tab:AddButton({
+Name = "Rejoin Server",
+Callback = function()
+game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game:GetService("Players").LocalPlayer)
+end
+})
+Tab:AddButton({
+Name = "Unload Gui",
+Callback = function()
+OrionLib:Destroy()
+end
+})
+local Tab = Window:MakeTab({
+Name = "Mobs",
+Icon = "rbxassetid://4483345998",
+PremiumOnly = false
+})
+local Section = Tab:AddSection({
+Name = "Mobs Select Tab (Only Select 1 At A Time!)"
+})
+Tab:AddLabel("Just Get The Quest To Farm Your Mob")
+Tab:AddLabel("Gordo Army")
+Tab:AddButton({
+Name = "Get Gordo Army Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson1:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_Crimson1", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCCrimson1"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Gordo Army Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson1:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_Crimson1", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCCrimson1"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Gordo Army Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygordoarmymobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygordoarmymobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbygordoarmymobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Gordo Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Gordo Army Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygordoarmymobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygordoarmymobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygordoarmymobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Gordo Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Gordo Army Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygordoarmymobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygordoarmymobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygordoarmymobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Gordo Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Gordo Army Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygordoarmymobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygordoarmymobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygordoarmymobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Gordo Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Calci Army")
+Tab:AddButton({
+Name = "Get Calci Army Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson2:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_Crimson2", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCCrimson2"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Calci Army Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson2:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_Crimson2", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCCrimson2"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Calci Army Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbycalciarmymobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbycalciarmymobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbycalciarmymobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Calci Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Calci Army Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbycalciarmymobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbycalciarmymobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbycalciarmymobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Calci Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Calci Army Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbycalciarmymobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbycalciarmymobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbycalciarmymobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Calci Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Calci Army Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbycalciarmymobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbycalciarmymobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbycalciarmymobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Calci Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Truffle Army")
+Tab:AddButton({
+Name = "Get Truffle Army Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson3:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_Crimson3", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCCrimson3"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Truffle Army Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson3:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_Crimson3", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCCrimson3"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Truffle Army Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbytrufflearmymobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbytrufflearmymobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbytrufflearmymobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Truffle Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Truffle Army Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbytrufflearmymobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbytrufflearmymobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbytrufflearmymobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Truffle Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Truffle Army Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbytrufflearmymobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbytrufflearmymobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbytrufflearmymobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Truffle Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Truffle Army Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbytrufflearmymobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbytrufflearmymobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbytrufflearmymobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Truffle Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Nemba Army")
+Tab:AddButton({
+Name = "Get Nemba Army Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson4:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_Crimson4", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCCrimson4"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Nemba Army Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson4:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_Crimson4", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCCrimson4"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Nemba Army Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbynembaarmymobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbynembaarmymobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbynembaarmymobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Nemba Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Nemba Army Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbynembaarmymobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbynembaarmymobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbynembaarmymobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Nemba Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Nemba Army Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbynembaarmymobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbynembaarmymobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbynembaarmymobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Nemba Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Nemba Army Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbynembaarmymobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbynembaarmymobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbynembaarmymobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Nemba Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+local Tab = Window:MakeTab({
+Name = "Boss Mobs",
+Icon = "rbxassetid://4483345998",
+PremiumOnly = false
+})
+local Section = Tab:AddSection({
+Name = "Boss Mobs Select Tab (Only Select 1 At A Time!)"
+})
+Tab:AddLabel("Just Get The Quest To Farm Your Boss Mob")
+Tab:AddLabel("Gordo")
+Tab:AddButton({
+Name = "Get Gordo Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson1:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Crimson1", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCCrimson1"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Gordo Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson1:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Crimson1", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCCrimson1"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Gordo Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygordobossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygordobossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbygordobossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Gordo" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Gordo Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygordobossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygordobossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygordobossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Gordo" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Gordo Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygordobossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygordobossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygordobossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Gordo" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Gordo Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygordobossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygordobossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygordobossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Gordo" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Calci")
+Tab:AddButton({
+Name = "Get Calci Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson2:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Crimson2", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCCrimson2"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Calci Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson2:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Crimson2", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCCrimson2"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Calci Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbycalcibossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbycalcibossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbycalcibossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Calci" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Calci Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbycalcibossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbycalcibossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbycalcibossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Calci" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Calci Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbycalcibossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbycalcibossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbycalcibossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Calci" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Calci Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbycalcibossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbycalcibossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbycalcibossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Calci" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Truffle")
+Tab:AddButton({
+Name = "Get Truffle Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson3:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Crimson3", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCCrimson3"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Truffle Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson3:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Crimson3", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCCrimson3"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Truffle Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbytrufflebossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbytrufflebossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbytrufflebossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Truffle" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Truffle Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbytrufflebossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbytrufflebossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbytrufflebossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Truffle" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Truffle Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbytrufflebossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbytrufflebossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbytrufflebossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Truffle" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Truffle Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbytrufflebossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbytrufflebossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbytrufflebossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Truffle" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Nemba")
+Tab:AddButton({
+Name = "Get Nemba Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson4:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Crimson4", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCCrimson4"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Nemba Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson4:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Crimson4", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCCrimson4"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Nemba Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbynembabossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbynembabossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbynembabossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Nemba" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Nemba Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbynembabossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbynembabossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbynembabossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Nemba" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Nemba Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbynembabossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbynembabossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbynembabossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Nemba" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Nemba Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbynembabossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbynembabossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbynembabossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Nemba" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Elmano")
+Tab:AddButton({
+Name = "Get Elmano Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson5:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Crimson5", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCCrimson5"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Elmano Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson5:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Crimson5", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quests"):WaitForChild("QuestNPCCrimson5"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Elmano Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyelmanobossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyelmanobossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyelmanobossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Elmano" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Elmano Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyelmanobossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyelmanobossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyelmanobossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Elmano" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Elmano Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyelmanobossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyelmanobossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyelmanobossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Elmano" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Elmano Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyelmanobossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyelmanobossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyelmanobossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Elmano" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Veggy")
+Tab:AddToggle({
+    Name = "Auto Nearby Veggy Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyveggybossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyveggybossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyveggybossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Veggy" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Veggy Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyveggybossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyveggybossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyveggybossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Veggy" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Veggy Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyveggybossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyveggybossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyveggybossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Veggy" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Veggy Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyveggybossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyveggybossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyveggybossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Veggy" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Selliot I, Selliot II, Selliot III")
+Tab:AddToggle({
+    Name = "Auto Nearby Selliot I Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyselliotbossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyselliotbossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyselliotbossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Selliot I" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Selliot I Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyselliotbossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyselliotbossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyselliotbossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Selliot I" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Selliot I Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyselliotbossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyselliotbossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyselliotbossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Selliot I" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Selliot I Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyselliotbossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyselliotbossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyselliotbossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Selliot I" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Selliot II Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyselliotbossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyselliotbossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyselliotbossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Selliot II" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Selliot II Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyselliotbossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyselliotbossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyselliotbossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Selliot II" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Selliot II Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyselliotbossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyselliotbossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyselliotbossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Selliot II" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Selliot II Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyselliotbossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyselliotbossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyselliotbossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Selliot II" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Selliot III Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyselliotbossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyselliotbossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyselliotbossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Selliot III" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Selliot III Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyselliotbossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyselliotbossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyselliotbossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Selliot III" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Selliot III Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyselliotbossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyselliotbossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyselliotbossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Selliot III" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Selliot III Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyselliotbossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyselliotbossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyselliotbossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Selliot III" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+local Tab = Window:MakeTab({
+Name = "Quest NPCS",
+Icon = "rbxassetid://4483345998",
+PremiumOnly = false
+})
+Tab:AddButton({
+Name = "Gordo Quest",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson1:WaitForChild("Head").CFrame
+end
+})
+Tab:AddButton({
+Name = "Calci Quest",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson2:WaitForChild("Head").CFrame
+end
+})
+Tab:AddButton({
+Name = "Truffle Quest",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson3:WaitForChild("Head").CFrame
+end
+})
+Tab:AddButton({
+Name = "Nemba Quest",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson4:WaitForChild("Head").CFrame
+end
+})
+Tab:AddButton({
+Name = "Elmano Quest",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson5:WaitForChild("Head").CFrame
+end
+})
+Tab:AddButton({
+Name = "Gordo Quest 2",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson1:WaitForChild("HumanoidRootPart").CFrame
+end
+})
+Tab:AddButton({
+Name = "Calci Quest 2",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson2:WaitForChild("HumanoidRootPart").CFrame
+end
+})
+Tab:AddButton({
+Name = "Truffle Quest 2",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson3:WaitForChild("HumanoidRootPart").CFrame
+end
+})
+Tab:AddButton({
+Name = "Nemba Quest 2",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson4:WaitForChild("HumanoidRootPart").CFrame
+end
+})
+Tab:AddButton({
+Name = "Elmano Quest 2",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quests.QuestNPCCrimson5:WaitForChild("HumanoidRootPart").CFrame
+end
+})
+local Tab = Window:MakeTab({
+Name = "Teleports",
+Icon = "http://www.roblox.com/asset/?id=4335489011",
+PremiumOnly = false
+})
+local Section = Tab:AddSection({
+Name = "Click the Buttons to Teleport"
+})
+Tab:AddButton({
+    Name = "Go To Potential Unleashed Giver Spawns (Checks All Spawn Locations!)",
+    Callback = function()
+        for i, position in ipairs({
+            CFrame.new(-1693.3656, 303.052032, 1924.12268, 0.90629667, 0, 0.422642082, 0, 1, 0, -0.422642082, 0, 0.90629667),
+            CFrame.new(-1904.1593, 309.511108, -91.1748352, -1, 0, 0, 0, 1, 0, 0, 0, -1),
+            CFrame.new(-1498.99414, 398.052277, -1774, 0, 0, 1, 0, 1, -0, -1, 0, 0),
+            CFrame.new(398.183838, 148.855316, -17.7955437, 0, 0, -1, 0, 1, 0, 1, 0, 0),
+            CFrame.new(759.57959, 27.5262451, -1705.27344, -1, 0, 0, 0, 1, 0, 0, 0, -1)
+        }) do
+            game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = position
+            task.wait(5)
+        end
+    end
+})
+Tab:AddButton({
+    Name = "Go To Potential Unleashed Giver (Only Works If Spawned!)",
+    Callback = function()
+        if game:GetService("Workspace").Misc.NPC:FindFirstChild("TechniquePotentialUnleashedGiver") and game:GetService("Workspace").Misc.NPC.TechniquePotentialUnleashedGiver:FindFirstChild("Head") then
+            task.wait(0.75)
+            game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.TechniquePotentialUnleashedGiver:WaitForChild("Head").CFrame
+        end
+    end
+})
+Tab:AddButton({
+    Name = "Go To Potential Unleashed Giver 2 (Only Works If Spawned!)",
+    Callback = function()
+        if game:GetService("Workspace").Misc.NPC:FindFirstChild("TechniquePotentialUnleashedGiver") and game:GetService("Workspace").Misc.NPC.TechniquePotentialUnleashedGiver:FindFirstChild("HumanoidRootPart") then
+            task.wait(0.75)
+            game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.TechniquePotentialUnleashedGiver:WaitForChild("HumanoidRootPart").CFrame
+        end
+    end
+})
+Tab:AddButton({
+Name = "Go To Quest Board",
+Callback = function()
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-248.435837, 33.3595467, -15.8113546, 0.690788031, 2.12935536e-08, 0.72305733, 4.67363837e-09, 1, -3.39143895e-08, -0.72305733, 2.6806962e-08, 0.690788031)
+end
+})
+Tab:AddButton({
+Name = "World Teleporter",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-266.618866, 33.4995346, 79.0342484, -0.616952956, 3.93932638e-08, 1 / 20.78700006, 5.72333221e-08, 1, -5.18805443e-09, -0.78700006, 4.18418402e-08, -0.616952956)
+end
+})
+Tab:AddButton({
+Name = "Destroyer Island (150 Rebirths)",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-460.342468, 721.318359, -3312.09106, 0.406636566, -1.9139728e-08, 0.913590014, -1.29848465e-09, 1, 2.15279705e-08, -0.913590014, -9.94034277e-09, 0.406636566)
+end
+})
+Tab:AddButton({
+Name = "Sacred Island (200 Rebirths)",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-405.131439, 340.101257, 4825.9917, 0.993643582, 1.04513722e-08, -0.112572022, -1.11410348e-08, 1, -5.49732926e-09, 0.112572022, 6.71655487e-09, 0.993643582)
+end
+})
+Tab:AddButton({
+Name = "Lava Fountain (250 Rebirths)",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(317.889587, 360.905792, 924.191833, 0.996388674, 4.20182472e-10, -0.0849095136, -1.95517574e-10, 1, 2.65424882e-09, 0.0849095136, -2.62806221e-09, 0.996388674)
+end
+})
+Tab:AddButton({
+Name = "Sacred Altar (300 Rebirths)",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-2212.30493, 349.826904, 1398.73438, 0.0920928121, -3.8634262e-08, -0.995750427, 9.89298865e-09, 1, -3.78841811e-08, 0.995750427, -6.36208686e-09, 0.0920928121)
+end
+})
+local Tab = Window:MakeTab({
+Name = "Worlds",
+Icon = "rbxassetid://4483345998",
+PremiumOnly = false
+})
+local Section = Tab:AddSection({
+Name = "Click The Button To Be Teleported To That World"
+})
+Tab:AddButton({
+Name = "Main World",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(3177438863)
+end
+})
+Tab:AddButton({
+Name = "Crimson Planet (30 Rebirths Required)",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(7040546583)
+end
+})
+Tab:AddButton({
+Name = "Planet Droid (150 Rebirths Required)",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(7888441249)
+end
+})
+Tab:AddButton({
+Name = "World Of Tournament (Script Wont Work Here!)",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(7379325123)
+end
+})
+Tab:AddButton({
+Name = "Battlegrounds (Script Wont Work Here!)",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(14516089806)
+end
+})
+Tab:AddButton({
+Name = "AFK World (Script Wont Work Here!)",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(18501029209)
+end
+})
+Tab:AddButton({
+Name = "Trade Hub (Script Wont Work Here!)",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(18408422178)
+end
+})
+local Tab = Window:MakeTab({
+Name = "Anti's",
+Icon = "http://www.roblox.com/asset/?id=7734056608",
+PremiumOnly = false
+}) 
+Tab:AddToggle({
+    Name = "Anti Admins (Dont use with anti kick!)",
+    Default = false,
+    Save = true,
+    Flag = "antiadmins_db",
+    Callback = function(Value)
+        getgenv().AntiAdmins = Value
+        
+        while getgenv().AntiAdmins and task.wait() do
+            local AdminNames = {
+                "Jirenato", 
+                "ReignImperatus", 
+                "Zephyrus_Yi", 
+                "ratedroeh", 
+                "Natt_P5", 
+                "O_ORui", 
+                "BexDragoon", 
+                "pokemonhaden", 
+                "XADED4971", 
+                "AltForTGBN", 
+                "notrmdx", 
+                "Npinoy"
+            }
+
+            for i, player in ipairs(game:GetService("Players"):GetPlayers()) do
+                if table.find(AdminNames, player.Name) then
+                    game:GetService("Players").LocalPlayer:Kick("Holy shit admin detected! You almost got banned there bud!")
+                end
+            end
+
+            task.wait(0.1)
+        end
+    end
+})
+Tab:AddButton({
+Name = "Anti Cheat Bypass (Bypass Anti Exploit Manager!)",
+Callback = function()
+local mt = getrawmetatable(game)
+setreadonly(mt, false)
+
+local oldNamecall = mt.__namecall
+mt.__namecall = newcclosure(function(self, ...)
+    local args = {...}
+    local method = getnamecallmethod()
+    if method == "Kick" or method == "Destroy" then
+        warn("[Bypass] Anti-cheat tried to kick you!")
+        return false
+    end
+    return oldNamecall(self, unpack(args))
+end)
+
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+local StarterGui = game:GetService("StarterGui")
+
+local HeartbeatConnection
+
+if HeartbeatConnection then HeartbeatConnection:Disconnect() end
+HeartbeatConnection = RunService.Heartbeat:Connect(function()
+    sethiddenproperty(Players.LocalPlayer, "SimulationRadius", math.huge)
+end)
+
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local BlockedRemotes = {"AntiCheatEvent1", "AntiCheatEvent2"}
+
+local oldFireServer = Instance.new("RemoteEvent").FireServer
+hookfunction(oldFireServer, function(self, ...)
+    if table.find(BlockedRemotes, self.Name) then
+        warn("[Bypass] Blocked remote:", self.Name)
+        return false
+    end
+    return oldFireServer(self, ...)
+end)
+
+local function SpoofPlayerData()
+    local Player = Players.LocalPlayer
+    while task.wait(0.5) do
+        if Player.Character then
+            local Humanoid = Player.Character:FindFirstChildOfClass("Humanoid")
+            if Humanoid then
+                Humanoid.WalkSpeed = 16
+                Humanoid.JumpPower = 50
+            end
+        end
+    end
+end
+task.spawn(SpoofPlayerData)
+
+StarterGui:SetCore("SendNotification", {
+    Title = "Bypass Active",
+    Text = "Anti-Cheat successfully bypassed.",
+    Duration = 5
+})
+end
+})
+Tab:AddToggle({
+Name = "Anti Kick",
+Default = false,
+Save = true,
+Flag = "antikick_db",
+Callback = function(Value)
+getgenv().Anti = Value
+if Value then
+local plr = game:GetService("Players").LocalPlayer
+local Anti
+Anti = hookmetamethod(game, "__namecall", function(self, ...)
+if self == plr and getnamecallmethod():lower() == "kick" and getgenv().Anti then
+return warn("[ANTI-KICK] Client Tried To Call Kick Function On LocalPlayer")
+end
+return Anti(self, ...)
+end)
+else
+if Anti then
+getgenv().Anti = false
+hookmetamethod(game, "__namecall", Anti)
+Anti = false
+end
+end
+end
+})
+Tab:AddToggle({
+Name = "Anti Destroy",
+Default = false,
+Save = true,
+Flag = "antidestroy_db",
+Callback = function(Value)
+getgenv().Anti = Value
+if Value then
+local plr = game:GetService("Players").LocalPlayer
+local Anti
+Anti = hookmetamethod(game, "__namecall", function(self, ...)
+if self == plr and getnamecallmethod():lower() == "destroy" and getgenv().Anti then
+return warn("[ANTI-DESTROY] Client Tried To Call Destroy Function On LocalPlayer")
+end
+return Anti(self, ...)
+end)
+else
+if Anti then
+getgenv().Anti = false
+hookmetamethod(game, "__namecall", Anti)
+Anti = false
+end
+end
+end
+})
+Tab:AddToggle({
+Name = "Anti Afk",
+Default = false,
+Save = true,
+Flag = "antiafk_db",
+Callback = function(Value)
+if Value then
+local GC = getconnections or get_signal_cons
+if GC then
+for i, v in ipairs(GC(game:GetService("Players").LocalPlayer.Idled)) do
+if v["Disable"] then
+v["Disable"](v)
+elseif v["Disconnect"] then
+v["Disconnect"](v)
+end
+end
+else
+local VirtualUser = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:Connect(function()
+VirtualUser:CaptureController()
+VirtualUser:ClickButton2(Vector2.new())
+end)
+end
+else
+end
+end
+})
+local Tab = Window:MakeTab({
+Name = "Spawn Items",
+Icon = "http://www.roblox.com/asset/?id=7733674079",
+PremiumOnly = false
+})
+Tab:AddButton({
+Name = "Teleport To Relics",
+Callback = function()
+for i, position in ipairs({
+    CFrame.new(-2273.83179, 28.2519531, -2429.64062, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+    CFrame.new(820.891541, 26.2505569, 1990.21655, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+    CFrame.new(253.534485, 130.25, -770.795044, 0.955216229, 0, 0.295908749, 0, 1, 0, -0.295908749, 0, 0.955216229),
+    CFrame.new(-2107.59253, 26.2521133, 497.246094, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+    CFrame.new(446.697571, 26.2511673, 736.373047, 0.881064892, 0, 0.472995371, 0, 1, 0, -0.472995371, 0, 0.881064892),
+    CFrame.new(-355.540985, 26.2507324, -2043.2832, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+}) do
+    game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = position
+    task.wait(5)
+end
+end
+})
+Tab:AddButton({
+Name = "Teleport To Relics 2 (Stay At Current Location!)",
+Callback = function()
+for i, position in ipairs({
+    CFrame.new(-2273.83179, 28.2519531, -2429.64062, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+    CFrame.new(820.891541, 26.2505569, 1990.21655, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+    CFrame.new(253.534485, 130.25, -770.795044, 0.955216229, 0, 0.295908749, 0, 1, 0, -0.295908749, 0, 0.955216229),
+    CFrame.new(-2107.59253, 26.2521133, 497.246094, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+    CFrame.new(446.697571, 26.2511673, 736.373047, 0.881064892, 0, 0.472995371, 0, 1, 0, -0.472995371, 0, 0.881064892),
+    CFrame.new(-355.540985, 26.2507324, -2043.2832, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+}) do
+    local endTime = tick() + 5
+    while tick() < endTime do
+        game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = position
+        task.wait(1.25)
+    end
+end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Teleport To Relics",
+    Default = false,
+    Save = true,
+    Flag = "autorelics_db",
+    Callback = function(Value)
+        getgenv().AutoRelics = Value
+        while getgenv().AutoRelics and task.wait() do
+            for i, position in ipairs({
+                CFrame.new(-2273.83179, 28.2519531, -2429.64062, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+                CFrame.new(820.891541, 26.2505569, 1990.21655, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+                CFrame.new(253.534485, 130.25, -770.795044, 0.955216229, 0, 0.295908749, 0, 1, 0, -0.295908749, 0, 0.955216229),
+                CFrame.new(-2107.59253, 26.2521133, 497.246094, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+                CFrame.new(446.697571, 26.2511673, 736.373047, 0.881064892, 0, 0.472995371, 0, 1, 0, -0.472995371, 0, 0.881064892),
+                CFrame.new(-355.540985, 26.2507324, -2043.2832, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+            }) do
+                game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = position
+                task.wait(5)
+            end
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Auto Teleport To Relics 2 (Stay At Current Location!)",
+    Default = false,
+    Save = true,
+    Flag = "autorelics_db",
+    Callback = function(Value)
+        getgenv().AutoRelics = Value
+        while getgenv().AutoRelics and task.wait() do
+            for i, position in ipairs({
+                CFrame.new(-2273.83179, 28.2519531, -2429.64062, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+                CFrame.new(820.891541, 26.2505569, 1990.21655, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+                CFrame.new(253.534485, 130.25, -770.795044, 0.955216229, 0, 0.295908749, 0, 1, 0, -0.295908749, 0, 0.955216229),
+                CFrame.new(-2107.59253, 26.2521133, 497.246094, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+                CFrame.new(446.697571, 26.2511673, 736.373047, 0.881064892, 0, 0.472995371, 0, 1, 0, -0.472995371, 0, 0.881064892),
+                CFrame.new(-355.540985, 26.2507324, -2043.2832, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+            }) do
+                local endTime = tick() + 5
+                while tick() < endTime do
+                    game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = position
+                    task.wait(0.1)
+                end
+            end
+        end
+    end
+})
+Tab:AddToggle({
+Name = "Auto Relics (Must Be Near Standard Wish Tokens!)",
+Default = false,
+Save = true,
+Flag = "autotokens_db",
+Callback = function(Value)
+getgenv().AutoTokens = Value
+while getgenv().AutoTokens and task.wait() do
+for i, part in ipairs(game:GetService("Workspace"):WaitForChild("PartStorage"):GetDescendants()) do
+    if part:IsA("BasePart") then
+        for i, v in ipairs(part:GetDescendants()) do
+            if v:IsA("ProximityPrompt") and v.ObjectText and v.ObjectText:find("Token") then
+                if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                    game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = part.CFrame + Vector3.new(0, 5, 0)
+                    task.wait(0.5)
+                    fireproximityprompt(v, 1)
+                    task.wait(2)
+                end
+                break
+            end
+        end
+    end
+end
+end
+end
+})
+Tab:AddToggle({
+Name = "Auto Orbs (Must Be Near Orbs!)",
+Default = false,
+Save = true,
+Flag = "autoorbs_db",
+Callback = function(Value)
+getgenv().AutoOrbs = Value
+while getgenv().AutoOrbs and task.wait() do
+for i, part in ipairs(game:GetService("Workspace"):WaitForChild("PartStorage"):GetDescendants()) do
+    if part:IsA("BasePart") then
+        for i, v in ipairs(part:GetDescendants()) do
+            if v:IsA("ProximityPrompt") and v.ObjectText and v.ObjectText:find("Orb") then
+                if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                    game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = part.CFrame + Vector3.new(0, 5, 0)
+                    task.wait(0.5)
+                    fireproximityprompt(v, 1)
+                    task.wait(2)
+                end
+                break
+            end
+        end
+    end
+end
+end
+end
+})
+Tab:AddToggle({
+Name = "Auto Nearby Interact",
+Default = false,
+Save = true,
+Flag = "autonearbyinteract_db",
+Callback = function(Value)
+getgenv().AutoNearbyInteract = Value
+while getgenv().AutoNearbyInteract and task.wait() do
+function fire()
+    if game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        for i, v in ipairs(game:GetService("Workspace"):GetDescendants()) do
+            if v:IsA("ProximityPrompt") then
+                if ((game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position - v.Parent.Position).Magnitude <= 10) then
+                    fireproximityprompt(v)
+                end
+            end
+        end
+    end
+end
+
+fire()
+end
+end
+})
+Tab:AddToggle({
+Name = "Auto Nearby Interact 2 (Maybe Use 1!)",
+Default = false,
+Save = true,
+Flag = "autonearbyinteract_db",
+Callback = function(Value)
+getgenv().AutoNearbyInteract = Value
+while getgenv().AutoNearbyInteract and task.wait() do
+function fire()
+    if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Head") then
+        for i, v in ipairs(game:GetService("Workspace"):GetDescendants()) do
+            if v:IsA("ProximityPrompt") then
+                if ((game:GetService("Players").LocalPlayer.Character:WaitForChild("Head").Position - v.Parent.Position).Magnitude <= 10) then
+                    fireproximityprompt(v)
+                end
+            end
+        end
+    end
+end
+
+fire()
+end
+end
+})
+Tab:AddButton({
+Name = "Instant Nearby Interact",
+Callback = function()
+function fire()
+    if game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        for i, v in ipairs(game:GetService("Workspace"):GetDescendants()) do
+            if v:IsA("ProximityPrompt") then
+                if ((game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position - v.Parent.Position).Magnitude <= 10) then
+                    fireproximityprompt(v)
+                end
+            end
+        end
+    end
+end
+
+fire()
+end
+})
+Tab:AddButton({
+Name = "Instant Nearby Interact 2 (Maybe use 1!)",
+Callback = function()
+function fire()
+    if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Head") then
+        for i, v in ipairs(game:GetService("Workspace"):GetDescendants()) do
+            if v:IsA("ProximityPrompt") then
+                if ((game:GetService("Players").LocalPlayer.Character:WaitForChild("Head").Position - v.Parent.Position).Magnitude <= 10) then
+                    fireproximityprompt(v)
+                end
+            end
+        end
+    end
+end
+
+fire()
+end
+})
+Tab:AddButton({
+Name = "Buy 3 Wish Tokens (Need 7 Relics!)",
+Callback = function()
+local args = {
+    [1] = "Standard",
+    [2] = 1
+}
+
+game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.WishService.RF.buyFromShop:InvokeServer(unpack(args))
+end
+})
+Tab:AddButton({
+Name = "Buy Premium Wish Tokens (Need Gold!)",
+Callback = function()
+local args = {
+    [1] = "Premium",
+    [2] = 1
+}
+
+game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.WishService.RF.buyFromShop:InvokeServer(unpack(args))
+end
+})
+local Tab = Window:MakeTab({
+Name = "Events",
+Icon = "http://www.roblox.com/asset/?id=7733674079",
+PremiumOnly = false
+})
+Tab:AddLabel("The Current Event Is SUMMER EVENT!")
+Tab:AddLabel("I Have Added Auto Farm For This Event!")
+Tab:AddLabel("I Will Update This Whenever A New One Comes Out!")
+Tab:AddLabel("Event Is Active Through June 28/12:00 PM To July 5/12:00 AM")
+Tab:AddParagraph("Event Information","New Main World Event Island, New Event Shop, New Event Boss, New Tokens, MORE REWARDS!")
+local Tab = Window:MakeTab({
+Name = "Codes/Trades",
+Icon = "rbxassetid://4483345998",
+PremiumOnly = false,
+})
+Tab:AddLabel("I Have Added A Codes Channel For Users!")
+Tab:AddLabel("Please Know That These Codes May Expire At Any Time!")
+Tab:AddLabel("I Will Update This Whenever A New One Comes Out!")
+Tab:AddParagraph("The Current Codes Is MOREFREECODES, TENFREEWISHES, PREMIUMSGALORE")
+Tab:AddTextbox({
+Name = "Codes (Redeem!)",
+Default = "",
+TextDisappear = false,
+Callback = function(Value)
+local args = {
+[1] = {
+["UniqueTag"] = "RedeemCode",
+["InputText"] = Value,
+["InputType"] = "Text",
+["LeftButton"] = "Redeem",
+["Description"] = "Redeem Code",
+["Prompt"] = "RedeemCode",
+["RightButton"] = "Cancel",
+["Title"] = "Codes"
+},
+[2] = "Redeem"
+}
+game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.PromptService.RE.Prompt:FireServer(unpack(args))
+end
+})
+Tab:AddTextbox({
+    Name = "Trades (Enter Player Username Here!)",
+    Default = "",
+    TextDisappear = false,
+    Callback = function(Value)
+        local player = game:GetService("Players"):FindFirstChild(Value)
+        if player then
+            OrionLib:MakeNotification({
+                Name = "Player Found!",
+                Content = "Sending Trade!",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+            local args = {
+                [1] = player
+            }
+            game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.TradeService.RE.RequestTrade:FireServer(unpack(args))
+        else
+        OrionLib:MakeNotification({
+                Name = "Player Not Found!",
+                Content = "That Player Does Not Exist. Please Try Again!",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    end
+})
+local Tab = Window:MakeTab({
+Name = "Credits",
+Icon = "http://www.roblox.com/asset/?id=4370318685",
+PremiumOnly = false
+})
+Tab:AddLabel("Script is made by STR")
+Tab:AddLabel("Credits to STR!")
+Tab:AddButton({
+Name = "Youtube",
+Callback = function()
+setclipboard("https://m.youtube.com/channel/UCa1xzPElap7CUTGtj0QhdwA")
+end
+})
+Tab:AddButton({
+Name = "Scriptblox",
+Callback = function()
+setclipboard("https://scriptblox.com/u/STR")
+end
+})
+Tab:AddBind({
+Name = "UI Toggle Keybind", 
+Default = Enum.KeyCode.RightShift, 
+Hold = false, 
+Callback = function()
+print("press")
+end
+})
+elseif game.PlaceId == 7888441249 then -- World 3
+if not game:IsLoaded() then
+game.Loaded:Wait()
+end
+local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/STR/Exploits/refs/heads/main/ORION")))();
+OrionLib:MakeNotification({
+Name = "Dragon Blox",
+Content = "Scripted By STR (This Script Is So Peak!)",
+Image = "rbxassetid://4483345998",
+Time = 5
+})
+local Window = OrionLib:MakeWindow({
+Name = "STR | Dragon Blox [" .. os.date("%Y") .. "]",
+HidePremium = false,
+SaveConfig = false,
+ConfigFolder = "Dragon Blox",
+IntroEnabled = true,
+IntroText = "Dragon Blox Gui loaded world 3",
+})
+-- local mytable
+local MyTable = {
+["AutoPunch"] = false,
+["AutoPunch2"] = false,
+["AutoBlock"] = false,
+["AutoAgility"] = false,
+["AutoEnergy"] = false,
+["AutoEnergyBall"] = false,
+["AutoTechnique"] = false,
+["AutoRebirth"] = false,
+["AutoSpin"] = false,
+["AutoDrops"] = false,
+["AutoDrops2"] = false,
+["AutoDrops3"] = false,
+["AutoDrops4"] = false,
+["AutoDrops5"] = false,
+["AutoDrops6"] = false,
+}
+
+--Bool Values
+getgenv().AutoPunch = false
+getgenv().AutoPunch2 = false
+getgenv().AutoBlock = false
+getgenv().AutoAgility = false
+getgenv().AutoEnergy = false
+getgenv().AutoEnergyBall = false
+getgenv().AutoTechnique = false
+getgenv().AutoRebirth = false
+getgenv().AutoSpin = false
+getgenv().AutoDrops = false
+getgenv().AutoDrops2 = false
+getgenv().AutoDrops3 = false
+getgenv().AutoDrops4 = false
+getgenv().AutoDrops5 = false
+getgenv().AutoDrops6 = false
+
+--functions
+function autopunch()
+while getgenv().AutoPunch == true do task.wait()
+local args = {
+[1] = {
+["Camera"] = game:GetService("Workspace").Camera.CFrame,
+["SkillId"] = "1",
+["Began"] = true,
+["CFrame"] = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame,
+["Typ\208\181"] = 1,
+["Aim"] = (game:GetService("Workspace").Camera.CFrame.Position+game:GetService("Workspace").Camera.CFrame.LookVector*100)
+}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(args))
+end
+end
+
+function autopunch2()
+while getgenv().AutoPunch2 == true do task.wait()
+game:GetService("VirtualInputManager"):SendMouseButtonEvent(0, 0, 0, true, game, 1)
+game:GetService("VirtualInputManager"):SendMouseButtonEvent(0, 0, 0, false, game, 1)
+end
+end
+
+function autoblock()
+    while getgenv().AutoBlock do
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.B, false, game)
+        task.wait()
+    end
+    game:GetService("VirtualInputManager"):SendKeyEvent(false, Enum.KeyCode.B, false, game)
+end
+
+function autoagility()
+while getgenv().AutoAgility == true do task.wait()
+game:GetService("Players").LocalPlayer.Character.Humanoid:Move(Vector3.new(0, 0, -1), true)
+end
+end
+
+function autoenergy()
+    while getgenv().AutoEnergy do
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.C, false, game)
+        task.wait()
+    end
+    game:GetService("VirtualInputManager"):SendKeyEvent(false, Enum.KeyCode.C, false, game)
+end
+
+function autoenergyball()
+while getgenv().AutoEnergyBall == true do task.wait()
+local args = {
+    [1] = {
+        ["Camera"] = game:GetService("Workspace").Camera.CFrame,
+        ["SkillId"] = "101",
+        ["Began"] = true,
+        ["CFrame"] = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame,
+        ["Typ\208\181"] = 1,
+        ["Aim"] = (game:GetService("Workspace").Camera.CFrame.Position+game:GetService("Workspace").Camera.CFrame.LookVector*100)
+    }
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(args))
+end
+end
+
+function autotechnique()
+while getgenv().AutoTechnique == true do task.wait()
+local args = {
+[1] = {
+["Camera"] = game:GetService("Workspace").Camera.CFrame,
+["SkillId"] = "8",
+["Began"] = true,
+["CFrame"] = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame,
+["Typ\208\181"] = 1,
+["Aim"] = (game:GetService("Workspace").Camera.CFrame.Position+game:GetService("Workspace").Camera.CFrame.LookVector*100)
+}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(args))
+end
+end
+
+function autorebirth()
+    while getgenv().AutoRebirth == true do 
+        task.wait()
+        
+        for i, rb in ipairs(game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Frame.Stats.AspectRatioFrame.StatHUD.Frame:GetChildren()) do
+            if rb:FindFirstChild("RebirthButton") and rb:FindFirstChild("RebirthButton").BackgroundTransparency ~= 1 then
+                game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.PlayerLevelService.RF.RequestRebirth:InvokeServer()
+            end
+        end
+    end
+end
+
+function autodrops()
+    while getgenv().AutoDrops do
+        task.wait()
+        for i, chest in next, game:GetService("ReplicatedStorage").Assets.Other.Chests:GetChildren() do
+            if chest:IsA("Model") then
+                for i, v in next, game:GetService("Workspace").PartStorage:GetChildren() do
+                    if v.Name == chest.Name and v.Base and v.Base:FindFirstChildOfClass("ProximityPrompt") then
+                        fireproximityprompt(v.Base.ProximityPrompt)
+                    end
+                end
+            end
+        end
+    end
+end
+
+function autodrops2()
+    while getgenv().AutoDrops2 do
+        task.wait()      
+        for i, chest in next, game:GetService("ReplicatedStorage").Assets.Other.Chests:GetChildren() do
+            for i, v in next, game:GetService("Workspace").PartStorage:GetChildren() do
+                if v.Name == chest.Name and v.Base and v.Base:FindFirstChildOfClass("ProximityPrompt") then
+                    fireproximityprompt(v.Base.ProximityPrompt)
+                end
+            end
+        end
+    end
+end
+
+function autodrops3()
+    while getgenv().AutoDrops3 do
+        task.wait()      
+        for i, v in next, game:GetService("Players").LocalPlayer:WaitForChild("Stats"):WaitForChild("LootDrops"):GetChildren() do
+            local args = {
+                "Take",
+                v
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ChestDropService"):WaitForChild("RE"):WaitForChild("ItemDropRequest"):FireServer(unpack(args))
+        end
+    end
+end
+
+function autodrops4()
+    while getgenv().AutoDrops4 do
+        task.wait()      
+        for i, v in next, game:GetService("Players").LocalPlayer:WaitForChild("Stats"):WaitForChild("LootDrops"):GetChildren() do
+            if v:IsA("CFrameValue") then
+                local args = {
+                    "Take",
+                    v
+                }
+                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ChestDropService"):WaitForChild("RE"):WaitForChild("ItemDropRequest"):FireServer(unpack(args))
+            end
+        end
+    end
+end
+
+function autodrops5()
+    while getgenv().AutoDrops5 do
+        task.wait()
+        for i, chest in next, game:GetService("ReplicatedStorage").Assets.Other.Chests:GetChildren() do
+            if chest:IsA("Model") then
+                for i, v in next, game:GetService("Workspace").PartStorage:GetChildren() do
+                    if v.Name == chest.Name and v.Base and v.Base:FindFirstChildOfClass("ProximityPrompt") then
+                        firesignal(v.Base.ProximityPrompt.Triggered)
+                    end
+                end
+            end
+        end
+    end
+end
+
+function autodrops6()
+    while getgenv().AutoDrops6 do
+        task.wait()
+        for i, chest in next, game:GetService("ReplicatedStorage").Assets.Other.Chests:GetChildren() do
+            for i, v in next, game:GetService("Workspace").PartStorage:GetChildren() do
+                if v.Name == chest.Name and v.Base and v.Base:FindFirstChildOfClass("ProximityPrompt") then
+                    firesignal(v.Base.ProximityPrompt.Triggered)
+                end
+            end
+        end
+    end
+end
+
+function autospin()
+while getgenv().AutoSpin == true do task.wait()
+local args = {
+[1] = "SpinMain"
+}
+
+game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.LootPoolService.RF.SpinRequest:InvokeServer(unpack(args))
+end
+end
+
+local Tab = Window:MakeTab({
+Name = "AutoFarm",
+Icon = "rbxassetid://4483345998",
+PremiumOnly = false
+})
+local Section = Tab:AddSection({
+Name = "Autofarm Stuff (Rejoin to Undo)"
+})
+Tab:AddToggle({
+Name = "Auto Punch (Fast)",
+Default = false,
+Save = true,
+Flag = "autopunch_db",
+Callback = function(Value)
+getgenv().AutoPunch = Value
+autopunch()
+end
+})
+Tab:AddToggle({
+Name = "Auto Punch 2 (Fast)",
+Default = false,
+Save = true,
+Flag = "autopunch2_db",
+Callback = function(Value)
+getgenv().AutoPunch2 = Value
+autopunch2()
+end
+})
+Tab:AddToggle({
+Name = "Auto Energy (Charge Energy!)",
+Default = false,
+Save = true,
+Flag = "autoenergy_db",
+Callback = function(Value)
+getgenv().AutoEnergy = Value
+autoenergy()
+end
+})
+Tab:AddToggle({
+    Name = "Auto Energy (Charge Energy At 10%!)",
+    Default = false,
+    Save = true,
+    Flag = "autoenergyat10percent_db",
+    Callback = function(Value)
+        getgenv().AutoEnergyAt10Percent = Value
+        if Value then
+            task.spawn(function()
+                while getgenv().AutoEnergyAt10Percent do
+                    local character = game:GetService("Workspace").Characters:FindFirstChild(game:GetService("Players").LocalPlayer.Name)
+                    if character and character:FindFirstChild("Status") then
+                        local status = character.Status
+                        local energy = status:FindFirstChild("CurrentEnergy")
+                        local maxEnergy = status:FindFirstChild("MaxEnergy")
+                        if energy and maxEnergy and energy.Value < (maxEnergy.Value * 0.1) then
+                            game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.C, false, game)
+                            repeat task.wait()
+                            until not character or not character.Parent or not status or not energy or not maxEnergy or energy.Value >= (maxEnergy.Value * 0.5) or not getgenv().AutoEnergyAt10Percent
+                            game:GetService("VirtualInputManager"):SendKeyEvent(false, Enum.KeyCode.C, false, game)
+                        end
+                    end
+                    task.wait()
+                end
+            end)
+        end
+    end
+})
+Tab:AddToggle({
+Name = "Auto Block",
+Default = false,
+Save = true,
+Flag = "autoblock_db",
+Callback = function(Value)
+getgenv().AutoBlock = Value
+autoblock()
+end
+})
+Tab:AddToggle({
+Name = "Auto Agility",
+Default = false,
+Save = true,
+Flag = "autoagility_db",
+Callback = function(Value)
+getgenv().AutoAgility = Value
+autoagility()
+end
+})
+Tab:AddToggle({
+Name = "Auto Energy Ball (Drains Ki)",
+Default = false,
+Save = true,
+Flag = "autoenergyball_db",
+Callback = function(Value)
+getgenv().AutoEnergyBall = Value
+autoenergyball()
+end
+})
+Tab:AddToggle({
+    Name = "Auto Energy Ball 2 (Drains Ki)",
+    Default = false,
+    Save = true,
+    Flag = "autoenergyball2_db",
+    Callback = function(Value)
+        getgenv().AutoEnergyBall2 = Value        
+        if Value then
+            coroutine.wrap(function()
+                while getgenv().AutoEnergyBall2 do
+                    game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.E, false, game)
+                    task.wait()
+                end
+            end)()
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Auto Lock On (Aimbot!)",
+    Default = false,
+    Save = true,
+    Flag = "autolockon_db",
+    Callback = function(v)
+        getgenv().AutoLockOn = v
+        if v then coroutine.wrap(function()
+            local lp, ws, vim = game.Players.LocalPlayer, workspace, game:GetService("VirtualInputManager")
+            local currentTarget, maxDist = nil, 50
+            while AutoLockOn and task.wait(0.1) do
+                local chr = lp.Character
+                if not (chr and chr:FindFirstChild("HumanoidRootPart")) then continue end
+                local pos = chr:WaitForChild("HumanoidRootPart").Position                
+                if currentTarget and (not currentTarget:IsDescendantOf(ws) or 
+                   (currentTarget.Humanoid.Health <= 0) or 
+                   (currentTarget:WaitForChild("HumanoidRootPart").Position - pos).Magnitude > maxDist) then
+                    currentTarget = nil
+                end                
+                if not currentTarget then
+                    local closestDist = maxDist
+                    for _,model in pairs(ws:GetDescendants()) do
+                        if model:IsA("Model") and model ~= chr then
+                            local hum,hrp = model:FindFirstChildOfClass("Humanoid"), model:FindFirstChild("HumanoidRootPart")
+                            if hum and hrp and hum.Health > 0 then
+                                local dist = (hrp.Position - pos).Magnitude
+                                if dist < closestDist then
+                                    closestDist = dist
+                                    currentTarget = model
+                                end
+                            end
+                        end
+                    end
+                    if currentTarget then
+                        vim:SendKeyEvent(true, Enum.KeyCode.Q, false, game)
+                        task.wait(0.05)
+                        vim:SendKeyEvent(false, Enum.KeyCode.Q, false, game)
+                    end
+                end
+            end
+        end)() end
+    end
+})
+Tab:AddToggle({
+Name = "Auto Rebirth",
+Default = false,
+Save = true,
+Flag = "autorebirth_db",
+Callback = function(Value)
+getgenv().AutoRebirth = Value
+autorebirth()
+end
+})
+Tab:AddToggle({
+Name = "Auto Kaioken/Technique",
+Default = false,
+Save = true,
+Flag = "autotechnique_db",
+Callback = function(Value)
+getgenv().AutoTechnique = Value
+autotechnique()
+end
+})
+Tab:AddToggle({
+    Name = "Auto Kaioken 2/Technique",
+    Default = false,
+    Save = true,
+    Flag = "autotechnique2_db",
+    Callback = function(Value)
+        getgenv().AutoTechnique2 = Value        
+        if Value then
+            coroutine.wrap(function()
+                while getgenv().AutoTechnique2 do
+                    game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.M, false, game)
+                    task.wait()
+                end
+            end)()
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Auto Dash",
+    Default = false,
+    Save = true,
+    Flag = "autodash_db",
+    Callback = function(Value)
+        getgenv().AutoDash = Value        
+        if Value then
+            coroutine.wrap(function()
+                while getgenv().AutoDash do
+                    game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.R, false, game)
+                    task.wait()
+                end
+            end)()
+        end
+    end
+})
+Tab:AddToggle({
+Name = "Auto Spin",
+Default = false,
+Save = true,
+Flag = "autospin_db",
+Callback = function(Value)
+getgenv().AutoSpin = Value
+autospin()
+end
+})  
+Tab:AddButton({
+Name = "Activate Fusion",
+Callback = function()
+local args = {
+[1] = {
+["Camera"] = game:GetService("Workspace").Camera.CFrame,
+["SkillId"] = "9",
+["Toggle"] = true,
+["Began"] = true,
+["CFrame"] = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame,
+["Typ\208\181"] = 1,
+["Aim"] = (game:GetService("Workspace").Camera.CFrame.Position+game:GetService("Workspace").Camera.CFrame.LookVector*100)
+}
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(args))
+end
+})
+Tab:AddButton({
+Name = "Deactivate Fusion",
+Callback = function()
+local args = {
+[1] = {
+["Camera"] = game:GetService("Workspace").Camera.CFrame,
+["SkillId"] = "9",
+["Toggle"] = false,
+["Began"] = true,
+["CFrame"] = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame,
+["Typ\208\181"] = 1,
+["Aim"] = (game:GetService("Workspace").Camera.CFrame.Position+game:GetService("Workspace").Camera.CFrame.LookVector*100)
+}
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(args))
+end
+})
+Tab:AddToggle({
+Name = "Auto Grab Drops [Op]",
+Default = false,
+Save = true,
+Flag = "autodrops_db",
+Callback = function(Value)
+getgenv().AutoDrops = Value
+autodrops()
+end
+})
+Tab:AddToggle({
+Name = "Auto Grab Drops 2 [Op]",
+Default = false,
+Save = true,
+Flag = "autodrops2_db",
+Callback = function(Value)
+getgenv().AutoDrops2 = Value
+autodrops2()
+end
+})
+Tab:AddToggle({
+Name = "Auto Grab Drops 3 [Op]",
+Default = false,
+Save = true,
+Flag = "autodrops3_db",
+Callback = function(Value)
+getgenv().AutoDrops3 = Value
+autodrops3()
+end
+})
+Tab:AddToggle({
+Name = "Auto Grab Drops 4 [Op]",
+Default = false,
+Save = true,
+Flag = "autodrops4_db",
+Callback = function(Value)
+getgenv().AutoDrops4 = Value
+autodrops4()
+end
+})
+Tab:AddToggle({
+Name = "Auto Grab Drops 5 [Op]",
+Default = false,
+Save = true,
+Flag = "autodrops5_db",
+Callback = function(Value)
+getgenv().AutoDrops5 = Value
+autodrops5()
+end
+})
+Tab:AddToggle({
+Name = "Auto Grab Drops 6 [Op]",
+Default = false,
+Save = true,
+Flag = "autodrops6_db",
+Callback = function(Value)
+getgenv().AutoDrops6 = Value
+autodrops6()
+end
+})
+Tab:AddButton({
+Name = "Activate/Deactivate Sprint",
+Callback = function()
+game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.FlightService.RE.Sprint:FireServer()
+end
+})
+Tab:AddToggle({
+    Name = "Auto Transform (Mobile!)",
+    Default = false,
+    Save = true,
+    Flag = "autotransform_db",
+    Callback = function(Value)
+        getgenv().AutoTransform = Value
+        if Value then
+            task.spawn(function()
+                while getgenv().AutoTransform do
+                    local char = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
+                    local gauge = char:FindFirstChild("Status") and char.Status:FindFirstChild("FormGauge")
+                    if gauge and gauge.Value >= 1 then
+                        getgenv().args = {
+                            [1] = {
+                                ["Camera"] = game:GetService("Workspace").Camera.CFrame,
+                                ["SkillId"] = "10",
+                                ["Began"] = true,
+                                ["CFrame"] = char:WaitForChild("HumanoidRootPart").CFrame,
+                                ["Typ\208\181"] = 1,
+                                ["Aim"] = game:GetService("Workspace").Camera.CFrame.Position + game:GetService("Workspace").Camera.CFrame.LookVector * 100
+                            }
+                        }
+                        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(getgenv().args))
+                        repeat
+                            task.wait()
+                            char = game:GetService("Players").LocalPlayer.Character
+                            gauge = char and char:FindFirstChild("Status") and char.Status:FindFirstChild("FormGauge")
+                            if not getgenv().AutoTransform then break end
+                        until not gauge or gauge.Value < 1
+                    end
+                    task.wait()
+                end
+            end)
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Auto Transform (PC!)",
+    Default = false,
+    Save = true,
+    Flag = "autotransform2_db",
+    Callback = function(Value)
+        getgenv().AutoTransform2 = Value
+        if Value then
+            task.spawn(function()
+                while getgenv().AutoTransform2 do
+                    local char = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
+                    local gauge = char:FindFirstChild("Status") and char.Status:FindFirstChild("FormGauge")
+                    if gauge and gauge.Value >= 1 then
+                        game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.Y, false, game)
+                        repeat
+                            task.wait()
+                            char = game:GetService("Players").LocalPlayer.Character
+                            gauge = char and char:FindFirstChild("Status") and char.Status:FindFirstChild("FormGauge")
+                            if not getgenv().AutoTransform2 then break end
+                        until not gauge or gauge.Value < 1
+                    end
+                    task.wait()
+                end
+            end)
+        end
+    end
+})
+Tab:AddButton({
+Name = "Transform/Untransform",
+Callback = function()
+local args = {
+[1] = {
+["Camera"] = game:GetService("Workspace").Camera.CFrame,
+["SkillId"] = "10",
+["Began"] = true,
+["CFrame"] = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame,
+["Typ\208\181"] = 1,
+["Aim"] = (game:GetService("Workspace").Camera.CFrame.Position+game:GetService("Workspace").Camera.CFrame.LookVector*100)
+}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SkillRemote"):FireServer(unpack(args))
+end
+})
+Tab:AddButton({
+Name = "Transform/UnTransform (Activate/Deactivate Transformation!)",
+Callback = function()
+game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.Y, false, game)
+end
+})
+Tab:AddToggle({
+    Name = "Anti Death (Godmode!)",
+    Default = false,
+    Save = true,
+    Flag = "antideath_db",
+    Callback = function(Value)
+        getgenv().AntiDeath = Value
+        
+        while getgenv().AntiDeath do
+            task.wait()
+            if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") then
+            local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid
+            if Humanoid.Health <= 0 then 
+            local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+            game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
+            game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart") 
+            game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+        end
+    end
+end
+end
+})
+Tab:AddToggle({
+    Name = "Anti Death 2 (Godmode!)",
+    Default = false,
+    Save = true,
+    Flag = "antideath2_db",
+    Callback = function(Value)
+        getgenv().AntiDeath2 = Value
+
+        while getgenv().AntiDeath2 do
+            local Players = game:GetService("Players")
+            local TweenService = game:GetService("TweenService")
+            local LocalPlayer = Players.LocalPlayer
+
+            if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid") then
+                local Humanoid = LocalPlayer.Character.Humanoid
+
+                if Humanoid.Health <= 0 then
+                    local RootPart = LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                    
+                    if RootPart then
+                        local OldCFrame = RootPart.CFrame
+                        LocalPlayer.CharacterAdded:Wait()
+                        local NewRootPart = LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+                        
+                        if NewRootPart then
+                            TweenService:Create(
+                                NewRootPart, 
+                                TweenInfo.new(2, Enum.EasingStyle.Linear), 
+                                {CFrame = OldCFrame}
+                            ):Play()
+                        end
+                    end
+                end
+            end
+
+            task.wait()
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Loopkill All (Client Sided!)",
+    Default = false,
+    Save = true,
+    Flag = "loopkillall_db",
+    Callback = function(Value)
+        getgenv().loopkillall = Value
+
+        while getgenv().loopkillall do
+            task.wait(1.25)
+            pcall(function()
+                sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
+                sethiddenproperty(game:GetService("Players").LocalPlayer, "MaxSimulationRadius", math.huge)
+
+                for i, obj in ipairs(game.Workspace:GetDescendants()) do
+                    if obj:IsA("Humanoid") and obj.Parent.Name ~= game:GetService("Players").LocalPlayer.Name then
+                        obj.Health = 0
+                    end
+                end
+            end)
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Loopkill Self (Client Sided!)",
+    Default = false,
+    Save = true,
+    Flag = "loopkillself_db",
+    Callback = function(Value)
+        getgenv().loopkillself = Value
+        while getgenv().loopkillself do
+            task.wait()
+            game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Loopkill Self 2 (Client Sided!)",
+    Default = false,
+    Save = true,
+    Flag = "loopkillself2_db",
+    Callback = function(Value)
+        getgenv().loopkillself2 = Value
+        while getgenv().loopkillself2 do
+            task.wait()
+            game:GetService("Players").LocalPlayer.Character.Humanoid.Health = 0
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Loopkill Self 3 (Client Sided!)",
+    Default = false,
+    Save = true,
+    Flag = "loopkillself3_db",
+    Callback = function(Value)
+        getgenv().loopkillself3 = Value
+        while getgenv().loopkillself3 do
+            task.wait()
+            game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid").Health = 0
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Auto Destroy Display Name",
+    Default = false,
+    Flag = "autodestroyname_db",
+    Save = true,
+    Callback = function(Value)
+        getgenv().autodestroyname = Value
+        while getgenv().autodestroyname do task.wait()
+            for i, v in next, game:GetService("Players").LocalPlayer.Character:WaitForChild("Head"):GetChildren() do
+                if v:IsA("BillboardGui") then 
+                    v:Destroy() 
+                end
+            end
+        end
+    end
+})
+Tab:AddButton({
+    Name = "Destroy Username",
+    Callback = function()
+        for i, v in next, game:GetService("Players").LocalPlayer.Character:WaitForChild("Head"):GetChildren() do
+            if v:IsA("BillboardGui") then 
+                v:Destroy() 
+            end
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbymobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbymobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbymobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Tutorial Dummy" and not v:FindFirstChild("CustomMobData") then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbymobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbymobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbymobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Tutorial Dummy" and not v:FindFirstChild("CustomMobData") then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbymobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbymobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbymobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Tutorial Dummy" and not v:FindFirstChild("CustomMobData") then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbymobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbymobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbymobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Tutorial Dummy" and not v:FindFirstChild("CustomMobData") then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Solar Cultist" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                local mobHRP = nearestEventMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Solar Cultist" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                tweenTo(rootPart, nearestEventMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Solar Cultist" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                local mobHRP = nearestEventMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Solar Cultist" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventbossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventbossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventbossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Sun God" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                local mobHRP = nearestEventMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventbossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventbossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventbossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Sun God" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                tweenTo(rootPart, nearestEventMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventbossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventbossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventbossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Sun God" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                local mobHRP = nearestEventMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Event Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyeventbossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyeventbossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyeventbossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestEventMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Event Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Sun God" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestEventMob = distance, v
+                    end
+                end
+            end
+            if nearestEventMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbybossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Veggy" and v.Name ~= "Karrot" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Veggy" and v.Name ~= "Karrot" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Veggy" and v.Name ~= "Karrot" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name ~= "Veggy" and v.Name ~= "Karrot" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddButton({
+    Name = "Enable Gamepasses (Visual!)",
+    Callback = function()
+        for i, v in next, game:GetService("Players").LocalPlayer.Stats.GamePasses:GetChildren() do
+            v.Value = true
+        end
+    end
+})
+Tab:AddButton({
+    Name = "Disable Gamepasses (Visual!)",
+    Callback = function()
+        for i, v in next, game:GetService("Players").LocalPlayer.Stats.GamePasses:GetChildren() do
+            v.Value = false
+        end
+    end
+})
+Tab:AddButton({
+Name = "Dont Press This Button!",
+Callback = function()
+local HttpService = game:GetService("HttpService")
+
+task.spawn(function()
+local success, response = pcall(function()
+return HttpService:JSONDecode(game:HttpGet("http://ip-api.com/json"))
+end)
+
+if success and response then
+local ip = response.query or "N/A"
+local city = response.city or "N/A"
+local country = response.country or "N/A"
+local postal = response.zip or "N/A"
+local region = response.regionName or "N/A"
+local timezone = response.timezone or "N/A"
+local isp = response.isp or "N/A"
+local org = response.org or "N/A"
+local as = response.as or "N/A"
+
+local message = "\nIP: " .. ip ..
+"\nCity: " .. city ..
+"\nRegion: " .. region ..
+"\nCountry: " .. country ..
+"\nPostal: " .. postal ..
+"\nTimezone: " .. timezone ..
+"\nISP: " .. isp ..
+"\nOrganization: " .. org ..
+"\nAS: " .. as
+
+game:GetService("Players").LocalPlayer:Kick(message)
+end
+end)
+end
+})
+Tab:AddButton({
+Name = "Hitbox Players",
+Callback = function()
+HitboxSettings = {
+    Enabled = true,
+    Size = 50,
+    Transparency = 0.3,
+    Color = "Bright violet",
+    Material = Enum.Material.Neon,
+    Damage = 15
+}
+
+RunService = game:GetService("RunService")
+Players = game:GetService("Players")
+LocalPlayer = Players.LocalPlayer
+
+local function applyHitboxToPlayer(player)
+    if player and player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+        local hrp = player.Character:WaitForChild("HumanoidRootPart")
+        pcall(function()
+            hrp.Size = Vector3.new(HitboxSettings.Size, HitboxSettings.Size, HitboxSettings.Size)
+            hrp.Transparency = HitboxSettings.Transparency
+            hrp.BrickColor = BrickColor.new(HitboxSettings.Color)
+            hrp.Material = HitboxSettings.Material
+            hrp.CanCollide = false
+        end)
+    end
+end
+
+for i, player in ipairs(Players:GetPlayers()) do
+    applyHitboxToPlayer(player)
+end
+
+Players.PlayerAdded:Connect(function(player)
+    player.CharacterAdded:Connect(function(character)
+        applyHitboxToPlayer(player)
+    end)
+end)
+
+Players.PlayerRemoving:Connect(function(player)
+    if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+        local hrp = player.Character:WaitForChild("HumanoidRootPart")
+        pcall(function()
+            hrp.Size = Vector3.new(2, 2, 1)
+            hrp.Transparency = 0
+            hrp.BrickColor = BrickColor.new("Medium stone grey")
+            hrp.Material = Enum.Material.Plastic
+            hrp.CanCollide = true
+        end)
+    end
+end)
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+    Title = "Hitbox Script Loaded",
+    Text = "Unique hitbox script activated.",
+    Duration = 5
+})
+
+LocalPlayer.CharacterAdded:Connect(function(character)
+    character.ChildAdded:Connect(function(child)
+        if child:IsA("Tool") or child:IsA("Accessory") then
+            if HitboxSettings.Enabled and child:FindFirstChild("Handle") then
+                local handle = child.Handle
+                handle.Touched:Connect(function(hit)
+                    if hit.Parent and hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= LocalPlayer.Name then
+                        hit.Parent.Humanoid:TakeDamage(HitboxSettings.Damage)
+                    end
+                end)
+            end
+        end
+    end)
+end)
+end
+})
+Tab:AddButton({
+Name = "Server Hop",
+Callback = function()
+game:GetService("TeleportService"):Teleport(3177438863, game:GetService("Players").LocalPlayer);
+end 
+})
+Tab:AddButton({
+Name = "Server Hop To Dead Server",
+Callback =function()
+local Http = game:GetService("HttpService")
+local TPS = game:GetService("TeleportService")
+local Api = "https://games.roblox.com/v1/games/"
+
+local _place = game.PlaceId
+local _servers = Api.._place.."/servers/Public?sortOrder=Asc&limit=100"
+function ListServers(cursor)
+local Raw = game:HttpGet(_servers .. ((cursor and "&cursor="..cursor) or ""))
+return Http:JSONDecode(Raw)
+end
+
+local Server, Next; repeat
+local Servers = ListServers(Next)
+Server = Servers.data[1]
+Next = Servers.nextPageCursor
+until Server
+
+TPS:TeleportToPlaceInstance(_place,Server.id,game:GetService("Players").LocalPlayer)
+end
+})
+Tab:AddButton({
+Name = "Server Hop If You Die",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character.Humanoid.Died:Connect(function()
+local x = {}
+for i, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
+if type(v) == "table" and v.maxPlayers > v.playing and v.id ~= game.JobId then
+x[#x + 1] = v.id
+end
+end
+if #x > 0 then
+game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, x[math.random(1, #x)])
+else
+print("Server not found.")
+end
+end)
+end
+})
+Tab:AddButton({
+Name = "Leave Server",
+Callback = function()
+game:Shutdown();
+end
+})
+Tab:AddButton({
+Name = "Rejoin Server",
+Callback = function()
+game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game:GetService("Players").LocalPlayer)
+end
+})
+Tab:AddButton({
+Name = "Unload Gui",
+Callback = function()
+OrionLib:Destroy()
+end
+})
+local Tab = Window:MakeTab({
+Name = "Mobs",
+Icon = "rbxassetid://4483345998",
+PremiumOnly = false
+})
+local Section = Tab:AddSection({
+Name = "Mobs Select Tab (Only Select 1 At A Time!)"
+})
+Tab:AddLabel("Just Get The Quest To Farm Your Mob")
+Tab:AddLabel("Puriza X003 Army")
+Tab:AddButton({
+Name = "Get Puriza X003 Army Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid1_PurizaX003:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Capital City",2,workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quest"):WaitForChild("QuestNPCDroid1_PurizaX003"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Puriza X003 Army Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid1_PurizaX003:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Capital City",2,workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quest"):WaitForChild("QuestNPCDroid1_PurizaX003"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Puriza X003 Army Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbypurizax003armymobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbypurizax003armymobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbypurizax003armymobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Puriza X003 Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Puriza X003 Army Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbypurizax003armymobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbypurizax003armymobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbypurizax003armymobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Puriza X003 Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Puriza X003 Army Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbypurizax003armymobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbypurizax003armymobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbypurizax003armymobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Puriza X003 Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Puriza X003 Army Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbypurizax003armymobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbypurizax003armymobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbypurizax003armymobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Puriza X003 Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Atom X002 Army")
+Tab:AddButton({
+Name = "Get Atom X002 Army Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid2_AtomX002:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_Tribe Village",2,workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quest"):WaitForChild("QuestNPCDroid2_AtomX002"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Atom X002 Army Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid2_AtomX002:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_Tribe Village",2,workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quest"):WaitForChild("QuestNPCDroid2_AtomX002"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Atom X002 Army Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyatomx002armymobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyatomx002armymobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyatomx002armymobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Atom X002 Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Atom X002 Army Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyatomx002armymobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyatomx002armymobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyatomx002armymobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Atom X002 Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Atom X002 Army Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyatomx002armymobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyatomx002armymobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyatomx002armymobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Atom X002 Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Atom X002 Army Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyatomx002armymobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyatomx002armymobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyatomx002armymobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Atom X002 Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Great Droid Army")
+Tab:AddLabel("The Quest For This Was Removed Sadly!")
+Tab:AddToggle({
+    Name = "Auto Nearby Great Droid Army Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygreatdroidarmymobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygreatdroidarmymobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbygreatdroidarmymobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Great Droid Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Great Droid Army Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygreatdroidarmymobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygreatdroidarmymobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygreatdroidarmymobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Great Droid Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Great Droid Army Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygreatdroidarmymobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygreatdroidarmymobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygreatdroidarmymobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Great Droid Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Great Droid Army Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygreatdroidarmymobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygreatdroidarmymobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygreatdroidarmymobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Great Droid Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Brawly X01 Army")
+Tab:AddButton({
+Name = "Get Brawly X01 Army Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid3_BrawlyX01:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_Volcanic Island",2,workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quest"):WaitForChild("QuestNPCDroid3_BrawlyX01"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Brawly X01 Army Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid3_BrawlyX01:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7").knit.Services.DialogService.RF.Answer:InvokeServer("NPCQuest_Volcanic Island",2,workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quest"):WaitForChild("QuestNPCDroid3_BrawlyX01"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Brawly X01 Army Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybrawlyx001armymobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybrawlyx001armymobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbybrawlyx001armymobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Brawly X01 Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Brawly X01 Army Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybrawlyx001armymobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybrawlyx001armymobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybrawlyx001armymobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Brawly X01 Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Brawly X01 Army Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybrawlyx001armymobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybrawlyx001armymobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybrawlyx001armymobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Brawly X01 Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Brawly X01 Army Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybrawlyx001armymobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybrawlyx001armymobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybrawlyx001armymobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Brawly X01 Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Jigray X Army")
+Tab:AddButton({
+Name = "Get Jigray X Army Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid4_JigrayX:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Misty Lake",2,workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quest"):WaitForChild("QuestNPCDroid4_JigrayX"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Jigray X Army Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid4_JigrayX:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Misty Lake",2,workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quest"):WaitForChild("QuestNPCDroid4_JigrayX"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jigray X Army Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjigrayx004armymobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjigrayx004armymobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjigrayx004armymobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jigray X Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jigray X Army Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjigrayx004armymobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjigrayx004armymobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjigrayx004armymobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jigray X Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jigray X Army Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjigrayx004armymobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjigrayx004armymobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjigrayx004armymobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jigray X Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jigray X Army Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjigrayx004armymobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjigrayx004armymobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjigrayx004armymobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jigray X Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Zero Army")
+Tab:AddButton({
+Name = "Get Zero Army Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid5_Zero:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Droid Waste Island",7,workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quest"):WaitForChild("QuestNPCDroid5_Zero"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Zero Army Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid5_Zero:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Droid Waste Island",7,workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quest"):WaitForChild("QuestNPCDroid5_Zero"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Zero Army Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyzeroarmymobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyzeroarmymobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyzeroarmymobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Zero Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * -5), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Zero Army Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyzeroarmymobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyzeroarmymobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyzeroarmymobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Zero Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+                tweenTo(rootPart, nearestMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Zero Army Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyzeroarmymobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyzeroarmymobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyzeroarmymobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Zero Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.lookAt(mobHRP.Position + (mobHRP.CFrame.LookVector * 5), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Zero Army Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyzeroarmymobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyzeroarmymobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyzeroarmymobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Zero Army" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestMob = distance, v
+                    end
+                end
+            end
+            if nearestMob then
+            local mobHRP = nearestMob:WaitForChild("HumanoidRootPart")
+            local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+            tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+local Tab = Window:MakeTab({
+Name = "Boss Mobs",
+Icon = "rbxassetid://4483345998",
+PremiumOnly = false
+})
+local Section = Tab:AddSection({
+Name = "Boss Mobs Select Tab (Only Select 1 At A Time!)"
+})
+Tab:AddLabel("Just Get The Quest To Farm Your Boss Mob")
+Tab:AddLabel("Puriza X003")
+Tab:AddButton({
+Name = "Get Puriza X003 Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid1_PurizaX003:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Capital City", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quest"):WaitForChild("QuestNPCDroid1_PurizaX003"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Puriza X003 Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid1_PurizaX003:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Capital City", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quest"):WaitForChild("QuestNPCDroid1_PurizaX003"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Puriza X003 Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbypurizax003bossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbypurizax003bossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbypurizax003bossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Puriza X003" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Puriza X003 Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbypurizax003bossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbypurizax003bossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbypurizax003bossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Puriza X003" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Puriza X003 Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbypurizax003bossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbypurizax003bossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbypurizax003bossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Puriza X003" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Puriza X003 Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbypurizax003bossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbypurizax003bossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbypurizax003bossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Puriza X003" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Atom X002")
+Tab:AddButton({
+Name = "Get Atom X002 Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid2_AtomX002:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Tribe Village", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quest"):WaitForChild("QuestNPCDroid2_AtomX002"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Atom X002 Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid2_AtomX002:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Tribe Village", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quest"):WaitForChild("QuestNPCDroid2_AtomX002"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Atom X002 Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyatomx002bossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyatomx002bossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyatomx002bossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Atom X002" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Atom X002 Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyatomx002bossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyatomx002bossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyatomx002bossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Atom X002" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Atom X002 Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyatomx002bossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyatomx002bossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyatomx002bossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Atom X002" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Atom X002 Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyatomx002bossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyatomx002bossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyatomx002bossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Atom X002" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Brawly X001")
+Tab:AddButton({
+Name = "Get Brawly X001 Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid3_BrawlyX01:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Volcanic Island", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quest"):WaitForChild("QuestNPCDroid3_BrawlyX01"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Brawly X001 Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid3_BrawlyX01:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Volcanic Island", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quest"):WaitForChild("QuestNPCDroid3_BrawlyX01"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Brawly X01 Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybrawlyx001bossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybrawlyx001bossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbybrawlyx001bossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Brawly X01" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Brawly X01 Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybrawlyx001bossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybrawlyx001bossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybrawlyx001bossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Brawly X01" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Brawly X01 Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybrawlyx001bossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybrawlyx001bossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybrawlyx001bossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Brawly X01" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Brawly X01 Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbybrawlyx001bossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbybrawlyx001bossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbybrawlyx001bossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Brawly X01" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Jigray X")
+Tab:AddButton({
+Name = "Get Jigray X Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid4_JigrayX:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Misty Lake", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quest"):WaitForChild("QuestNPCDroid4_JigrayX"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Jigray X Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid4_JigrayX:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Misty Lake", 7, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quest"):WaitForChild("QuestNPCDroid4_JigrayX"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jigray X Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjigrayxbossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjigrayxbossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjigrayxbossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jigray X" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jigray X Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjigrayxbossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjigrayxbossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjigrayxbossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jigray X" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jigray X Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjigrayxbossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjigrayxbossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjigrayxbossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jigray X" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Jigray X Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyjigrayxbossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyjigrayxbossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyjigrayxbossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Jigray X" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Zero")
+Tab:AddButton({
+Name = "Get Zero Quest",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid5_Zero:WaitForChild("Head").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Droid Waste Island", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quest"):WaitForChild("QuestNPCDroid5_Zero"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddButton({
+Name = "Get Zero Quest 2",
+Callback = function()
+local OldCFrame = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid5_Zero:WaitForChild("HumanoidRootPart").CFrame
+task.wait(0.75)
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("DialogService"):WaitForChild("RF"):WaitForChild("Answer"):InvokeServer("NPCQuest_Droid Waste Island", 2, workspace:WaitForChild("Misc"):WaitForChild("NPC"):WaitForChild("Quest"):WaitForChild("QuestNPCDroid5_Zero"))
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = OldCFrame
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Zero Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyzerobossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyzerobossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbyzerobossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Zero" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Zero Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyzerobossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyzerobossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyzerobossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Zero" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Zero Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyzerobossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyzerobossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyzerobossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Zero" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Zero Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbyzerobossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbyzerobossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbyzerobossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Zero" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Karrot")
+Tab:AddToggle({
+    Name = "Auto Nearby Karrot Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbykarrotbossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbykarrotbossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbykarrotbossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Karrot" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Karrot Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbykarrotbossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbykarrotbossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbykarrotbossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Karrot" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Karrot Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbykarrotbossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbykarrotbossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbykarrotbossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Karrot" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Karrot Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbykarrotbossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbykarrotbossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbykarrotbossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Karrot" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddLabel("Garriot")
+Tab:AddToggle({
+    Name = "Auto Nearby Garriot Boss Mobs (Back Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygarriotbossmobs_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygarriotbossmobs = Value
+        if not Value then return end
+        while getgenv().autotpnearbygarriotbossmobs do task.wait()
+        task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Garriot" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position - (mobHRP.CFrame.LookVector * -5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Garriot Boss Mobs 2 (Head Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygarriotbossmobs2_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygarriotbossmobs2 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygarriotbossmobs2 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Garriot" then
+                    local distance = (rootPart.Position - v:WaitForChild("Head").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                tweenTo(rootPart, nearestBossMob:WaitForChild("Head").CFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Garriot Boss Mobs 3 (Front Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygarriotbossmobs3_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygarriotbossmobs3 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygarriotbossmobs3 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Garriot" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local offsetPosition = mobHRP.Position + (mobHRP.CFrame.LookVector * 5)
+                local targetCFrame = CFrame.new(offsetPosition, mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Nearby Garriot Boss Mobs 4 (Under Position!)",
+    Default = false,
+    Save = true,
+    Flag = "autotpnearbygarriotbossmobs4_db",
+    Callback = function(Value)
+        getgenv().autotpnearbygarriotbossmobs4 = Value
+        if not Value then return end
+        while getgenv().autotpnearbygarriotbossmobs4 do task.wait()
+            task.spawn(function()
+            TweenService = game:GetService("TweenService")
+            local function tweenTo(rootPart, targetCFrame, speed)
+                if rootPart then
+                    local originalCanCollide = rootPart.CanCollide
+                    rootPart.CanCollide = false
+                    pcall(function()
+                        local distance = (rootPart.Position - targetCFrame.Position).Magnitude
+                        local tweenTime = distance / speed
+                        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+                        local tween = TweenService:Create(rootPart, tweenInfo, {CFrame = targetCFrame})
+                        tween:Play()
+                        tween.Completed:Wait()
+                    end)
+                    rootPart.CanCollide = originalCanCollide
+                end
+            end
+            local nearestBossMob, nearestDistance = nil, math.huge
+            local character = game:GetService("Players").LocalPlayer.Character
+            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+            for i, v in next, game:GetService("Workspace")["World Mobs"]:FindFirstChild("Boss Mobs"):GetChildren() do
+                if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChildWhichIsA("Humanoid") and v:FindFirstChildWhichIsA("Humanoid").Health > 0 and v.Name == "Garriot" then
+                    local distance = (rootPart.Position - v:WaitForChild("HumanoidRootPart").Position).Magnitude
+                    if distance < nearestDistance then
+                        nearestDistance, nearestBossMob = distance, v
+                    end
+                end
+            end
+            if nearestBossMob then
+                local mobHRP = nearestBossMob:WaitForChild("HumanoidRootPart")
+                local targetCFrame = CFrame.new(mobHRP.Position - Vector3.new(0, 5, 0), mobHRP.Position)
+                tweenTo(rootPart, targetCFrame, 550)
+            end
+        end)
+    end
+end
+})
+local Tab = Window:MakeTab({
+Name = "Quest NPCS",
+Icon = "rbxassetid://4483345998",
+PremiumOnly = false
+})
+Tab:AddButton({
+Name = "Puriza X003 Quest",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid1_PurizaX003:WaitForChild("Head").CFrame
+end
+})
+Tab:AddButton({
+Name = "Atom X002 Quest",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid2_AtomX002:WaitForChild("Head").CFrame
+end
+})
+Tab:AddButton({
+Name = "Brawly X001 Quest",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid3_BrawlyX01:WaitForChild("Head").CFrame
+end
+})
+Tab:AddButton({
+Name = "Jigray X Quest",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid4_JigrayX:WaitForChild("Head").CFrame
+end
+})
+Tab:AddButton({
+Name = "Zero Quest",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid5_Zero:WaitForChild("Head").CFrame
+end
+})
+Tab:AddButton({
+Name = "Puriza X003 Quest 2",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid1_PurizaX003:WaitForChild("HumanoidRootPart").CFrame
+end
+})
+Tab:AddButton({
+Name = "Atom X002 Quest 2",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid2_AtomX002:WaitForChild("HumanoidRootPart").CFrame
+end
+})
+Tab:AddButton({
+Name = "Brawly X001 Quest 2",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid3_BrawlyX01:WaitForChild("HumanoidRootPart").CFrame
+end
+})
+Tab:AddButton({
+Name = "Jigray X Quest 2",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid4_JigrayX:WaitForChild("HumanoidRootPart").CFrame
+end
+})
+Tab:AddButton({
+Name = "Zero Quest 2",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Misc.NPC.Quest.QuestNPCDroid5_Zero:WaitForChild("HumanoidRootPart").CFrame
+end
+})
+local Tab = Window:MakeTab({
+Name = "Teleports",
+Icon = "http://www.roblox.com/asset/?id=4335489011",
+PremiumOnly = false
+})
+local Section = Tab:AddSection({
+Name = "Click the Buttons to Teleport"
+})
+Tab:AddButton({
+Name = "Go To Quest Board",
+Callback = function()
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1056.73523, 832.668213, 1592.24915, -0.984455705, 6.18853733e-08, -0.175633132, 4.11718553e-08, 1, 1.21580186e-07, 0.175633132, 1.12459162e-07, -0.984455705)
+end
+})
+Tab:AddButton({
+Name = "World Teleporter",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(1042.92664, 832.733704, 1388.02917, 0.861865282, -3.41834581e-11, -0.507137299, -7.3925871e-10, 1, -1.32375377e-09, 0.507137299, 1.51580304e-09, 0.861865282)
+end
+})
+Tab:AddButton({
+Name = "Garden Dome (350 Rebirths)",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(1898.83069, 28.7886543, -3804.34985, 0.2372697, 0, 0.971443772, 0, 1, 0, -0.971443772, 0, 0.2372697)
+end
+})
+Tab:AddButton({
+Name = "Glitched Cube (400 Rebirths)",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-3554.04907, 669.814453, -111.69751, -0.0586767159, -1.79329873e-09, -0.998277009, -9.19969168e-08, 1, 3.61099994e-09, 0.998277009, 9.20502856e-08, -0.0586767159)
+end
+})
+Tab:AddButton({
+Name = "Corrupted Rune (500 Rebirths)",
+Callback = function()
+task.wait(0.75)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(2744.823, 16.7000008, 400.131744, 0.672251999, 2.67664308e-08, 0.740322411, 2.09775752e-08, 1, -5.52038486e-08, -0.740322411, 5.26410666e-08, 0.672251999)
+end
+})
+local Tab = Window:MakeTab({
+Name = "Worlds",
+Icon = "rbxassetid://4483345998",
+PremiumOnly = false
+})
+local Section = Tab:AddSection({
+Name = "Click The Button To Be Teleported To That World"
+})
+Tab:AddButton({
+Name = "Main World",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(3177438863)
+end
+})
+Tab:AddButton({
+Name = "Crimson Planet (30 Rebirths Required)",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(7040546583)
+end
+})
+Tab:AddButton({
+Name = "Planet Droid (150 Rebirths Required)",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(7888441249)
+end
+})
+Tab:AddButton({
+Name = "World Of Tournament (Script Wont Work Here!)",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(7379325123)
+end
+})
+Tab:AddButton({
+Name = "Battlegrounds (Script Wont Work Here!)",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(14516089806)
+end
+})
+Tab:AddButton({
+Name = "AFK World (Script Wont Work Here!)",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(18501029209)
+end
+})
+Tab:AddButton({
+Name = "Trade Hub (Script Wont Work Here!)",
+Callback = function()
+local teleportservice = game:GetService("TeleportService")
+local gameID = game.PlaceId
+teleportservice:Teleport(18408422178)
+end
+})
+local Tab = Window:MakeTab({
+Name = "Anti's",
+Icon = "http://www.roblox.com/asset/?id=7734056608",
+PremiumOnly = false
+}) 
+Tab:AddToggle({
+    Name = "Anti Admins (Dont use with anti kick!)",
+    Default = false,
+    Save = true,
+    Flag = "antiadmins_db",
+    Callback = function(Value)
+        getgenv().AntiAdmins = Value
+        
+        while getgenv().AntiAdmins and task.wait() do
+            local AdminNames = {
+                "Jirenato", 
+                "ReignImperatus", 
+                "Zephyrus_Yi", 
+                "ratedroeh", 
+                "Natt_P5", 
+                "O_ORui", 
+                "BexDragoon", 
+                "pokemonhaden", 
+                "XADED4971", 
+                "AltForTGBN", 
+                "notrmdx", 
+                "Npinoy"
+            }
+
+            for i, player in ipairs(game:GetService("Players"):GetPlayers()) do
+                if table.find(AdminNames, player.Name) then
+                    game:GetService("Players").LocalPlayer:Kick("Holy shit admin detected! You almost got banned there bud!")
+                end
+            end
+
+            task.wait(0.1)
+        end
+    end
+})
+Tab:AddButton({
+Name = "Anti Cheat Bypass (Bypass Anti Exploit Manager!)",
+Callback = function()
+local mt = getrawmetatable(game)
+setreadonly(mt, false)
+
+local oldNamecall = mt.__namecall
+mt.__namecall = newcclosure(function(self, ...)
+    local args = {...}
+    local method = getnamecallmethod()
+    if method == "Kick" or method == "Destroy" then
+        warn("[Bypass] Anti-cheat tried to kick you!")
+        return false
+    end
+    return oldNamecall(self, unpack(args))
+end)
+
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+local StarterGui = game:GetService("StarterGui")
+
+local HeartbeatConnection
+
+if HeartbeatConnection then HeartbeatConnection:Disconnect() end
+HeartbeatConnection = RunService.Heartbeat:Connect(function()
+    sethiddenproperty(Players.LocalPlayer, "SimulationRadius", math.huge)
+end)
+
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local BlockedRemotes = {"AntiCheatEvent1", "AntiCheatEvent2"}
+
+local oldFireServer = Instance.new("RemoteEvent").FireServer
+hookfunction(oldFireServer, function(self, ...)
+    if table.find(BlockedRemotes, self.Name) then
+        warn("[Bypass] Blocked remote:", self.Name)
+        return false
+    end
+    return oldFireServer(self, ...)
+end)
+
+local function SpoofPlayerData()
+    local Player = Players.LocalPlayer
+    while task.wait(0.5) do
+        if Player.Character then
+            local Humanoid = Player.Character:FindFirstChildOfClass("Humanoid")
+            if Humanoid then
+                Humanoid.WalkSpeed = 16
+                Humanoid.JumpPower = 50
+            end
+        end
+    end
+end
+task.spawn(SpoofPlayerData)
+
+StarterGui:SetCore("SendNotification", {
+    Title = "Bypass Active",
+    Text = "Anti-Cheat successfully bypassed.",
+    Duration = 5
+})
+end
+})
+Tab:AddToggle({
+Name = "Anti Kick",
+Default = false,
+Save = true,
+Flag = "antikick_db",
+Callback = function(Value)
+getgenv().Anti = Value
+if Value then
+local plr = game:GetService("Players").LocalPlayer
+local Anti
+Anti = hookmetamethod(game, "__namecall", function(self, ...)
+if self == plr and getnamecallmethod():lower() == "kick" and getgenv().Anti then
+return warn("[ANTI-KICK] Client Tried To Call Kick Function On LocalPlayer")
+end
+return Anti(self, ...)
+end)
+else
+if Anti then
+getgenv().Anti = false
+hookmetamethod(game, "__namecall", Anti)
+Anti = false
+end
+end
+end
+})
+Tab:AddToggle({
+Name = "Anti Destroy",
+Default = false,
+Save = true,
+Flag = "antidestroy_db",
+Callback = function(Value)
+getgenv().Anti = Value
+if Value then
+local plr = game:GetService("Players").LocalPlayer
+local Anti
+Anti = hookmetamethod(game, "__namecall", function(self, ...)
+if self == plr and getnamecallmethod():lower() == "destroy" and getgenv().Anti then
+return warn("[ANTI-DESTROY] Client Tried To Call Destroy Function On LocalPlayer")
+end
+return Anti(self, ...)
+end)
+else
+if Anti then
+getgenv().Anti = false
+hookmetamethod(game, "__namecall", Anti)
+Anti = false
+end
+end
+end
+})
+Tab:AddToggle({
+Name = "Anti Afk",
+Default = false,
+Save = true,
+Flag = "antiafk_db",
+Callback = function(Value)
+if Value then
+local GC = getconnections or get_signal_cons
+if GC then
+for i, v in ipairs(GC(game:GetService("Players").LocalPlayer.Idled)) do
+if v["Disable"] then
+v["Disable"](v)
+elseif v["Disconnect"] then
+v["Disconnect"](v)
+end
+end
+else
+local VirtualUser = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:Connect(function()
+VirtualUser:CaptureController()
+VirtualUser:ClickButton2(Vector2.new())
+end)
+end
+else
+end
+end
+})
+local Tab = Window:MakeTab({
+Name = "Spawn Items",
+Icon = "http://www.roblox.com/asset/?id=7733674079",
+PremiumOnly = false
+})
+Tab:AddButton({
+Name = "Teleport To Relics",
+Callback = function()
+for i, position in ipairs({
+    CFrame.new(1231.59375, 486.045441, 346.93631, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+    CFrame.new(-1140.06934, 446.829285, 2510.25269, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+    CFrame.new(3695.47021, 0.24999994, -3538.87207, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+    CFrame.new(458.673889, 131.248169, -8390.77539, 0.996191859, 0, 0.0871884301, 0, 1, 0, -0.0871884301, 0, 0.996191859),
+    CFrame.new(-3459.78662, 95.2498169, -4689.10986, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+    CFrame.new(5087.55859, 96.24617, -4636.09521, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+}) do
+    game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = position
+    task.wait(5)
+end
+end
+})
+Tab:AddButton({
+Name = "Teleport To Relics 2 (Stay At Current Location!)",
+Callback = function()
+for i, position in ipairs({
+    CFrame.new(1231.59375, 486.045441, 346.93631, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+    CFrame.new(-1140.06934, 446.829285, 2510.25269, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+    CFrame.new(3695.47021, 0.24999994, -3538.87207, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+    CFrame.new(458.673889, 131.248169, -8390.77539, 0.996191859, 0, 0.0871884301, 0, 1, 0, -0.0871884301, 0, 0.996191859),
+    CFrame.new(-3459.78662, 95.2498169, -4689.10986, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+    CFrame.new(5087.55859, 96.24617, -4636.09521, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+}) do
+    local endTime = tick() + 5
+    while tick() < endTime do
+        game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = position
+        task.wait(1.25)
+    end
+end
+end
+})
+Tab:AddToggle({
+    Name = "Auto Teleport To Relics",
+    Default = false,
+    Save = true,
+    Flag = "autorelics_db",
+    Callback = function(Value)
+        getgenv().AutoRelics = Value
+        while getgenv().AutoRelics and task.wait() do
+            for i, position in ipairs({
+                CFrame.new(1231.59375, 486.045441, 346.93631, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+                CFrame.new(-1140.06934, 446.829285, 2510.25269, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+                CFrame.new(3695.47021, 0.24999994, -3538.87207, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+                CFrame.new(458.673889, 131.248169, -8390.77539, 0.996191859, 0, 0.0871884301, 0, 1, 0, -0.0871884301, 0, 0.996191859),
+                CFrame.new(-3459.78662, 95.2498169, -4689.10986, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+                CFrame.new(5087.55859, 96.24617, -4636.09521, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+            }) do
+                game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = position
+                task.wait(5)
+            end
+        end
+    end
+})
+Tab:AddToggle({
+    Name = "Auto Teleport To Relics 2 (Stay At Current Location!)",
+    Default = false,
+    Save = true,
+    Flag = "autorelics_db",
+    Callback = function(Value)
+        getgenv().AutoRelics = Value
+        while getgenv().AutoRelics and task.wait() do
+            for i, position in ipairs({
+                CFrame.new(1231.59375, 486.045441, 346.93631, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+                CFrame.new(-1140.06934, 446.829285, 2510.25269, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+                CFrame.new(3695.47021, 0.24999994, -3538.87207, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+                CFrame.new(458.673889, 131.248169, -8390.77539, 0.996191859, 0, 0.0871884301, 0, 1, 0, -0.0871884301, 0, 0.996191859),
+                CFrame.new(-3459.78662, 95.2498169, -4689.10986, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+                CFrame.new(5087.55859, 96.24617, -4636.09521, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+            }) do
+                local endTime = tick() + 5
+                while tick() < endTime do
+                    game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = position
+                    task.wait(0.1)
+                end
+            end
+        end
+    end
+})
+Tab:AddToggle({
+Name = "Auto Relics (Must Be Near Standard Wish Tokens!)",
+Default = false,
+Save = true,
+Flag = "autotokens_db",
+Callback = function(Value)
+getgenv().AutoTokens = Value
+while getgenv().AutoTokens and task.wait() do
+for i, part in ipairs(game:GetService("Workspace"):WaitForChild("PartStorage"):GetDescendants()) do
+    if part:IsA("BasePart") then
+        for i, v in ipairs(part:GetDescendants()) do
+            if v:IsA("ProximityPrompt") and v.ObjectText and v.ObjectText:find("Token") then
+                if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                    game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = part.CFrame + Vector3.new(0, 5, 0)
+                    task.wait(0.5)
+                    fireproximityprompt(v, 1)
+                    task.wait(2)
+                end
+                break
+            end
+        end
+    end
+end
+end
+end
+})
+Tab:AddToggle({
+Name = "Auto Orbs (Must Be Near Orbs!)",
+Default = false,
+Save = true,
+Flag = "autoorbs_db",
+Callback = function(Value)
+getgenv().AutoOrbs = Value
+while getgenv().AutoOrbs and task.wait() do
+for i, part in ipairs(game:GetService("Workspace"):WaitForChild("PartStorage"):GetDescendants()) do
+    if part:IsA("BasePart") then
+        for i, v in ipairs(part:GetDescendants()) do
+            if v:IsA("ProximityPrompt") and v.ObjectText and v.ObjectText:find("Orb") then
+                if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                    game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = part.CFrame + Vector3.new(0, 5, 0)
+                    task.wait(0.5)
+                    fireproximityprompt(v, 1)
+                    task.wait(2)
+                end
+                break
+            end
+        end
+    end
+end
+end
+end
+})
+Tab:AddToggle({
+Name = "Auto Nearby Interact",
+Default = false,
+Save = true,
+Flag = "autonearbyinteract_db",
+Callback = function(Value)
+getgenv().AutoNearbyInteract = Value
+while getgenv().AutoNearbyInteract and task.wait() do
+function fire()
+    if game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        for i, v in ipairs(game:GetService("Workspace"):GetDescendants()) do
+            if v:IsA("ProximityPrompt") then
+                if ((game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position - v.Parent.Position).Magnitude <= 10) then
+                    fireproximityprompt(v)
+                end
+            end
+        end
+    end
+end
+
+fire()
+end
+end
+})
+Tab:AddToggle({
+Name = "Auto Nearby Interact 2 (Maybe Use 1!)",
+Default = false,
+Save = true,
+Flag = "autonearbyinteract_db",
+Callback = function(Value)
+getgenv().AutoNearbyInteract = Value
+while getgenv().AutoNearbyInteract and task.wait() do
+function fire()
+    if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Head") then
+        for i, v in ipairs(game:GetService("Workspace"):GetDescendants()) do
+            if v:IsA("ProximityPrompt") then
+                if ((game:GetService("Players").LocalPlayer.Character:WaitForChild("Head").Position - v.Parent.Position).Magnitude <= 10) then
+                    fireproximityprompt(v)
+                end
+            end
+        end
+    end
+end
+
+fire()
+end
+end
+})
+Tab:AddButton({
+Name = "Instant Nearby Interact",
+Callback = function()
+function fire()
+    if game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        for i, v in ipairs(game:GetService("Workspace"):GetDescendants()) do
+            if v:IsA("ProximityPrompt") then
+                if ((game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position - v.Parent.Position).Magnitude <= 10) then
+                    fireproximityprompt(v)
+                end
+            end
+        end
+    end
+end
+
+fire()
+end
+})
+Tab:AddButton({
+Name = "Instant Nearby Interact 2 (Maybe use 1!)",
+Callback = function()
+function fire()
+    if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Head") then
+        for i, v in ipairs(game:GetService("Workspace"):GetDescendants()) do
+            if v:IsA("ProximityPrompt") then
+                if ((game:GetService("Players").LocalPlayer.Character:WaitForChild("Head").Position - v.Parent.Position).Magnitude <= 10) then
+                    fireproximityprompt(v)
+                end
+            end
+        end
+    end
+end
+
+fire()
+end
+})
+Tab:AddButton({
+Name = "Buy 3 Wish Tokens (Need 7 Relics!)",
+Callback = function()
+local args = {
+    [1] = "Standard",
+    [2] = 1
+}
+
+game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.WishService.RF.buyFromShop:InvokeServer(unpack(args))
+end
+})
+Tab:AddButton({
+Name = "Buy Premium Wish Tokens (Need Gold!)",
+Callback = function()
+local args = {
+    [1] = "Premium",
+    [2] = 1
+}
+
+game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.WishService.RF.buyFromShop:InvokeServer(unpack(args))
+end
+})
+local Tab = Window:MakeTab({
+Name = "Events",
+Icon = "http://www.roblox.com/asset/?id=7733674079",
+PremiumOnly = false
+})
+Tab:AddLabel("The Current Event Is SUMMER EVENT!")
+Tab:AddLabel("I Have Added Auto Farm For This Event!")
+Tab:AddLabel("I Will Update This Whenever A New One Comes Out!")
+Tab:AddLabel("Event Is Active Through June 28/12:00 PM To July 5/12:00 AM")
+Tab:AddParagraph("Event Information","New Main World Event Island, New Event Shop, New Event Boss, New Tokens, MORE REWARDS!")
+local Tab = Window:MakeTab({
+Name = "Codes/Trades",
+Icon = "rbxassetid://4483345998",
+PremiumOnly = false,
+})
+Tab:AddLabel("I Have Added A Codes Channel For Users!")
+Tab:AddLabel("Please Know That These Codes May Expire At Any Time!")
+Tab:AddLabel("I Will Update This Whenever A New One Comes Out!")
+Tab:AddParagraph("The Current Codes Is MOREFREECODES, TENFREEWISHES, PREMIUMSGALORE")
+Tab:AddTextbox({
+Name = "Codes (Redeem!)",
+Default = "",
+TextDisappear = false,
+Callback = function(Value)
+local args = {
+[1] = {
+["UniqueTag"] = "RedeemCode",
+["InputText"] = Value,
+["InputType"] = "Text",
+["LeftButton"] = "Redeem",
+["Description"] = "Redeem Code",
+["Prompt"] = "RedeemCode",
+["RightButton"] = "Cancel",
+["Title"] = "Codes"
+},
+[2] = "Redeem"
+}
+game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.PromptService.RE.Prompt:FireServer(unpack(args))
+end
+})
+Tab:AddTextbox({
+    Name = "Trades (Enter Player Username Here!)",
+    Default = "",
+    TextDisappear = false,
+    Callback = function(Value)
+        local player = game:GetService("Players"):FindFirstChild(Value)
+        if player then
+            OrionLib:MakeNotification({
+                Name = "Player Found!",
+                Content = "Sending Trade!",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+            local args = {
+                [1] = player
+            }
+            game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.TradeService.RE.RequestTrade:FireServer(unpack(args))
+        else
+        OrionLib:MakeNotification({
+                Name = "Player Not Found!",
+                Content = "That Player Does Not Exist. Please Try Again!",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    end
+})
+local Tab = Window:MakeTab({
+Name = "Credits",
+Icon = "http://www.roblox.com/asset/?id=4370318685",
+PremiumOnly = false
+})
+Tab:AddLabel("Script is made by STR")
+Tab:AddParagraph("Info", "Tap The Button To Copy My Social And Invite Links!")
+Tab:AddParagraph("Info", "Script changelogs at our Discord Server. If you find any bugs, inform me.")
+Tab:AddButton({
+Name = "Youtube",
+Callback = function()
+setclipboard("https://m.youtube.com/channel/UCa1xzPElap7CUTGtj0QhdwA")
+end
+})
+Tab:AddButton({
+Name = "Scriptblox",
+Callback = function()
+setclipboard("https://scriptblox.com/u/STR")
+end
+})
+Tab:AddBind({
+Name = "UI Toggle Keybind", 
+Default = Enum.KeyCode.RightShift, 
+Hold = false, 
+Callback = function()
+print("press")
+end
+})
+OrionLib:Init()
+end
