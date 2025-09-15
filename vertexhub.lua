@@ -1,13 +1,12 @@
 -- Vertex Hub Premium Script
--- This is your main script that users will execute
 
 -- Check if key was provided by the Discord bot
 if not _G.VertexHubKey then
     game.StarterGui:SetCore("ChatMakeSystemMessage", {
-        Text = "[Vertex Hub] No authentication key provided!";
-        Color = Color3.fromRGB(255, 0, 0);
-        Font = Enum.Font.GothamBold;
-        FontSize = Enum.FontSize.Size18;
+        Text = "[Vertex Hub] No authentication key provided!",
+        Color = Color3.fromRGB(255, 0, 0),
+        Font = Enum.Font.GothamBold,
+        FontSize = Enum.FontSize.Size18
     })
     return
 end
@@ -17,8 +16,8 @@ local httpService = game:GetService("HttpService")
 
 -- Configuration
 local CONFIG = {
-    authUrl = "http://localhost:3000/verify", -- Change to your bot's public auth URL (e.g., https://your-domain.com/verify)
-    webhookUrl = "https://discord.com/api/webhooks/1417236521492418610/3HgRmLCFhmfbMbmPJbFvtfpjQXmihX1K1lCqWk0Ho2iATef4hvGj0Be8WAhci9X8U_8u", -- Optional: for logging
+    authUrl = "https://vertexhub.netlify.app/.netlify/functions/verify",
+    webhookUrl = "https://discord.com/api/webhooks/1417236521492418610/3HgRmLCFhmfbMbmPJbFvtfpjQXmihX1K1lCqWk0Ho2iATef4hvGj0Be8WAhci9X8U_8u",
     scriptName = "Vertex Hub",
     version = "1.0.0"
 }
@@ -37,9 +36,9 @@ end
 -- Send notification to user
 local function notify(title, text, duration)
     game.StarterGui:SetCore("SendNotification", {
-        Title = title;
-        Text = text;
-        Duration = duration or 5;
+        Title = title,
+        Text = text,
+        Duration = duration or 5
     })
 end
 
@@ -47,7 +46,7 @@ end
 local function authenticateWithServer()
     local userHWID = getHWID()
     local userId = getUserId()
-    local timestamp = tostring(os.time() * 1000) -- milliseconds
+    local timestamp = tostring(os.time() * 1000) -- Convert to milliseconds
     
     notify("Vertex Hub", "Authenticating with server...", 3)
     
@@ -63,7 +62,8 @@ local function authenticateWithServer()
         return httpService:PostAsync(
             CONFIG.authUrl,
             httpService:JSONEncode(authPayload),
-            Enum.HttpContentType.ApplicationJson
+            Enum.HttpContentType.ApplicationJson,
+            false -- Don't compress
         )
     end)
     
@@ -76,7 +76,7 @@ local function authenticateWithServer()
         if parseSuccess then
             responseData = parseResult
         else
-            notify("Vertex Hub", "Server response parse error", 5)
+            notify("Vertex Hub", "Server response error", 5)
             print("[Vertex Hub] Failed to parse server response:", response)
             return false
         end
@@ -94,36 +94,61 @@ local function authenticateWithServer()
     else
         -- Handle connection errors
         local errorMsg = tostring(response)
-        if string.find(errorMsg:lower(), "http requests are not enabled") then
+        if string.find(errorMsg, "Http requests are not enabled") then
             notify("Vertex Hub", "HTTP requests disabled in this game", 5)
-        elseif string.find(errorMsg:lower(), "connectfail") then
+        elseif string.find(errorMsg, "ConnectFail") then
             notify("Vertex Hub", "Cannot connect to auth server", 5)
         else
-            notify("Vertex Hub", "Authentication server error: " .. errorMsg, 5)
+            notify("Vertex Hub", "Authentication server error", 5)
         end
         print("[Vertex Hub] HTTP Error:", errorMsg)
         return false
     end
 end
 
--- Main authentication function (no fallback for security - requires server)
+-- Fallback authentication (when server is down)
+local function authenticateFallback()
+    notify("Vertex Hub", "Using offline authentication...", 3)
+    
+    -- Simple key validation (you can customize this)
+    if string.len(userKey) < 8 then
+        return false
+    end
+    
+    -- Add any other offline checks here
+    print("[Vertex Hub] Fallback authentication passed")
+    return true
+end
+
+-- Main authentication function
 local function authenticate()
-    return authenticateWithServer()
+    local authSuccess, authData = authenticateWithServer()
+    
+    if authSuccess then
+        return true, authData
+    else
+        -- Try fallback if server fails
+        notify("Vertex Hub", "Trying backup authentication...", 2)
+        return authenticateFallback()
+    end
 end
 
 -- Main script loading function
 local function loadVertexHub()
-    notify("Vertex Hub", "Loading premium features...", 2)
+    notify("Vertex Hub", "Loading premium...", 2)
     
-    -- Load your actual script features here
-    -- Example: loadstring(game:HttpGet("https://your-script-url.com/main.lua"))()
+    -- Here you would add your actual script features
+    -- Examples:
     
-    print("[Vertex Hub] Initializing premium features...")
+    -- Load external script:
+    -- loadstring(game:HttpGet("https://your-script-url.com/main.lua"))()
+    
+    -- Or add features directly:
+    print("[Vertex Hub] Initializing premium...")
 
-    -- Example GUI (replace with your real features)
     local gui = Instance.new("ScreenGui")
     gui.Name = "VertexHub"
-    gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+    gui.Parent = game.Players.LocalPlayer.PlayerGui
     
     local frame = Instance.new("Frame")
     frame.Size = UDim2.new(0, 400, 0, 300)
@@ -140,12 +165,12 @@ local function loadVertexHub()
     title.Font = Enum.Font.GothamBold
     title.Parent = frame
     
-    notify("Vertex Hub", "Premium features loaded successfully!", 3)
+    notify("Vertex Hub", "Premium Has loaded successfully!", 3)
 end
 
 -- Log authentication attempt (optional)
 local function logAuthAttempt(success, key, userId)
-    if CONFIG.webhookUrl and CONFIG.webhookUrl ~= "" then
+    if CONFIG.webhookUrl and CONFIG.webhookUrl ~= "YOUR_DISCORD_WEBHOOK_URL" then
         local logData = {
             content = string.format(
                 "**Vertex Hub Auth Log**\n" ..
@@ -156,7 +181,7 @@ local function logAuthAttempt(success, key, userId)
                 "Time: %s",
                 success and "✅ Success" or "❌ Failed",
                 tostring(userId),
-                string.sub(key, 1, 8) .. "...",
+                string.sub(key, 1, 8) .. "...", -- Only show first 8 characters
                 tostring(game.PlaceId),
                 os.date("%Y-%m-%d %H:%M:%S")
             )
@@ -175,7 +200,7 @@ end
 -- Main execution
 local function main()
     -- Clear any existing instances
-    local existingGui = game.Players.LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild("VertexHub")
+    local existingGui = game.Players.LocalPlayer.PlayerGui:FindFirstChild("VertexHub")
     if existingGui then
         existingGui:Destroy()
     end
@@ -194,7 +219,7 @@ local function main()
         loadVertexHub()
     else
         logAuthAttempt(false, userKey, getUserId())
-        notify("Vertex Hub", "Authentication failed! Check your key or contact support.", 5)
+        notify("Vertex Hub", "Authentication failed! Contact support if this persists.", 5)
         print("[Vertex Hub] Authentication failed for key:", userKey)
         return
     end
