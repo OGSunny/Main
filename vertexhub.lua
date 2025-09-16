@@ -1,4 +1,5 @@
 -- Vertex Hub Premium Script
+-- This is your main script that users will execute
 
 -- Check if key was provided by the Discord bot
 if not _G.VertexHubKey then
@@ -23,7 +24,7 @@ local CONFIG = {
 }
 
 -- Get user's HWID (Hardware ID)
-local function getHWID()
+local function getHWID() 
     local hwid = game:GetService("RbxAnalyticsService"):GetClientId()
     return hwid
 end
@@ -75,17 +76,17 @@ local function authenticateWithServer()
         
         if parseSuccess then
             responseData = parseResult
-        else
+        } else {
             notify("Vertex Hub", "Server response error", 5)
             print("[Vertex Hub] Failed to parse server response:", response)
             return false
-        end
+        }
         
         if responseData.success then
             notify("Vertex Hub", "Authentication successful!", 3)
             print("[Vertex Hub] Server auth successful for user:", userId)
             return true, responseData
-        else
+        } else
             local errorMsg = responseData.error or "Authentication failed"
             notify("Vertex Hub", "Auth failed: " .. errorMsg, 5)
             print("[Vertex Hub] Auth failed:", errorMsg)
